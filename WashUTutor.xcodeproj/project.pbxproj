@@ -13,6 +13,7 @@
 		5C04DA8A2AEC5BF7000E2CA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C04DA882AEC5BF7000E2CA9 /* Main.storyboard */; };
 		5C04DA8C2AEC5BF8000E2CA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C04DA8B2AEC5BF8000E2CA9 /* Assets.xcassets */; };
 		5C04DA8F2AEC5BF8000E2CA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C04DA8D2AEC5BF8000E2CA9 /* LaunchScreen.storyboard */; };
+		5C04DA972AEC7A76000E2CA9 /* StudentLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C04DA962AEC7A76000E2CA9 /* StudentLoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5C04DA8B2AEC5BF8000E2CA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C04DA8E2AEC5BF8000E2CA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C04DA902AEC5BF8000E2CA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C04DA962AEC7A76000E2CA9 /* StudentLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				5C04DA842AEC5BF7000E2CA9 /* SceneDelegate.swift */,
 				5C04DA862AEC5BF7000E2CA9 /* ViewController.swift */,
 				5C04DA882AEC5BF7000E2CA9 /* Main.storyboard */,
+				5C04DA962AEC7A76000E2CA9 /* StudentLoginViewController.swift */,
 				5C04DA8B2AEC5BF8000E2CA9 /* Assets.xcassets */,
 				5C04DA8D2AEC5BF8000E2CA9 /* LaunchScreen.storyboard */,
 				5C04DA902AEC5BF8000E2CA9 /* Info.plist */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C04DA972AEC7A76000E2CA9 /* StudentLoginViewController.swift in Sources */,
 				5C04DA872AEC5BF7000E2CA9 /* ViewController.swift in Sources */,
 				5C04DA832AEC5BF7000E2CA9 /* AppDelegate.swift in Sources */,
 				5C04DA852AEC5BF7000E2CA9 /* SceneDelegate.swift in Sources */,
