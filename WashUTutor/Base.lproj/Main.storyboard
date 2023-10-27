@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WashUTutor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WashU Tutor Logo" translatesAutoresizingMaskIntoConstraints="NO" id="EPZ-wx-9vg">
+                                <rect key="frame" x="55" y="87" width="282" height="267"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGj-jV-elz">
+                                <rect key="frame" x="31" y="520" width="137" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="137" id="EsB-0A-icz"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="137" id="FcH-VD-R7E"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="62" id="aZ1-9H-Zoc"/>
+                                    <constraint firstAttribute="height" constant="62" id="jn5-yv-Wj4"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Tutor">
+                                            <attributes>
+                                                <font key="NSFont" size="26" name="Noteworthy-Bold"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7St-AN-bTy">
+                                <rect key="frame" x="230" y="520" width="135" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="Lcy-L2-aeD"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="UoW-TT-Ct8"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Student">
+                                            <attributes>
+                                                <font key="NSFont" size="24" name="Noteworthy-Bold"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseBackgroundColor" systemColor="systemTealColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="dJ0-IS-WTY" kind="show" id="n7U-1s-t1I"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOD-fw-VVa">
+                                <rect key="frame" x="134" y="422" width="124" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="MGV-OP-LcK"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="124" id="wVb-JJ-CKv"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="I am a">
+                                        <attributes>
+                                            <font key="NSFont" size="40" name="Noteworthy-Bold"/>
+                                            <font key="NSOriginalFont" size="32" name="Webdings"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="vGj-jV-elz" firstAttribute="bottom" secondItem="7St-AN-bTy" secondAttribute="bottom" id="65c-m6-maj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OOD-fw-VVa" secondAttribute="trailing" constant="135" id="AbD-Ne-7yG"/>
+                            <constraint firstItem="vGj-jV-elz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="KzR-Jh-upm"/>
+                            <constraint firstItem="7St-AN-bTy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vGj-jV-elz" secondAttribute="trailing" constant="8" symbolic="YES" id="QXK-Ts-lSC"/>
+                            <constraint firstItem="OOD-fw-VVa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="W1r-e1-JmD"/>
+                            <constraint firstItem="vGj-jV-elz" firstAttribute="top" secondItem="OOD-fw-VVa" secondAttribute="bottom" constant="42" id="Zzl-12-3dR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vGj-jV-elz" secondAttribute="bottom" constant="236" id="jyo-0N-mt6"/>
+                            <constraint firstItem="vGj-jV-elz" firstAttribute="top" secondItem="7St-AN-bTy" secondAttribute="top" id="oSo-sr-9OK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7St-AN-bTy" secondAttribute="trailing" constant="28" id="sB7-s6-Jiz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="alI-8B-QJs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116.79389312977099" y="3.5211267605633805"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="1i0-Ft-L2N">
+            <objects>
+                <viewController id="dJ0-IS-WTY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QuS-wl-2OS">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nm0-mF-fr3">
+                                <rect key="frame" x="111" y="105" width="171" height="116"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Login">
+                                        <attributes>
+                                            <font key="NSFont" size="72" name="Noteworthy-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ggw-dv-jmJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Nm0-mF-fr3" firstAttribute="top" secondItem="ggw-dv-jmJ" secondAttribute="top" constant="105" id="AmL-8T-Bda"/>
+                            <constraint firstItem="Nm0-mF-fr3" firstAttribute="centerX" secondItem="QuS-wl-2OS" secondAttribute="centerX" id="cHL-R1-wP4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="heM-nW-pOs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KRO-4w-osI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1167" y="-286"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="WashU Tutor Logo" width="904" height="1032"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
