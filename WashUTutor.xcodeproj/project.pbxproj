@@ -29,10 +29,14 @@
 		5CAC78CA2AF5985200E28DAB /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 5CAC78C92AF5985200E28DAB /* FirebaseStorageCombine-Community */; };
 		5CAC78CC2AF598CF00E28DAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CAC78CB2AF598CE00E28DAB /* GoogleService-Info.plist */; };
 		5CAC78CE2AF5994600E28DAB /* FirebaseFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC78CD2AF5994600E28DAB /* FirebaseFile.swift */; };
+ addAppointmentCalendar
 		8169A6A72AF6FEC80079C072 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169A6A62AF6FEC80079C072 /* CalendarCell.swift */; };
 		8169A6A92AF6FF6B0079C072 /* StudentManageAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169A6A82AF6FF6B0079C072 /* StudentManageAppointmentViewController.swift */; };
 		8169A6AB2AF701720079C072 /* CalendarFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169A6AA2AF701720079C072 /* CalendarFunc.swift */; };
 		8169A6AD2AF7618C0079C072 /* StudentMakeAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169A6AC2AF7618C0079C072 /* StudentMakeAppointmentViewController.swift */; };
+
+		5CAC78D02AF947DD00E28DAB /* StudentSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC78CF2AF947DD00E28DAB /* StudentSignUpViewController.swift */; };
+ main
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +55,8 @@
 		8169A6A82AF6FF6B0079C072 /* StudentManageAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentManageAppointmentViewController.swift; sourceTree = "<group>"; };
 		8169A6AA2AF701720079C072 /* CalendarFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFunc.swift; sourceTree = "<group>"; };
 		8169A6AC2AF7618C0079C072 /* StudentMakeAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentMakeAppointmentViewController.swift; sourceTree = "<group>"; };
+		5CAC78CF2AF947DD00E28DAB /* StudentSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSignUpViewController.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,7 @@
 		5C04DA762AEC5BF7000E2CA9 = {
 			isa = PBXGroup;
 			children = (
+				5CAC78CF2AF947DD00E28DAB /* StudentSignUpViewController.swift */,
 				5C04DA812AEC5BF7000E2CA9 /* WashUTutor */,
 				5C04DA802AEC5BF7000E2CA9 /* Products */,
 			);
@@ -209,6 +216,7 @@
 				8169A6AD2AF7618C0079C072 /* StudentMakeAppointmentViewController.swift in Sources */,
 				5CAC78CE2AF5994600E28DAB /* FirebaseFile.swift in Sources */,
 				8169A6AB2AF701720079C072 /* CalendarFunc.swift in Sources */,
+        5CAC78D02AF947DD00E28DAB /* StudentSignUpViewController.swift in Sources */,
 				5C04DA872AEC5BF7000E2CA9 /* ViewController.swift in Sources */,
 				8169A6A92AF6FF6B0079C072 /* StudentManageAppointmentViewController.swift in Sources */,
 				5C04DA832AEC5BF7000E2CA9 /* AppDelegate.swift in Sources */,
