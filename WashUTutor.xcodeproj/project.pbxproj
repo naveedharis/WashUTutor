@@ -29,6 +29,7 @@
 		5CAC78CA2AF5985200E28DAB /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 5CAC78C92AF5985200E28DAB /* FirebaseStorageCombine-Community */; };
 		5CAC78CC2AF598CF00E28DAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CAC78CB2AF598CE00E28DAB /* GoogleService-Info.plist */; };
 		5CAC78CE2AF5994600E28DAB /* FirebaseFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC78CD2AF5994600E28DAB /* FirebaseFile.swift */; };
+		5CAC78D02AF947DD00E28DAB /* StudentSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC78CF2AF947DD00E28DAB /* StudentSignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		5C04DA962AEC7A76000E2CA9 /* StudentLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLoginViewController.swift; sourceTree = "<group>"; };
 		5CAC78CB2AF598CE00E28DAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5CAC78CD2AF5994600E28DAB /* FirebaseFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFile.swift; sourceTree = "<group>"; };
+		5CAC78CF2AF947DD00E28DAB /* StudentSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		5C04DA762AEC5BF7000E2CA9 = {
 			isa = PBXGroup;
 			children = (
+				5CAC78CF2AF947DD00E28DAB /* StudentSignUpViewController.swift */,
 				5C04DA812AEC5BF7000E2CA9 /* WashUTutor */,
 				5C04DA802AEC5BF7000E2CA9 /* Products */,
 			);
@@ -194,6 +197,7 @@
 			files = (
 				5C04DA972AEC7A76000E2CA9 /* StudentLoginViewController.swift in Sources */,
 				5CAC78CE2AF5994600E28DAB /* FirebaseFile.swift in Sources */,
+				5CAC78D02AF947DD00E28DAB /* StudentSignUpViewController.swift in Sources */,
 				5C04DA872AEC5BF7000E2CA9 /* ViewController.swift in Sources */,
 				5C04DA832AEC5BF7000E2CA9 /* AppDelegate.swift in Sources */,
 				5C04DA852AEC5BF7000E2CA9 /* SceneDelegate.swift in Sources */,
