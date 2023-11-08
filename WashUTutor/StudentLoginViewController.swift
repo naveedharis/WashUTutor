@@ -29,7 +29,7 @@ class StudentLoginViewController: UIViewController {
         else {
             if userEmailTextBox.text!.contains("wustl.edu"){
                 print("This is a WashU email")
-                loginSign(email: userEmailTextBox.text!, password: passwordTextBox.text!)
+                studentLoginSign(email: userEmailTextBox.text!, password: passwordTextBox.text!)
             }
             
             else{
