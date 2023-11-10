@@ -47,7 +47,7 @@ class CalendarFunc
     
     func startOfWeek(date: Date) -> Date {
         var components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date)
-        components.weekday = calendar.firstWeekday // This is usually Sunday (1) in the Gregorian calendar
+        components.weekday = calendar.firstWeekday
         return calendar.date(from: components)!
     }
     

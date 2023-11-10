@@ -33,8 +33,8 @@ class StudentSignUpViewController: UIViewController {
             if emailTextBox.text!.count != 0 {
                 if emailTextBox.text!.contains("wustl.edu")  {
                     if passwordTextBox.text!.count >= 8 {
-                        signUp(email: emailTextBox.text!, password: passwordTextBox.text!)
-                        addNewStudent(name: nameTextBox.text!, email: emailTextBox.text!, password: passwordTextBox.text!)
+                        signUp(name: nameTextBox.text!,email: emailTextBox.text!, password: passwordTextBox.text!)
+                        
                         print("Sign up")
                     }
                     else{

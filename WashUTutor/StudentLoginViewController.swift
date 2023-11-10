@@ -17,7 +17,6 @@ class StudentLoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
-   
     
     @IBAction func forgetPassword(_ sender: Any){
     }
@@ -30,6 +29,10 @@ class StudentLoginViewController: UIViewController {
             if userEmailTextBox.text!.contains("wustl.edu"){
                 print("This is a WashU email")
                 studentLoginSign(email: userEmailTextBox.text!, password: passwordTextBox.text!)
+                //getStudentData()
+//                createAppointment(appointmentID: "3", startTime: "11:00 am", endTime: "12:00", location: "Crow Hall", subject: "CS131", caption: "I need help on python.")
+                //getStudentAppointments()
+                //getAllAvailiableAppointments()
             }
             
             else{

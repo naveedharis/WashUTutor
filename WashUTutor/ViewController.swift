@@ -14,5 +14,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func getTutor(_ sender: Any) {
+        getTutorData(email: "johnsmith@wustl.edu", code: "Tutor2")
+    }
 }
 
