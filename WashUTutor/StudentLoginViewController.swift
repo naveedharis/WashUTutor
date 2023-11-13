@@ -30,9 +30,11 @@ class StudentLoginViewController: UIViewController {
                 print("This is a WashU email")
                 studentLoginSign(email: userEmailTextBox.text!, password: passwordTextBox.text!)
                 //getStudentData()
-//                createAppointment(appointmentID: "3", startTime: "11:00 am", endTime: "12:00", location: "Crow Hall", subject: "CS131", caption: "I need help on python.")
+                //createAppointment(appointmentID: "3", date: "11/14/2023", startTime: "11:00 am", endTime: "12:00", location: "Crow Hall", subject: "CS131", caption: "I need help on python.")
+                //createAppointment(appointmentID: "4", date: "11/20/2023", startTime: "11:00 am", endTime: "12:00", location: "Seigle Hall", subject: "CS412", caption: "I need help on python.")
                 //getStudentAppointments()
                 //getAllAvailiableAppointments()
+                //deleteStudentAppointments(appointmentID: "2")
             }
             
             else{

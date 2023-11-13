@@ -38,10 +38,13 @@ func createAppointment(appointmentID: String, date: String, startTime: String, e
     }
 }
 
+
+
 func tutorAddAppointment(tutorUserID: String, date: String, startTime: String, announcement: String, endTime: String,  location: String, subject: String){
     let data: [String: Any] = [
         "tutorUserID": tutorUserID,
         "date": date,
+        "appointmentID": UUID().uuidString,
         "annoucement": announcement,
         "startTime": startTime,
         "endTime": endTime,
@@ -83,18 +86,27 @@ func signUp(name: String, email: String, password: String) {
             print("Error creating user: \(error.localizedDescription)")
         } else {
             print("User created")
-            if let authResult = authResult {
+            if let user = authResult?.user {
                 // You can access the user's UID like this
-                studentUID = authResult.user.uid
-                print("userid: \(studentUID ?? "")")
+                let studentUID = user.uid
+                print("userid: \(studentUID)")
+
+                // Send verification email
+                user.sendEmailVerification { (error) in
+                    if let error = error {
+                        print("Error sending verification email: \(error.localizedDescription)")
+                    } else {
+                        print("Verification email sent.")
+                    }
+                }
+
+                addNewStudent(name: name, email: email, password: password, userID: studentUID)
             } else {
                 // No user is signed in
                 print("No user is signed in.")
             }
-            addNewStudent(name: name, email: email, password: password, userID: studentUID ?? "")
         }
     }
-    
 }
 
 func studentLoginSign(email: String, password: String) {
@@ -102,26 +114,55 @@ func studentLoginSign(email: String, password: String) {
         if let error = error {
             print("Error signing in: \(error.localizedDescription)")
         } else {
-            print("Sign in")
+            if let user = authResult?.user {
+                // Check if the user's email is verified
+                if user.isEmailVerified {
+                    print("Sign in successful")
+                    // Proceed with signed in user
+                } else {
+                    print("Email is not verified. Please check your email to verify your account.")
+                    // Resend verification email
+                    resendVerificationEmail(user: user)
+                }
+            } else {
+                print("No user data available")
+            }
         }
     }
 }
 
-func getTutorData(email: String, code: String){
+func resendVerificationEmail(user: User) {
+    user.sendEmailVerification { error in
+        if let error = error {
+            print("Error sending verification email: \(error.localizedDescription)")
+        } else {
+            print("Verification email resent. Please check your inbox.")
+        }
+    }
+}
+
+
+
+
+func getTutorData(email: String, code: String, completion: @escaping ([String: Any]?) -> Void) {
     let collectionRef = db.collection("tutors")
     
     collectionRef.whereField("tutorID", isEqualTo: code).getDocuments { (querySnapshot, error) in
         if let error = error {
             print("Error getting documents: \(error)")
+            completion(nil)
         } else {
+            var tutorData: [String: Any]?
             for document in querySnapshot!.documents {
-                let data = document.data()
-                print(data)
+                tutorData = document.data()
+                // Assuming you only want the first matching document
+                break
             }
+            completion(tutorData)
         }
     }
-    
 }
+
 
 func getStudentData(){
     let collectionRef = db.collection("students")
@@ -185,6 +226,180 @@ func getStudentAppointments(){
             }
         }
     
+    }
+}
+
+func deleteStudentAppointments(appointmentID: String){
+    let collectionRef = db.collection("studentAppointments")
+    let tutorCollectionRef = db.collection("tutorAppointment")
+    
+    if let user = Auth.auth().currentUser {
+        let uid = user.uid
+        
+        collectionRef.whereField("studentUserID", isEqualTo: uid).whereField("appointmentID", isEqualTo: appointmentID).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            }
+            else{
+                if let document = querySnapshot?.documents.first {
+                    document.reference.delete { err in
+                        if let err = err {
+                            print("Error removing document: \(err)")
+                        }
+                        else
+                        {
+                            print("Appointment deleted")
+                        }
+                    }
+                }
+                else{
+                    print("No appointment found")
+                }
+            }
+        }
+    }
+    
+    tutorCollectionRef.whereField("appointmentID", isEqualTo: appointmentID).getDocuments {
+        (QuerySnapshot, error) in
+        if let error = error {
+            print("Error getting documents \(error)")
+        }
+        else{
+            if let document = QuerySnapshot?.documents.first {
+                document.reference.delete { err in
+                    if let err = err {
+                        print("Error removing documents: \(err)")
+                    }
+                    else {
+                        print("Tutor appointment is deleted")
+                    }
+                }
+            }
+            else{
+                print("No appointment found")
+            }
+        }
+    }
+}
+
+func getAllClasses(completion: @escaping (Result<[String], Error>) -> Void) {
+    let collectionRef = db.collection("classes")
+
+    collectionRef.getDocuments { (querySnapshot, err) in
+        if let error = err {
+            // Pass the error to the completion handler
+            completion(.failure(error))
+        } else {
+            var classDataList: [String] = []
+            for document in querySnapshot!.documents {
+                let data = document.data()
+                classDataList.append(contentsOf: data.keys)
+            }
+            // Pass the array of class data to the completion handler
+            completion(.success(classDataList))
+        }
+    }
+}
+
+struct Tutor {
+    var tutorID: String
+    var name: String
+    var email: String
+    var year: String
+    var classNumber: [String]
+    // Add other properties as needed
+}
+
+
+func AllTutorData(completion: @escaping ([Tutor]?, Error?) -> Void) {
+    let collectionRef = db.collection("tutors")
+
+    collectionRef.getDocuments { (querySnapshot, err) in
+        if let err = err {
+            completion(nil, err)
+        } else {
+            var tutors = [Tutor]()
+
+            for document in querySnapshot!.documents {
+                let data = document.data()
+                let id = data["tutorID"] as? String ?? ""
+                let name = data["name"] as? String ?? ""
+                let email = data["email"] as? String ?? ""
+                let year = data["year"] as? String ?? ""
+                let classNumber = data["classNumber"] as? [String] ?? []
+                // Create a new Tutor object
+                let tutor = Tutor(tutorID: id, name: name, email: email, year: year, classNumber: classNumber)
+                // Append it to the tutors array
+                tutors.append(tutor)
+            }
+            //print(tutors)
+            completion(tutors, nil)
+        }
+    }
+}
+
+
+struct TutorAppointment {
+    var tutorID: String
+    var Location: String
+    var Date: String
+    var startTime: String
+    var endTime: String
+    var annoucement: String
+    var appointmentID: String
+    var classNumber: String
+    var status: String
+
+}
+
+func getAllTutorAppointments(tutorID: String, completion: @escaping ([TutorAppointment]?, Error?) -> Void) {
+    let collectionRef = db.collection("tutorsAppointment").whereField("tutorID", isEqualTo: tutorID)
+
+        collectionRef.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                completion(nil, err)
+            } else {
+                var appointments = [TutorAppointment]()
+
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    let appointment = TutorAppointment(
+                        tutorID: data["tutorID"] as? String ?? "",
+                        Location: data["Location"] as? String ?? "",
+                        Date: data["Date"] as? String ?? "",
+                        startTime: data["startTime"] as? String ?? "",
+                        endTime: data["endTime"] as? String ?? "",
+                        annoucement: data["annoucement"] as? String ?? "",
+                        appointmentID: data["appointmentID"] as? String ?? "",
+                        classNumber: data["classNumber"] as? String ?? "",
+                        status: data["status"] as? String ?? ""
+                        
+                        // Initialize other fields as necessary
+                    )
+                    appointments.append(appointment)
+                }
+
+                completion(appointments, nil)
+            }
+        }
+    }
+
+
+
+func getStudentNameFromAppointment(appointmentID: String, completion: @escaping (String?, Error?) -> Void){
+    let tutorAppointCollection = db.collection("studentAppointments").whereField("appointmentID", isEqualTo: appointmentID)
+    let studentCollection = db.collection("students")
+    
+
+    tutorAppointCollection.getDocuments { (querySnapshot, err) in
+        if let err = err {
+            completion(nil, err)
+        } else {
+            var appointment = querySnapshot!.documents[0].data()
+            print(appointment)
+        }
+        
+        
     }
 }
 

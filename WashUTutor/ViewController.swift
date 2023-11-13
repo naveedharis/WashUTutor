@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func getTutor(_ sender: Any) {
-        getTutorData(email: "johnsmith@wustl.edu", code: "Tutor2")
+        //getTutorData(email: "johnsmith@wustl.edu", code: "Tutor2")
     }
 }
 

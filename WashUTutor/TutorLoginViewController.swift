@@ -30,6 +30,16 @@ class TutorLoginViewController: UIViewController {
             if emailTextBox.text!.contains("wustl.edu"){
                 print("This is a WashU email")
                // getTutorData(email: emailTextBox.text!, code: passwordTextBox.text!)
+                getAllTutorAppointments(tutorID: passwordTextBox.text!) { (appointments, error) in
+                    if let error = error {
+                        print("Error fetching appointments: \(error)")
+                    } else if let appointments = appointments {
+                        // Process the fetched appointments
+                        for appointment in appointments {
+                            print(appointment)
+                        }
+                    }
+                }
                 
             }
 

@@ -14,12 +14,17 @@
 		5C04DA8C2AEC5BF8000E2CA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C04DA8B2AEC5BF8000E2CA9 /* Assets.xcassets */; };
 		5C04DA8F2AEC5BF8000E2CA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C04DA8D2AEC5BF8000E2CA9 /* LaunchScreen.storyboard */; };
 		5C04DA972AEC7A76000E2CA9 /* StudentLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C04DA962AEC7A76000E2CA9 /* StudentLoginViewController.swift */; };
+		5C573D252B0068D5009A2A26 /* StudentMakeAppointmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D242B0068D5009A2A26 /* StudentMakeAppointmentDetailViewController.swift */; };
+		5C573D272B00694E009A2A26 /* StudentMakeAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D262B00694E009A2A26 /* StudentMakeAppointmentViewController.swift */; };
+		5C573D292B00695F009A2A26 /* StudentManageAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D282B00695F009A2A26 /* StudentManageAppointmentViewController.swift */; };
+		5C573D2B2B018A61009A2A26 /* StudentTutorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D2A2B018A61009A2A26 /* StudentTutorViewController.swift */; };
+		5C573D2F2B01C6A6009A2A26 /* StudentTutorInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D2E2B01C6A6009A2A26 /* StudentTutorInfoPageViewController.swift */; };
+		5C573D322B01CD76009A2A26 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 5C573D312B01CD76009A2A26 /* Cosmos */; };
+		5C573D342B01E879009A2A26 /* HomeSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D332B01E878009A2A26 /* HomeSceneViewController.swift */; };
+		5C573D362B01ECBF009A2A26 /* TutorViewAppointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D352B01ECBF009A2A26 /* TutorViewAppointViewController.swift */; };
 		5C755DFB2AFB293E0042A904 /* StudentSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C755DFA2AFB293E0042A904 /* StudentSignUpViewController.swift */; };
-		5C755DFD2AFC95140042A904 /* StudentManageAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C755DFC2AFC95140042A904 /* StudentManageAppointmentViewController.swift */; };
-		5C755DFF2AFC951F0042A904 /* StudentMakeAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C755DFE2AFC951F0042A904 /* StudentMakeAppointmentViewController.swift */; };
 		5C755E012AFC953B0042A904 /* CalendarFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C755E002AFC953B0042A904 /* CalendarFunc.swift */; };
 		5C755E032AFC95420042A904 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C755E022AFC95420042A904 /* CalendarCell.swift */; };
-		5C755E052AFC95670042A904 /* StudentMakeAppointmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C755E042AFC95670042A904 /* StudentMakeAppointmentDetailViewController.swift */; };
 		5C755E072AFCBEA10042A904 /* FirebaseFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C755E062AFCBEA10042A904 /* FirebaseFile.swift */; };
 		5CAC78B22AF5985200E28DAB /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 5CAC78B12AF5985200E28DAB /* FirebaseAppCheck */; };
 		5CAC78B42AF5985200E28DAB /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 5CAC78B32AF5985200E28DAB /* FirebaseAppDistribution-Beta */; };
@@ -48,12 +53,16 @@
 		5C04DA8E2AEC5BF8000E2CA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C04DA902AEC5BF8000E2CA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C04DA962AEC7A76000E2CA9 /* StudentLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLoginViewController.swift; sourceTree = "<group>"; };
+		5C573D242B0068D5009A2A26 /* StudentMakeAppointmentDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentMakeAppointmentDetailViewController.swift; sourceTree = "<group>"; };
+		5C573D262B00694E009A2A26 /* StudentMakeAppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentMakeAppointmentViewController.swift; sourceTree = "<group>"; };
+		5C573D282B00695F009A2A26 /* StudentManageAppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentManageAppointmentViewController.swift; sourceTree = "<group>"; };
+		5C573D2A2B018A61009A2A26 /* StudentTutorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTutorViewController.swift; sourceTree = "<group>"; };
+		5C573D2E2B01C6A6009A2A26 /* StudentTutorInfoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTutorInfoPageViewController.swift; sourceTree = "<group>"; };
+		5C573D332B01E878009A2A26 /* HomeSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSceneViewController.swift; sourceTree = "<group>"; };
+		5C573D352B01ECBF009A2A26 /* TutorViewAppointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorViewAppointViewController.swift; sourceTree = "<group>"; };
 		5C755DFA2AFB293E0042A904 /* StudentSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentSignUpViewController.swift; sourceTree = "<group>"; };
-		5C755DFC2AFC95140042A904 /* StudentManageAppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentManageAppointmentViewController.swift; sourceTree = "<group>"; };
-		5C755DFE2AFC951F0042A904 /* StudentMakeAppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentMakeAppointmentViewController.swift; sourceTree = "<group>"; };
 		5C755E002AFC953B0042A904 /* CalendarFunc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarFunc.swift; sourceTree = "<group>"; };
 		5C755E022AFC95420042A904 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
-		5C755E042AFC95670042A904 /* StudentMakeAppointmentDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentMakeAppointmentDetailViewController.swift; sourceTree = "<group>"; };
 		5C755E062AFCBEA10042A904 /* FirebaseFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseFile.swift; sourceTree = "<group>"; };
 		5CAC78CB2AF598CE00E28DAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5CC8169A2AFD7BB900136F71 /* TutorLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorLoginViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +75,7 @@
 			files = (
 				5CAC78BC2AF5985200E28DAB /* FirebaseDatabaseSwift in Frameworks */,
 				5CAC78C02AF5985200E28DAB /* FirebaseFirestoreCombine-Community in Frameworks */,
+				5C573D322B01CD76009A2A26 /* Cosmos in Frameworks */,
 				5CAC78BA2AF5985200E28DAB /* FirebaseDatabase in Frameworks */,
 				5CAC78CA2AF5985200E28DAB /* FirebaseStorageCombine-Community in Frameworks */,
 				5CAC78B22AF5985200E28DAB /* FirebaseAppCheck in Frameworks */,
@@ -102,21 +112,25 @@
 		5C04DA812AEC5BF7000E2CA9 /* WashUTutor */ = {
 			isa = PBXGroup;
 			children = (
+				5C573D2E2B01C6A6009A2A26 /* StudentTutorInfoPageViewController.swift */,
 				5C04DA822AEC5BF7000E2CA9 /* AppDelegate.swift */,
 				5C04DA842AEC5BF7000E2CA9 /* SceneDelegate.swift */,
 				5C04DA862AEC5BF7000E2CA9 /* ViewController.swift */,
 				5C04DA882AEC5BF7000E2CA9 /* Main.storyboard */,
+				5C573D352B01ECBF009A2A26 /* TutorViewAppointViewController.swift */,
+				5C573D2A2B018A61009A2A26 /* StudentTutorViewController.swift */,
 				5C04DA962AEC7A76000E2CA9 /* StudentLoginViewController.swift */,
 				5CC8169A2AFD7BB900136F71 /* TutorLoginViewController.swift */,
 				5C04DA8B2AEC5BF8000E2CA9 /* Assets.xcassets */,
 				5C755E062AFCBEA10042A904 /* FirebaseFile.swift */,
+				5C573D332B01E878009A2A26 /* HomeSceneViewController.swift */,
 				5C04DA8D2AEC5BF8000E2CA9 /* LaunchScreen.storyboard */,
 				5C755E022AFC95420042A904 /* CalendarCell.swift */,
 				5C755E002AFC953B0042A904 /* CalendarFunc.swift */,
 				5C755DFA2AFB293E0042A904 /* StudentSignUpViewController.swift */,
-				5C755DFE2AFC951F0042A904 /* StudentMakeAppointmentViewController.swift */,
-				5C755E042AFC95670042A904 /* StudentMakeAppointmentDetailViewController.swift */,
-				5C755DFC2AFC95140042A904 /* StudentManageAppointmentViewController.swift */,
+				5C573D262B00694E009A2A26 /* StudentMakeAppointmentViewController.swift */,
+				5C573D242B0068D5009A2A26 /* StudentMakeAppointmentDetailViewController.swift */,
+				5C573D282B00695F009A2A26 /* StudentManageAppointmentViewController.swift */,
 				5C04DA902AEC5BF8000E2CA9 /* Info.plist */,
 				5CAC78CB2AF598CE00E28DAB /* GoogleService-Info.plist */,
 			);
@@ -153,6 +167,7 @@
 				5CAC78C52AF5985200E28DAB /* FirebaseFunctionsCombine-Community */,
 				5CAC78C72AF5985200E28DAB /* FirebaseStorage */,
 				5CAC78C92AF5985200E28DAB /* FirebaseStorageCombine-Community */,
+				5C573D312B01CD76009A2A26 /* Cosmos */,
 			);
 			productName = WashUTutor;
 			productReference = 5C04DA7F2AEC5BF7000E2CA9 /* WashUTutor.app */;
@@ -184,6 +199,7 @@
 			mainGroup = 5C04DA762AEC5BF7000E2CA9;
 			packageReferences = (
 				5CAC78B02AF5985200E28DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				5C573D302B01CD76009A2A26 /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			productRefGroup = 5C04DA802AEC5BF7000E2CA9 /* Products */;
 			projectDirPath = "";
@@ -213,18 +229,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C755DFF2AFC951F0042A904 /* StudentMakeAppointmentViewController.swift in Sources */,
+				5C573D252B0068D5009A2A26 /* StudentMakeAppointmentDetailViewController.swift in Sources */,
 				5C755E072AFCBEA10042A904 /* FirebaseFile.swift in Sources */,
-				5C755DFD2AFC95140042A904 /* StudentManageAppointmentViewController.swift in Sources */,
+				5C573D362B01ECBF009A2A26 /* TutorViewAppointViewController.swift in Sources */,
 				5CC8169B2AFD7BBA00136F71 /* TutorLoginViewController.swift in Sources */,
 				5C755E012AFC953B0042A904 /* CalendarFunc.swift in Sources */,
 				5C755DFB2AFB293E0042A904 /* StudentSignUpViewController.swift in Sources */,
+				5C573D292B00695F009A2A26 /* StudentManageAppointmentViewController.swift in Sources */,
+				5C573D342B01E879009A2A26 /* HomeSceneViewController.swift in Sources */,
 				5C04DA972AEC7A76000E2CA9 /* StudentLoginViewController.swift in Sources */,
 				5C04DA872AEC5BF7000E2CA9 /* ViewController.swift in Sources */,
+				5C573D272B00694E009A2A26 /* StudentMakeAppointmentViewController.swift in Sources */,
 				5C04DA832AEC5BF7000E2CA9 /* AppDelegate.swift in Sources */,
+				5C573D2F2B01C6A6009A2A26 /* StudentTutorInfoPageViewController.swift in Sources */,
 				5C04DA852AEC5BF7000E2CA9 /* SceneDelegate.swift in Sources */,
 				5C755E032AFC95420042A904 /* CalendarCell.swift in Sources */,
-				5C755E052AFC95670042A904 /* StudentMakeAppointmentDetailViewController.swift in Sources */,
+				5C573D2B2B018A61009A2A26 /* StudentTutorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +462,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5C573D302B01CD76009A2A26 /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 23.0.0;
+			};
+		};
 		5CAC78B02AF5985200E28DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -453,6 +481,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5C573D312B01CD76009A2A26 /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C573D302B01CD76009A2A26 /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
+		};
 		5CAC78B12AF5985200E28DAB /* FirebaseAppCheck */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5CAC78B02AF5985200E28DAB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
