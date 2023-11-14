@@ -271,245 +271,14 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="GnW-iC-d95" kind="relationship" relationship="viewControllers" id="Mjl-LY-fgs"/>
-                        <segue destination="Dce-K7-tY5" kind="relationship" relationship="viewControllers" id="DcJ-lG-1Gm"/>
-                        <segue destination="l8O-Sy-C7V" kind="relationship" relationship="viewControllers" id="ag0-ij-mjy"/>
+                        <segue destination="GnW-iC-d95" kind="relationship" relationship="viewControllers" id="cfJ-zF-fZZ"/>
+                        <segue destination="t8G-mD-9Ii" kind="relationship" relationship="viewControllers" id="6j2-G0-Fxj"/>
+                        <segue destination="l8O-Sy-C7V" kind="relationship" relationship="viewControllers" id="9eY-5h-ara"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Fh-Z0-SZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3608" y="-265"/>
-        </scene>
-        <!--Appointments-->
-        <scene sceneID="lmH-aM-hbR">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Dce-K7-tY5" customClass="StudentManageAppointmentViewController" customModule="WashUTutor" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9cC-qx-TYk">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Ai7-eF-ar8">
-                                <rect key="frame" x="70" y="173" width="253" height="31.333333333333343"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyy-PW-FXG" userLabel="PreviousButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="21.333333333333332" height="31.333333333333332"/>
-                                        <state key="normal" image="arrowshape.left.fill" catalog="system"/>
-                                        <connections>
-                                            <action selector="previousMonth:" destination="Dce-K7-tY5" eventType="touchUpInside" id="kXz-2Y-l56"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November 2023" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNM-Eu-w5a">
-                                        <rect key="frame" x="30.666666666666671" y="0.0" width="192" height="31.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2T-FD-FX2" userLabel="NextButton">
-                                        <rect key="frame" x="231.66666666666669" y="0.0" width="21.333333333333343" height="31.333333333333332"/>
-                                        <state key="normal" image="arrowshape.right.fill" catalog="system"/>
-                                        <connections>
-                                            <action selector="nextMonth:" destination="Dce-K7-tY5" eventType="touchUpInside" id="904-YO-nBQ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="ix2-L4-z4f" userLabel="Week View">
-                                <rect key="frame" x="-1" y="212" width="395" height="24"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnN-e6-TKL">
-                                        <rect key="frame" x="0.0" y="0.0" width="41" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSF-cm-mBz">
-                                        <rect key="frame" x="59" y="0.0" width="41" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hs-VR-dQX">
-                                        <rect key="frame" x="118" y="0.0" width="41" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HL0-4g-Db1">
-                                        <rect key="frame" x="177" y="0.0" width="41" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thur" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfW-Jn-23S">
-                                        <rect key="frame" x="236" y="0.0" width="41" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fri" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peB-Rn-zEi">
-                                        <rect key="frame" x="295" y="0.0" width="41" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7Y-3n-Z9Q">
-                                        <rect key="frame" x="354" y="0.0" width="41" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="epe-4j-GIz">
-                                <rect key="frame" x="-1" y="255" width="395" height="126"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="MhM-fM-pKs">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="calCell" id="vOy-Dq-tPA" customClass="CalendarCell" customModule="WashUTutor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZfD-od-1Wc">
-                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZh-dZ-dtX">
-                                                    <rect key="frame" x="59.333333333333336" y="20" width="9.6666666666666643" height="24"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="QZh-dZ-dtX" firstAttribute="centerY" secondItem="ZfD-od-1Wc" secondAttribute="centerY" multiplier="0.5" id="DwH-eE-sw9"/>
-                                                <constraint firstItem="QZh-dZ-dtX" firstAttribute="centerX" secondItem="ZfD-od-1Wc" secondAttribute="centerX" id="icd-Ye-jxe"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <connections>
-                                            <outlet property="dayOfMonth" destination="QZh-dZ-dtX" id="cCy-tr-w5T"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="Dce-K7-tY5" id="51G-9o-C3m"/>
-                                    <outlet property="delegate" destination="Dce-K7-tY5" id="gJ5-Hz-eCQ"/>
-                                </connections>
-                            </collectionView>
-                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DYR-6q-bEQ" userLabel="Appointment View">
-                                <rect key="frame" x="75" y="396" width="243" height="238"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="UpS-fR-R4L">
-                                        <rect key="frame" x="0.0" y="50" width="243" height="30.666666030883789"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UpS-fR-R4L" id="A5r-5n-BDM">
-                                            <rect key="frame" x="0.0" y="0.0" width="243" height="30.666666030883789"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:00-14:00 with John Smith" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hi8-7e-prR">
-                                                    <rect key="frame" x="8" y="5" width="224" height="20.666666666666668"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Hi8-7e-prR" firstAttribute="top" secondItem="A5r-5n-BDM" secondAttribute="topMargin" constant="-6" id="DyA-ql-lUT"/>
-                                                <constraint firstItem="Hi8-7e-prR" firstAttribute="leading" secondItem="A5r-5n-BDM" secondAttribute="leadingMargin" constant="-8" id="iW6-Bm-FnD"/>
-                                                <constraint firstItem="Hi8-7e-prR" firstAttribute="centerY" secondItem="A5r-5n-BDM" secondAttribute="centerY" id="meS-sw-RuO"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Hi8-7e-prR" secondAttribute="trailing" constant="-5" id="pzt-JL-NZc"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="15c-bB-1tq">
-                                        <rect key="frame" x="0.0" y="80.666666030883789" width="243" height="19"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="15c-bB-1tq" id="EYu-vO-Dh9">
-                                            <rect key="frame" x="0.0" y="0.0" width="243" height="19"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14:00-15:00 with John Smith" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgX-1d-gxU">
-                                                    <rect key="frame" x="16" y="5.3333333333333339" width="208" height="20.666666666666664"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="CgX-1d-gxU" firstAttribute="top" secondItem="EYu-vO-Dh9" secondAttribute="topMargin" constant="-5.6666679382324219" id="F0z-fD-zkU"/>
-                                                <constraint firstItem="CgX-1d-gxU" firstAttribute="centerY" secondItem="EYu-vO-Dh9" secondAttribute="centerY" constant="6.1666650772094727" id="QCP-Dm-P4S"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="CgX-1d-gxU" secondAttribute="trailing" constant="3" id="kfH-Uy-Ced"/>
-                                                <constraint firstItem="CgX-1d-gxU" firstAttribute="leading" secondItem="EYu-vO-Dh9" secondAttribute="leadingMargin" id="u3e-AZ-8kB"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="hmi-RP-eoC">
-                                        <rect key="frame" x="0.0" y="99.666666030883789" width="243" height="30"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hmi-RP-eoC" id="EZ3-X0-1xp">
-                                            <rect key="frame" x="0.0" y="0.0" width="243" height="30"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="13:00-14:00 with John Smith" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9v-Hd-NZ5">
-                                                    <rect key="frame" x="8" y="4.6666641235351562" width="224" height="33"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="F9v-Hd-NZ5" secondAttribute="trailing" constant="-5" id="9r2-iS-SNT"/>
-                                                <constraint firstItem="F9v-Hd-NZ5" firstAttribute="centerY" secondItem="EZ3-X0-1xp" secondAttribute="centerY" id="cV1-Dm-A2z"/>
-                                                <constraint firstItem="F9v-Hd-NZ5" firstAttribute="leading" secondItem="EZ3-X0-1xp" secondAttribute="leadingMargin" constant="-8" id="dOx-ct-Cwj"/>
-                                                <constraint firstItem="F9v-Hd-NZ5" firstAttribute="top" secondItem="EZ3-X0-1xp" secondAttribute="topMargin" constant="-6.3333358764648438" id="nHC-De-nSF"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYz-nm-0bi" userLabel="Cancel Button">
-                                <rect key="frame" x="104" y="688.66666666666663" width="185" height="34.333333333333371"/>
-                                <color key="tintColor" systemColor="systemRedColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Cancel Appointment"/>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="qFQ-dv-ZVo"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Ai7-eF-ar8" firstAttribute="leading" secondItem="qFQ-dv-ZVo" secondAttribute="leading" constant="70" id="3iS-J6-ZhL"/>
-                            <constraint firstAttribute="trailing" secondItem="epe-4j-GIz" secondAttribute="trailing" constant="-1" id="55G-nG-DYA"/>
-                            <constraint firstItem="DYR-6q-bEQ" firstAttribute="top" secondItem="epe-4j-GIz" secondAttribute="bottom" constant="15" id="69A-sQ-3Ad"/>
-                            <constraint firstItem="qFQ-dv-ZVo" firstAttribute="trailing" secondItem="Ai7-eF-ar8" secondAttribute="trailing" constant="70" id="B5u-pX-XWc"/>
-                            <constraint firstItem="ix2-L4-z4f" firstAttribute="top" secondItem="Ai7-eF-ar8" secondAttribute="bottom" constant="7.6666666666666714" id="DLO-Et-xw9"/>
-                            <constraint firstItem="Ai7-eF-ar8" firstAttribute="top" secondItem="qFQ-dv-ZVo" secondAttribute="top" constant="70" id="ENX-G7-3LG"/>
-                            <constraint firstItem="qFQ-dv-ZVo" firstAttribute="bottom" secondItem="epe-4j-GIz" secondAttribute="bottom" constant="388" id="FMO-bF-CL1"/>
-                            <constraint firstItem="DYR-6q-bEQ" firstAttribute="leading" secondItem="qFQ-dv-ZVo" secondAttribute="leading" constant="75" id="JLg-22-Grw"/>
-                            <constraint firstItem="qFQ-dv-ZVo" firstAttribute="bottom" secondItem="DYR-6q-bEQ" secondAttribute="bottom" constant="135" id="M7G-7U-pl7"/>
-                            <constraint firstItem="qFQ-dv-ZVo" firstAttribute="trailing" secondItem="DYz-nm-0bi" secondAttribute="trailing" constant="104" id="ROt-F0-aUv"/>
-                            <constraint firstItem="DYR-6q-bEQ" firstAttribute="centerX" secondItem="9cC-qx-TYk" secondAttribute="centerX" id="ero-Lo-qI5"/>
-                            <constraint firstItem="DYz-nm-0bi" firstAttribute="leading" secondItem="qFQ-dv-ZVo" secondAttribute="leading" constant="104" id="hDW-zk-GPF"/>
-                            <constraint firstItem="epe-4j-GIz" firstAttribute="top" secondItem="ix2-L4-z4f" secondAttribute="bottom" constant="19" id="jrZ-Fi-Fze"/>
-                            <constraint firstItem="epe-4j-GIz" firstAttribute="centerX" secondItem="Ai7-eF-ar8" secondAttribute="centerX" id="jwn-gs-Iay"/>
-                            <constraint firstItem="epe-4j-GIz" firstAttribute="centerX" secondItem="ix2-L4-z4f" secondAttribute="centerX" id="lVK-hF-8Rb"/>
-                            <constraint firstItem="epe-4j-GIz" firstAttribute="leading" secondItem="ix2-L4-z4f" secondAttribute="leading" id="pBV-1T-OvG"/>
-                            <constraint firstItem="qFQ-dv-ZVo" firstAttribute="bottom" secondItem="DYz-nm-0bi" secondAttribute="bottom" constant="46" id="rgL-Cl-7hr"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Appointments" image="calendar" catalog="system" id="Zbq-rc-PS1"/>
-                    <navigationItem key="navigationItem" id="Vn7-Nf-tDk"/>
-                    <connections>
-                        <outlet property="calendarCollectionView" destination="epe-4j-GIz" id="rGh-Ka-A0F"/>
-                        <outlet property="monthLabel" destination="HNM-Eu-w5a" id="m7P-n3-Cq5"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vyT-Q5-pOP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5106" y="251"/>
         </scene>
         <!--Tutors-->
         <scene sceneID="sbT-Vq-XXm">
@@ -1391,6 +1160,9 @@
                                     <color key="baseForegroundColor" systemColor="systemPinkColor"/>
                                     <color key="baseBackgroundColor" name="AccentColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="cancelAppointment:" destination="IYT-Sf-tLd" eventType="touchUpInside" id="Esa-y0-6UE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zVJ-8z-zuQ"/>
@@ -1462,6 +1234,79 @@
             </objects>
             <point key="canvasLocation" x="3842" y="1296"/>
         </scene>
+        <!--Appointments-->
+        <scene sceneID="alx-PK-d1f">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="t8G-mD-9Ii" customClass="StudentManageAppointmentViewController" customModule="WashUTutor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n06-Cc-dqx">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OhD-8E-5lo" userLabel="Booked Appointment View">
+                                <rect key="frame" x="16" y="142" width="361" height="627"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="627" id="q3n-2e-pWQ"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BookedAppointmentCell" id="EQ1-mD-vGX" userLabel="BookedAppointmentCell">
+                                        <rect key="frame" x="0.0" y="50" width="361" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EQ1-mD-vGX" id="7WD-rf-3nD">
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="l0m-2D-mpk">
+                                <rect key="frame" x="70" y="103" width="253" height="22"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjR-lf-JdW" userLabel="PreviousButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="21.333333333333332" height="22"/>
+                                        <state key="normal" image="arrowshape.left.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="previousWeek:" destination="t8G-mD-9Ii" eventType="touchUpInside" id="AMa-O3-3nQ"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November 5 - November 11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9f-c9-gV4" userLabel="Week Label">
+                                        <rect key="frame" x="24.333333333333329" y="0.0" width="204.66666666666669" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4A-lY-8H3" userLabel="NextButton">
+                                        <rect key="frame" x="231.66666666666669" y="0.0" width="21.333333333333343" height="22"/>
+                                        <state key="normal" image="arrowshape.right.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="nextWeek:" destination="t8G-mD-9Ii" eventType="touchUpInside" id="KHL-Q6-vg5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wOy-aS-x19"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OhD-8E-5lo" firstAttribute="leading" secondItem="wOy-aS-x19" secondAttribute="leading" constant="16" id="QYU-n7-ZZS"/>
+                            <constraint firstItem="OhD-8E-5lo" firstAttribute="centerX" secondItem="n06-Cc-dqx" secondAttribute="centerX" id="TaP-0x-xVk"/>
+                            <constraint firstItem="wOy-aS-x19" firstAttribute="bottom" secondItem="OhD-8E-5lo" secondAttribute="bottom" id="YWi-Xo-eFf"/>
+                            <constraint firstItem="l0m-2D-mpk" firstAttribute="leading" secondItem="wOy-aS-x19" secondAttribute="leading" constant="70" id="ZLO-8s-tKu"/>
+                            <constraint firstItem="wOy-aS-x19" firstAttribute="trailing" secondItem="l0m-2D-mpk" secondAttribute="trailing" constant="70" id="fZX-Fa-hZ2"/>
+                            <constraint firstItem="l0m-2D-mpk" firstAttribute="top" secondItem="wOy-aS-x19" secondAttribute="top" id="xbw-0m-UDh"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Appointments" image="calendar" catalog="system" id="ZNm-hK-WWX"/>
+                    <navigationItem key="navigationItem" id="kK9-nn-r50"/>
+                    <connections>
+                        <outlet property="bookedAppointmentTable" destination="OhD-8E-5lo" id="bvw-Xx-eeP"/>
+                        <outlet property="weekLabel" destination="H9f-c9-gV4" id="os0-vi-7uR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hP4-mu-9n4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5152" y="256"/>
+        </scene>
     </scenes>
     <resources>
         <image name="WashU Tutor Logo" width="904" height="1032"/>
@@ -1486,9 +1331,6 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

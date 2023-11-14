@@ -40,6 +40,7 @@ class HomeSceneViewController: UIViewController, UITableViewDataSource, UITableV
         TutorAppointVC.questionsString = myArray[indexPath.row].annoucement
         TutorAppointVC.startTimeString = myArray[indexPath.row].startTime
         TutorAppointVC.endTimeString = myArray[indexPath.row].endTime
+        TutorAppointVC.appointmentID = myArray[indexPath.row].appointmentID
         
         if myArray[indexPath.row].status == "Booked" {
             print("student")
@@ -74,6 +75,9 @@ class HomeSceneViewController: UIViewController, UITableViewDataSource, UITableV
                 }
             }
         }
+        self.tableView.reloadData()
+    }
+    override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
     }
     

@@ -23,6 +23,7 @@ class TutorViewAppointViewController: UIViewController {
     var endTimeString: String?
     var studentString: String?
     var questionsString: String?
+    var appointmentID: String?
     let dateFormatter = DateFormatter()
     
     
@@ -39,6 +40,9 @@ class TutorViewAppointViewController: UIViewController {
         
 
         // Do any additional setup after loading the view.
+    }
+    @IBAction func cancelAppointment(_ sender: Any) {
+        deleteStudentAppointments(appointmentID: appointmentID ?? "")
     }
     /*
     // MARK: - Navigation

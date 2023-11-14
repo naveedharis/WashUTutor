@@ -206,32 +206,31 @@ func getAllAvailableAppointments(completion: @escaping (Result<[Any], Error>) ->
     }
 }
 
-func getStudentAppointments(){
-    
+func getStudentAppointments(completion: @escaping (Result<[Any], Error>) -> Void) {
     let collectionRef = db.collection("studentAppointments")
-    
+
     if let user = Auth.auth().currentUser {
         let uid = user.uid
-        
+
         collectionRef.whereField("studentUserID", isEqualTo: uid).getDocuments { (querySnapshot, error) in
             if let error = error {
-                // Handle the error
                 print("Error getting documents: \(error)")
+                completion(.failure(error))
             } else {
-                var dataList: Array<Any>?
+                var dataList: [Any] = []
                 for document in querySnapshot!.documents {
                     let data = document.data()
-                    dataList?.append(data)
+                    dataList.append(data)
                 }
+                completion(.success(dataList))
             }
         }
-    
     }
 }
 
 func deleteStudentAppointments(appointmentID: String){
     let collectionRef = db.collection("studentAppointments")
-    let tutorCollectionRef = db.collection("tutorAppointment")
+    let tutorCollectionRef = db.collection("tutorsAppointment")
     
     if let user = Auth.auth().currentUser {
         let uid = user.uid
@@ -387,7 +386,7 @@ func getAllTutorAppointments(tutorID: String, completion: @escaping ([TutorAppoi
 
 
 func getStudentNameFromAppointment(appointmentID: String, completion: @escaping (String?, Error?) -> Void){
-    let tutorAppointCollection = db.collection("studentAppointments").whereField("appointmentID", isEqualTo: appointmentID)
+    let tutorAppointCollection = db.collection("studentAppointments").whereField("appointmentID", isEqualTo: appointmentID).whereField("status", isEqualTo: "Booked")
     let studentCollection = db.collection("students")
     
 
