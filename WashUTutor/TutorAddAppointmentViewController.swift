@@ -58,7 +58,15 @@ class TutorAddAppointmentViewController: UIViewController {
         let endTimeString = dateFormatter.string(from: TutorEndTime.date)
         
         tutorAddAppointment(tutorUserID: tutorID, date: dateString, startTime: startTimeString, announcement: tutorAnnouncement.text ?? "", endTime: endTimeString, location: TutorLocation.text ?? "", subject: "CSE 438")
+        
+        presentAlert(title: "Appointment Added", message: "Appointment has been created")
     }
+    
+    private func presentAlert(title: String, message: String) {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
     
     /*
     // MARK: - Navigation
