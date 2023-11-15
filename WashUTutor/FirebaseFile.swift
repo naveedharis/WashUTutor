@@ -109,27 +109,56 @@ func signUp(name: String, email: String, password: String) {
     }
 }
 
-func studentLoginSign(email: String, password: String) {
+//func studentLoginSign(email: String, password: String) {
+//    Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+//        if let error = error {
+//            print("Error signing in: \(error.localizedDescription)")
+//        } else {
+//            if let user = authResult?.user {
+//                // Check if the user's email is verified
+//                if user.isEmailVerified {
+//                    print("Sign in successful")
+//                    // Proceed with signed in user
+//                } else {
+//                    print("Email is not verified. Please check your email to verify your account.")
+//                    // Resend verification email
+//                    resendVerificationEmail(user: user)
+//                }
+//            } else {
+//                print("No user data available")
+//            }
+//        }
+//    }
+//}
+
+func studentLoginSign(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
     Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
         if let error = error {
             print("Error signing in: \(error.localizedDescription)")
-        } else {
-            if let user = authResult?.user {
-                // Check if the user's email is verified
-                if user.isEmailVerified {
-                    print("Sign in successful")
-                    // Proceed with signed in user
-                } else {
-                    print("Email is not verified. Please check your email to verify your account.")
-                    // Resend verification email
-                    resendVerificationEmail(user: user)
-                }
-            } else {
-                print("No user data available")
-            }
+            completion(.failure(error))
+            return
         }
+
+        guard let user = authResult?.user else {
+            let noUserDataError = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No user data available"])
+            completion(.failure(noUserDataError))
+            return
+        }
+        completion(.success(user))
+
+//
+//        if user.isEmailVerified {
+//            print("Sign in successful")
+//            completion(.success(user))
+//        } else {
+//            print("Email is not verified. Please check your email to verify your account.")
+//            resendVerificationEmail(user: user)
+//            let emailNotVerifiedError = NSError(domain: "", code: 1, userInfo: [NSLocalizedDescriptionKey: "Email not verified"])
+//            completion(.failure(emailNotVerifiedError))
+//        }
     }
 }
+
 
 func resendVerificationEmail(user: User) {
     user.sendEmailVerification { error in
@@ -163,7 +192,6 @@ func getTutorData(email: String, code: String, completion: @escaping ([String: A
     }
 }
 
-
 func getStudentData(){
     let collectionRef = db.collection("students")
     
@@ -187,6 +215,7 @@ func getStudentData(){
         print("no user")
     }
 }
+
 
 func getAllAvailableAppointments(completion: @escaping (Result<[Any], Error>) -> Void) {
     let collectionRef = db.collection("tutorsAppointment")
@@ -385,20 +414,90 @@ func getAllTutorAppointments(tutorID: String, completion: @escaping ([TutorAppoi
 
 
 
-func getStudentNameFromAppointment(appointmentID: String, completion: @escaping (String?, Error?) -> Void){
-    let tutorAppointCollection = db.collection("studentAppointments").whereField("appointmentID", isEqualTo: appointmentID).whereField("status", isEqualTo: "Booked")
-    let studentCollection = db.collection("students")
-    
+func getStudentNameFromAppointment(appointmentID: String, completion: @escaping (String?, Error?) -> Void) {
+    let tutorAppointCollection = db.collection("studentAppointments")
+                                    .whereField("appointmentID", isEqualTo: appointmentID)
+                                    .whereField("status", isEqualTo: "Booked")
 
     tutorAppointCollection.getDocuments { (querySnapshot, err) in
         if let err = err {
             completion(nil, err)
+        } else if let documents = querySnapshot?.documents, !documents.isEmpty {
+            if let studentUserID = documents.first?.data()["studentUserID"] as? String {
+                // Nested query to fetch the student's name using the studentUserID
+                let studentCollection = db.collection("students").whereField("userID", isEqualTo: studentUserID)
+                studentCollection.getDocuments { (QuerySnapshot, err) in
+                    if let err = err {
+                        completion(nil, err)
+                    } else if let documents = QuerySnapshot?.documents, !documents.isEmpty {
+                        let studentName = documents.first?.data()["name"] as? String
+                        completion(studentName, nil)
+                    } else {
+                        // Handle the case where no student documents are found
+                        completion(nil, nil)
+                    }
+                }
+            } else {
+                // Handle the case where the student's user ID isn't found in the document
+                completion(nil, nil)
+            }
         } else {
-            var appointment = querySnapshot!.documents[0].data()
-            print(appointment)
+            // Handle the case where no appointment documents are found
+            completion(nil, nil)
         }
+    }
+}
+
+struct Messages {
+    var messageID: String
+    var studentMessage: [String]
+    var tutorMessage: [String]
+    var studentUserID: String
+    var tutorID: String
+}
+
+func addNewMessage(studentMessage: String, studentUserID: String, tutorID: String) {
+    
+    let data: [String: Any] = [
+        "messageID": UUID().uuidString,
+        "studentMessage": studentMessage,
+        "studentUserID": studentUserID,
+        "tutorID": tutorID
+        ]
+    let collectionRef = db.collection("studentMessages")
+    collectionRef.addDocument(data: data) { error in
+        if let error = error {
+            print("Error adding document: \(error)")
+        } else {
+            print("Document added with ID: ")
+        }
+    }
         
-        
+    
+}
+
+struct Review {
+    var reviewID: String
+    var review: String
+    var ratings: String
+    var tutorID: String
+}
+
+func addReview(review: String, ratings: String, tutorID: String) {
+    let data: [String: Any] = [
+        "reviewID" : UUID().uuidString,
+        "review" : review,
+        "ratings": ratings,
+        "tutorID": tutorID
+    ]
+    
+    let collectionRef = db.collection("reviews")
+    collectionRef.addDocument(data: data) { error in
+        if let error = error {
+            print("Error adding document: \(error)")
+        } else {
+            print("Document added with ID: ")
+        }
     }
 }
 

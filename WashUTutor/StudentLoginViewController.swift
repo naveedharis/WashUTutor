@@ -23,28 +23,41 @@ class StudentLoginViewController: UIViewController {
     
     @IBAction func loginButton(_ sender: Any)
     {
-        if userEmailTextBox.text!.isEmpty || passwordTextBox.text!.isEmpty{
+        guard let email = userEmailTextBox.text, !email.isEmpty else {
+            presentAlert(title: "Error", message: "You must enter an email.")
+            return
         }
-        else {
-            if userEmailTextBox.text!.contains("wustl.edu"){
-                print("This is a WashU email")
-                studentLoginSign(email: userEmailTextBox.text!, password: passwordTextBox.text!)
-                //getStudentData()
-                //createAppointment(appointmentID: "3", date: "11/14/2023", startTime: "11:00 am", endTime: "12:00", location: "Crow Hall", subject: "CS131", caption: "I need help on python.")
-                //createAppointment(appointmentID: "4", date: "11/20/2023", startTime: "11:00 am", endTime: "12:00", location: "Seigle Hall", subject: "CS412", caption: "I need help on python.")
-                //getStudentAppointments()
-                //getAllAvailiableAppointments()
-                //deleteStudentAppointments(appointmentID: "2")
+
+        guard let password = passwordTextBox.text, !password.isEmpty else {
+            presentAlert(title: "Error", message: "You must enter a password.")
+            return
+        }
+
+        if email.contains("wustl.edu") {
+            studentLoginSign(email: email, password: password) { [weak self] result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(_):
+                        print("Login Successful")
+                        guard let viewController = self?.storyboard?.instantiateViewController(withIdentifier: "studentTab") else { return }
+//                            self?.present(viewController, animated: true, completion: nil)
+                        self?.navigationController?.pushViewController(viewController, animated: true)
+
+                    case .failure(_):
+                        self?.presentAlert(title: "Email/Password Incorrect", message: "The email or password is incorrect. Please try again")
+                    }
+                }
             }
-            
-            else{
-                let alert = UIAlertController(title: "Error", message: "The email is not WashU email.", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(okAction)
-                present(alert, animated: true, completion: nil)
-            }
+        } else {
+            presentAlert(title: "Error", message: "The email is not a WashU email.")
         }
     }
+    
+    private func presentAlert(title: String, message: String) {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
     /*
      MARK: - Navigation
 

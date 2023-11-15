@@ -51,7 +51,20 @@ class StudentTutorInfoPageViewController: UIViewController, UITableViewDataSourc
         cell.textLabel?.text = tutorClasses?[indexPath.row]
         return cell
     }
-
+    
+    
+    @IBAction func leaveReview(_ sender: Any) {
+        addReview(review: reviewTextBox.text, ratings: String(fiveStarRating.rating), tutorID: tutorIDString ?? "")
+        presentAlert(title: "Tutor Reviewed", message: "Thank you for reviewing. We appreciate your input.")
+        
+    }
+    
+    private func presentAlert(title: String, message: String) {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    
     /*
     // MARK: - Navigation
 

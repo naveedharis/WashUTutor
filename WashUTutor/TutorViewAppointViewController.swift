@@ -36,14 +36,21 @@ class TutorViewAppointViewController: UIViewController {
         time.text = (startTimeString ?? "") + "-" + (endTimeString ?? "")
         location.text = locationString
         questions.text = questionsString
-        
+        print("Student\(studentString ?? "")")
+        student.text = studentString
         
 
         // Do any additional setup after loading the view.
     }
     @IBAction func cancelAppointment(_ sender: Any) {
         deleteStudentAppointments(appointmentID: appointmentID ?? "")
+        presentAlert(title: "Appointment canceled", message: "Appointment has been canceled.")
     }
+    private func presentAlert(title: String, message: String) {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
     /*
     // MARK: - Navigation
 

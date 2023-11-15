@@ -6,10 +6,12 @@ class StudentManageAppointmentViewController: UIViewController, UITableViewDeleg
 
     @IBOutlet weak var weekLabel: UILabel!
     @IBOutlet var bookedAppointmentTable: UITableView!
+    @IBOutlet var cancelAppointmentButton: UIButton!
     
     var selectedWeekStart: Date = Calendar.current.startOfWeek(for: Date())
     var bookedAppointmentData: [Any] = []
     var filteredAppointments: [Any] = []
+    var selectedAppointmentID: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +78,6 @@ class StudentManageAppointmentViewController: UIViewController, UITableViewDeleg
             return UITableViewCell()
         }
         
-
         if let subject = appointment["subject"] as? String,
             let date = appointment["date"] as? String,
             let startTime = appointment["startTime"] as? String,
@@ -90,8 +91,27 @@ class StudentManageAppointmentViewController: UIViewController, UITableViewDeleg
         }
         return cell
     }
+    
+    // MARK: -  Select and delete
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let appointment = filteredAppointments[indexPath.row] as? [String: Any],
+              let appointmentID = appointment["appointmentID"] as? String else {
+            print("Failed to get appointment ID")
+            return
+        }
+        selectedAppointmentID = appointmentID
+    }
 
-
+    @IBAction func cancelAppointmentAction(_ sender: Any) {
+        guard let appointmentID = selectedAppointmentID else {
+            print("Failed")
+            return
+        }
+        deleteStudentAppointments(appointmentID: appointmentID)
+        fetchAndFilterAppointments()
+    }
+    
+    // MARK: - Week control action
     @IBAction func previousWeek(_ sender: Any) {
         selectedWeekStart = Calendar.current.date(byAdding: .day, value: -7, to: selectedWeekStart)!
         setWeekView()

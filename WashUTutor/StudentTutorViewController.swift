@@ -55,6 +55,7 @@ class StudentTutorViewController: UIViewController, UITableViewDataSource, UITab
         tutorInfoVC.tutorNameString = tutorData[indexPath.row].name
         tutorInfoVC.tutorYearString = tutorData[indexPath.row].year
         tutorInfoVC.tutorClasses = tutorData[indexPath.row].classNumber
+        tutorInfoVC.tutorIDString = tutorData[indexPath.row].tutorID
         
         navigationController?.pushViewController(tutorInfoVC, animated: true)
     }

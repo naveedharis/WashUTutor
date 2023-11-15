@@ -20,9 +20,38 @@ class StudentMakeAppointmentDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         updateUI()
     }
+    
+    @IBAction func confirmAppointment(_ sender: Any) {
+        
+        if let appointment = appointmentData {
+            let appointmentID = appointment["appointmentID"] as? String ?? "DefaultID"
+            let date = appointment["date"] as? String ?? "Unknown Date"
+            let startTime = appointment["startTime"] as? String ?? "Unknown Start Time"
+            let endTime = appointment["endTime"] as? String ?? "Unknown End Time"
+            let location = appointment["location"] as? String ?? "Unknown Location"
+            let subject = appointment["subject"] as? String ?? "Unknown Subject"
 
+
+            createAppointment(appointmentID: appointmentID,
+                              date: date,
+                              startTime: startTime,
+                              endTime: endTime,
+                              location: location,
+                              subject: subject,
+                              caption: tipsLabel.text ?? "No tips")
+            
+            presentAlert(title: "Appointment created", message: "Appointment has been created.")
+        }
+    }
+    
+    private func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     private func updateUI() {
-        print("Received data: \(String(describing: appointmentData))")
+        //print("Received data: \(String(describing: appointmentData))")
         if let appointment = appointmentData {
             appointmentTime.text = "\(appointment["startTime"] as? String ?? "") - \(appointment["endTime"] as? String ?? "")"
             appointmentTutorID.text = appointment["tutorID"] as? String

@@ -156,13 +156,12 @@ class StudentMakeAppointmentViewController: UIViewController, UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calCell", for: indexPath) as! CalendarCell
         cell.dayOfMonth.text = totalSquares[indexPath.item]
 
-        // Highlight the cell if it's the selected date
         if indexPath == selectedIndex {
-            cell.backgroundColor = UIColor.gray // Choose your highlight color
+            cell.backgroundColor = UIColor.gray
             cell.dayOfMonth.textColor = UIColor.white
         } else {
             cell.backgroundColor = UIColor.clear
-            cell.dayOfMonth.textColor = UIColor.black // Or your default text color
+            cell.dayOfMonth.textColor = UIColor.black
         }
 
         return cell
