@@ -48,6 +48,7 @@
 		5CD18A3C2B0442F0008AC2C8 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD18A3B2B0442F0008AC2C8 /* ForgotPasswordViewController.swift */; };
 		5CD18A3E2B044302008AC2C8 /* TutorAddAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD18A3D2B044302008AC2C8 /* TutorAddAppointmentViewController.swift */; };
 		5CD18A402B0446BF008AC2C8 /* StudentManageAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD18A3F2B0446BE008AC2C8 /* StudentManageAppointmentViewController.swift */; };
+		5CF1A6F32B08236100B21ABE /* tutorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF1A6F22B08236100B21ABE /* tutorProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		5CD18A3B2B0442F0008AC2C8 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		5CD18A3D2B044302008AC2C8 /* TutorAddAppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorAddAppointmentViewController.swift; sourceTree = "<group>"; };
 		5CD18A3F2B0446BE008AC2C8 /* StudentManageAppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentManageAppointmentViewController.swift; sourceTree = "<group>"; };
+		5CF1A6F22B08236100B21ABE /* tutorProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tutorProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				5C04DA842AEC5BF7000E2CA9 /* SceneDelegate.swift */,
 				5C04DA862AEC5BF7000E2CA9 /* ViewController.swift */,
 				5C04DA882AEC5BF7000E2CA9 /* Main.storyboard */,
+				5CF1A6F22B08236100B21ABE /* tutorProfileViewController.swift */,
 				5C573D352B01ECBF009A2A26 /* TutorViewAppointViewController.swift */,
 				5C573D2A2B018A61009A2A26 /* StudentTutorViewController.swift */,
 				5C573D392B034212009A2A26 /* StudentLoginViewController.swift */,
@@ -268,6 +271,7 @@
 				5C04DA832AEC5BF7000E2CA9 /* AppDelegate.swift in Sources */,
 				5CD18A3E2B044302008AC2C8 /* TutorAddAppointmentViewController.swift in Sources */,
 				5C573D2F2B01C6A6009A2A26 /* StudentTutorInfoPageViewController.swift in Sources */,
+				5CF1A6F32B08236100B21ABE /* tutorProfileViewController.swift in Sources */,
 				5C04DA852AEC5BF7000E2CA9 /* SceneDelegate.swift in Sources */,
 				5C755E032AFC95420042A904 /* CalendarCell.swift in Sources */,
 				5C573D2B2B018A61009A2A26 /* StudentTutorViewController.swift in Sources */,

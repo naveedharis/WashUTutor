@@ -51,7 +51,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Fh-Z0-SZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3608" y="-265"/>
+            <point key="canvasLocation" x="3792" y="-399"/>
         </scene>
         <!--Tutors-->
         <scene sceneID="sbT-Vq-XXm">
@@ -233,11 +233,98 @@
                         <segue destination="9ik-5L-UMk" kind="relationship" relationship="viewControllers" id="AxW-Qz-iC1"/>
                         <segue destination="q2F-HL-r3k" kind="relationship" relationship="viewControllers" id="tii-Z6-nSv"/>
                         <segue destination="sYc-XE-cJA" kind="relationship" relationship="viewControllers" id="EC0-md-pM6"/>
+                        <segue destination="uhx-Yu-fIF" kind="relationship" relationship="viewControllers" id="LzG-pC-lTU"/>
+                        <segue destination="gzZ-l5-QAh" kind="relationship" relationship="viewControllers" id="EUp-pN-Sft"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Rc-qc-zLg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2074" y="1601"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="aR5-je-Uec">
+            <objects>
+                <viewController id="gzZ-l5-QAh" customClass="tutorProfileViewController" customModule="WashUTutor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bTB-Kt-Roi">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IoQ-M2-70n">
+                                <rect key="frame" x="23" y="112" width="159" height="236"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="236" id="CFY-ni-2n5"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKv-8J-mvU">
+                                <rect key="frame" x="232" y="172" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OFS-Tp-QJK">
+                                <rect key="frame" x="23" y="372" width="347" height="371"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Scj-dL-vs8" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="201" y="212" width="169" height="54"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="wgQ-fV-c9d"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                        <color key="value" red="0.02734375" green="0.02734375" blue="0.02734375" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutor Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIM-FG-2J4">
+                                <rect key="frame" x="225" y="125" width="89" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DNO-Vg-wme"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Scj-dL-vs8" firstAttribute="leading" secondItem="bTB-Kt-Roi" secondAttribute="leading" constant="201" id="9VO-Qd-p0w"/>
+                            <constraint firstItem="PKv-8J-mvU" firstAttribute="leading" secondItem="IoQ-M2-70n" secondAttribute="trailing" constant="50" id="DUH-b6-ag5"/>
+                            <constraint firstItem="Scj-dL-vs8" firstAttribute="trailing" secondItem="OFS-Tp-QJK" secondAttribute="trailing" id="Fua-nb-kbj"/>
+                            <constraint firstItem="OFS-Tp-QJK" firstAttribute="centerX" secondItem="bTB-Kt-Roi" secondAttribute="centerX" id="HCv-tP-iuP"/>
+                            <constraint firstItem="IoQ-M2-70n" firstAttribute="leading" secondItem="DNO-Vg-wme" secondAttribute="leading" constant="23" id="Iee-75-iXB"/>
+                            <constraint firstItem="Scj-dL-vs8" firstAttribute="leading" secondItem="IoQ-M2-70n" secondAttribute="trailing" constant="19" id="MGm-Kx-DLX"/>
+                            <constraint firstItem="mIM-FG-2J4" firstAttribute="top" secondItem="DNO-Vg-wme" secondAttribute="top" constant="22" id="RAV-ue-FTt"/>
+                            <constraint firstItem="DNO-Vg-wme" firstAttribute="bottom" secondItem="OFS-Tp-QJK" secondAttribute="bottom" constant="26" id="Rd9-a6-kow"/>
+                            <constraint firstItem="Scj-dL-vs8" firstAttribute="trailing" secondItem="mIM-FG-2J4" secondAttribute="trailing" constant="56" id="YLM-eB-kRx"/>
+                            <constraint firstItem="mIM-FG-2J4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IoQ-M2-70n" secondAttribute="trailing" constant="8" symbolic="YES" id="gFv-iB-GkQ"/>
+                            <constraint firstItem="IoQ-M2-70n" firstAttribute="top" secondItem="DNO-Vg-wme" secondAttribute="top" constant="9" id="gfG-zE-erx"/>
+                            <constraint firstAttribute="bottom" secondItem="Scj-dL-vs8" secondAttribute="bottom" constant="586" id="hVk-3P-Unh"/>
+                            <constraint firstItem="DNO-Vg-wme" firstAttribute="trailing" secondItem="PKv-8J-mvU" secondAttribute="trailing" constant="87" id="moo-Xn-pLR"/>
+                            <constraint firstItem="IoQ-M2-70n" firstAttribute="leading" secondItem="OFS-Tp-QJK" secondAttribute="leading" id="nJA-Pa-L4U"/>
+                            <constraint firstItem="OFS-Tp-QJK" firstAttribute="top" secondItem="IoQ-M2-70n" secondAttribute="bottom" constant="24" id="o73-Ck-Ugd"/>
+                            <constraint firstItem="Scj-dL-vs8" firstAttribute="top" secondItem="PKv-8J-mvU" secondAttribute="bottom" constant="19" id="ohM-QP-upn"/>
+                            <constraint firstItem="PKv-8J-mvU" firstAttribute="top" secondItem="mIM-FG-2J4" secondAttribute="bottom" constant="26" id="uWz-s1-64X"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.crop.circle.fill" catalog="system" id="r60-Nu-w9l"/>
+                    <connections>
+                        <outlet property="ratings" destination="Scj-dL-vs8" id="CWB-yh-nBj"/>
+                        <outlet property="tutorNameLabel" destination="mIM-FG-2J4" id="aHF-vJ-Cvk"/>
+                        <outlet property="yearLabel" destination="PKv-8J-mvU" id="Yaf-zZ-fgV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L18-cq-7yl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1609.9236641221373" y="2553.5211267605637"/>
         </scene>
         <!--Inbox-->
         <scene sceneID="F8v-sl-V0m">
@@ -290,6 +377,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2yV-fg-Iob" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2921" y="2819"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="5kk-YM-5Id">
+            <objects>
+                <viewController id="uhx-Yu-fIF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6BK-51-YTl">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="62W-eO-O2n"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="rAb-At-dVG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Czr-lS-3Nr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2924" y="3514"/>
         </scene>
         <!--Home-->
         <scene sceneID="tdF-dp-c4f">
@@ -1746,10 +1849,11 @@
         <image name="arrowshape.right.fill" catalog="system" width="128" height="104"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="clock" catalog="system" width="128" height="123"/>
-        <image name="graduationcap" catalog="system" width="128" height="107"/>
+        <image name="graduationcap" catalog="system" width="32" height="32"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
         <image name="person" catalog="system" width="128" height="121"/>
+        <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="questionmark" catalog="system" width="94" height="128"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="tray.fill" catalog="system" width="128" height="88"/>
