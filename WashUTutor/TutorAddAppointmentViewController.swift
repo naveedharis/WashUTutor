@@ -17,14 +17,12 @@ class TutorAddAppointmentViewController: UIViewController {
     let startTimeFormatter = DateFormatter()
     
     let endTimeFormatter = DateFormatter()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-        
-        
+        startTimeFormatter.timeStyle = .short
+        endTimeFormatter.timeStyle = .short
        
     }
     
@@ -48,14 +46,18 @@ class TutorAddAppointmentViewController: UIViewController {
     @IBAction func tutorAddApp(_ sender: Any) {
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        startTimeFormatter.dateFormat = "HH:mm"
-        endTimeFormatter.dateFormat = "HH:mm"
+        startTimeFormatter.dateFormat = "hh:mm a"
+        endTimeFormatter.dateFormat = "hh:mm a"
         
         let dateString = dateFormatter.string(from: TutorDate.date)
         
-        let startTimeString = dateFormatter.string(from: TutorStartTime.date)
+        let startTimeString = startTimeFormatter.string(from: TutorStartTime.date)
         
-        let endTimeString = dateFormatter.string(from: TutorEndTime.date)
+        let endTimeString = endTimeFormatter.string(from: TutorEndTime.date)
+        
+        print(dateString)
+        print(startTimeString)
+        print(endTimeString)
         
         tutorAddAppointment(tutorUserID: tutorID, date: dateString, startTime: startTimeString, announcement: tutorAnnouncement.text ?? "", endTime: endTimeString, location: TutorLocation.text ?? "", subject: "CSE 438")
         

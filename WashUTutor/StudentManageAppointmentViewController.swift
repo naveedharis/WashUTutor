@@ -102,14 +102,37 @@ class StudentManageAppointmentViewController: UIViewController, UITableViewDeleg
         selectedAppointmentID = appointmentID
     }
 
+
     @IBAction func cancelAppointmentAction(_ sender: Any) {
         guard let appointmentID = selectedAppointmentID else {
-            print("Failed")
+            print("No appointment selected")
             return
         }
-        deleteStudentAppointments(appointmentID: appointmentID)
-        fetchAndFilterAppointments()
+        showDeleteWarning()
     }
+    
+    func showDeleteWarning() {
+        let alert = UIAlertController(title: "Warning Title", message: "Warning Message", preferredStyle: .alert)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+            guard let strongSelf = self, let appointmentID = strongSelf.selectedAppointmentID else { return }
+            
+            deleteStudentAppointments(appointmentID: appointmentID)
+            
+//  1s dealy before refreshing the appointment
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                strongSelf.fetchAndFilterAppointments()
+            }
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
+
+        present(alert, animated: true, completion: nil)
+    }
+    
+
     
     // MARK: - Week control action
     @IBAction func previousWeek(_ sender: Any) {

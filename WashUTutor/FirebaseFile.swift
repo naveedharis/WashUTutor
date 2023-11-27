@@ -381,7 +381,7 @@ struct TutorAppointment {
 }
 
 func getAllTutorAppointments(tutorID: String, completion: @escaping ([TutorAppointment]?, Error?) -> Void) {
-    let collectionRef = db.collection("tutorsAppointment").whereField("tutorID", isEqualTo: tutorID)
+    let collectionRef = db.collection("tutorAppointments").whereField("tutorUserID", isEqualTo: tutorID)
 
         collectionRef.getDocuments { (querySnapshot, err) in
             if let err = err {
@@ -404,6 +404,7 @@ func getAllTutorAppointments(tutorID: String, completion: @escaping ([TutorAppoi
                         
                         // Initialize other fields as necessary
                     )
+                    //print(appointment)
                     appointments.append(appointment)
                 }
 

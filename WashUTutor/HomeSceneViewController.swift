@@ -76,6 +76,7 @@ class HomeSceneViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.dataSource = self
         tableView.delegate = self
         getTutorInfo()
+        //print(myArray)
         
         print("tutorid:\(tutorID)")
         self.tableView.reloadData()
