@@ -50,6 +50,7 @@ class TutorAddAppointmentViewController: UIViewController {
         endTimeFormatter.dateFormat = "hh:mm a"
         
         let dateString = dateFormatter.string(from: TutorDate.date)
+        let currentDate = dateFormatter.string(from: Date.now)
         
         let startTimeString = startTimeFormatter.string(from: TutorStartTime.date)
         
@@ -58,10 +59,24 @@ class TutorAddAppointmentViewController: UIViewController {
         print(dateString)
         print(startTimeString)
         print(endTimeString)
-        
-        tutorAddAppointment(tutorUserID: tutorID, date: dateString, startTime: startTimeString, announcement: tutorAnnouncement.text ?? "", endTime: endTimeString, location: TutorLocation.text ?? "", subject: "CSE 438")
-        
-        presentAlert(title: "Appointment Added", message: "Appointment has been created")
+    
+        if TutorDate.date > Date.now || TutorDate.date == Date.now {
+            print("TutorDate is after the current date")
+            let difference = TutorEndTime.date.timeIntervalSince(TutorStartTime.date)/3600
+            if difference <= 1 && difference > 0 {
+                print("1 hour or less")
+                tutorAddAppointment(tutorUserID: tutorID, date: dateString, startTime: startTimeString, announcement: tutorAnnouncement.text ?? "", endTime: endTimeString, location: TutorLocation.text ?? "", subject: "CSE 438")
+                presentAlert(title: "Appointment Added", message: "Appointment has been created")
+            }
+            else{
+                print("More than one hour")
+                presentAlert(title: "Timing is incorrect", message: "Please input the correct time intervals. Must be a hour long or less.")
+            }
+        }
+        else {
+            print("TutorDate is before the current date")
+            presentAlert(title: "Need correct day", message: "Please the date of the current day or after it.")
+        }
     }
     
     private func presentAlert(title: String, message: String) {
