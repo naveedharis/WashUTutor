@@ -39,6 +39,14 @@ class StudentLoginViewController: UIViewController {
                     switch result {
                     case .success(_):
                         print("Login Successful")
+                        getStudentDataTutor() { data in
+                            if let data = data {
+                                print("Student: \(currentStudent)")
+                            }
+                            else {
+                                print("Error student")
+                            }
+                        }
                         guard let viewController = self?.storyboard?.instantiateViewController(withIdentifier: "studentTab") else { return }
 //                            self?.present(viewController, animated: true, completion: nil)
                         self?.navigationController?.pushViewController(viewController, animated: true)

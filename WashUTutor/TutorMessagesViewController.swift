@@ -6,20 +6,92 @@
 //
 
 import UIKit
-import SwiftUI
 
+// reference for menu item button
+//https://medium.nextlevelswift.com/creating-a-native-popup-menu-over-a-uibutton-or-uinavigationbar-645edf0329c4
+//
 class TutorMessagesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @AppStorage("tutorID") var tutorID = ""
+    
+    @IBOutlet weak var tutorMenu: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    var messages:[String] = ["question1", "question2", "question3"]
-    var responses:[String] = ["Because1", "Because2", "Because3"]
+    
+    var messages:[String] = []
+    var responses:[String] = []
+    var placeholderMessages:[String] = []
+    var placeholderResponses:[String] = []
+    var answeredMessages:[String] = []
+    var answeredResponses:[String] = []
+    var unansweredMessages:[String] = []
+    var unansweredResponses:[String] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
         tableView.delegate = self
         
+        for(key,value) in currentTutor.messages {
+            messages.append(key)
+            responses.append(value["response"] ?? "")
+        }
+        
+//        for(key,value) in responsesMap {
+//            responses.append(value);
+//        }
+        
+        placeholderMessages = messages
+        placeholderResponses = responses
+        let all = UIAction(title: "All") { (action) in
+            self.messages = self.placeholderMessages
+            self.responses = self.placeholderResponses
+            self.tableView.reloadData()
+            print("All was tapped")
+        }
+
+        let answered = UIAction(title: "Answered") { (action) in
+            self.messages = self.placeholderMessages
+            self.responses = self.placeholderResponses
+            self.answeredMessages.removeAll()
+            self.answeredResponses.removeAll()
+            
+            for (index, value) in self.responses.enumerated() {
+                if value != "" {
+                    self.answeredMessages.append(self.messages[index])
+                    self.answeredResponses.append(value)
+                }
+            }
+            print("Answered was tapped")
+            
+            self.messages = self.answeredMessages
+            self.responses = self.answeredResponses
+            self.tableView.reloadData()
+        }
+
+        let unanswered = UIAction(title: "Unanswered") { (action) in
+            self.messages = self.placeholderMessages
+            self.responses = self.placeholderResponses
+            self.unansweredMessages.removeAll()
+            self.unansweredResponses.removeAll()
+            
+            for (index, value) in self.responses.enumerated() {
+                if value == "" {
+                    self.unansweredMessages.append(self.messages[index])
+                    self.unansweredResponses.append(value)
+                }
+            }
+            self.messages = self.unansweredMessages
+            self.responses = self.unansweredResponses
+            self.tableView.reloadData()
+            
+        }
+
+        let tutorMenuDisplay = UIMenu(title: "Sort", options: .displayInline, children: [all , answered , unanswered])
+        
+        tutorMenu.menu = tutorMenuDisplay
+        tutorMenu.showsMenuAsPrimaryAction = true
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -25,6 +25,8 @@ class SendMessageViewController: UIViewController, UIPickerViewDelegate, UIPicke
         tutorPickerView.dataSource = self
         classPickerView.delegate = self
         classPickerView.dataSource = self
+        //self.hidesBottomBarWhenPushed = false
+        //self.tabBarController?.tabBar.isHidden = false
         
         AllTutorData { (tutors, error) in
             if let error = error {
@@ -98,10 +100,12 @@ class SendMessageViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     
     @IBAction func sendMessage(_ sender: Any) {
-        //tutorData[selectedTutorIndex].messages.append(questionTextField.text)
-        //print(tutorData[selectedTutorIndex])
+//        tutorData[selectedTutorIndex].messages.append(questionTextField.text)
+        tutorData[selectedTutorIndex].messages[questionTextField.text] = ["userId": currentStudent.userID, "response": ""]
+        currentStudent.messages[questionTextField.text] = ["userId": currentStudent.userID, "response": ""]
         
-        
+        addMessageForTutor(tutor: tutorData[selectedTutorIndex], messages: tutorData[selectedTutorIndex].messages)
+        addMessagesForStudent(userId: currentStudent.userID, messages: currentStudent.messages)
         let inboxVC = storyboard!.instantiateViewController(withIdentifier: "studentInbox") as! StudentMessagesViewController
         
         navigationController?.pushViewController(inboxVC, animated: true)

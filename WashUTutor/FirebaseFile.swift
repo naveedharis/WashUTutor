@@ -13,6 +13,15 @@ import FirebaseFirestoreSwift
 
 let db = Firestore.firestore()
 var studentUID: String?
+var currentTutor:Tutor!
+var currentStudent:Student!
+
+struct Student {
+    var email: String
+    var name: String
+    var userID: String
+    var messages: [String: [String:String]]
+}
 
 
 func createAppointment(appointmentID: String, date: String, startTime: String, endTime: String, location: String, subject: String, caption: String){
@@ -192,9 +201,47 @@ func getTutorData(email: String, code: String, completion: @escaping ([String: A
     }
 }
 
-func getStudentData(){
+
+func getStudentDataTutor(completion: @escaping ([String: Any]?) -> Void){
     let collectionRef = db.collection("students")
     
+    if let user = Auth.auth().currentUser {
+        let uid = user.uid
+        collectionRef.whereField("userID", isEqualTo: uid).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                // Handle the error
+                print("Error getting documents: \(error)")
+                completion(nil)
+            } else {
+                // Query was successful
+                // Iterate through the documents to access the data
+                var data: [String:Any]?
+                for document in querySnapshot!.documents {
+                    data = document.data()
+                    //print(data)
+                    let email = data!["email"] as? String ?? ""
+                    let name = data!["name"] as? String ?? ""
+                    let id = data!["userID"] as? String ?? ""
+                    let messages = data!["messages"] as? [String:[String:String]] ?? [:]
+                    currentStudent = Student(email: email, name: name, userID: id, messages: messages)
+                    print("CURRENT STUDENT \(currentStudent)")
+                    // Assuming you only want the first match
+                    // Add a return statement
+                    break
+                }
+                completion(data)
+            }
+        }
+        
+    }
+}
+
+
+
+
+func getStudentData(){
+    let collectionRef = db.collection("students")
+
     if let user = Auth.auth().currentUser {
         let uid = user.uid
         collectionRef.whereField("userID", isEqualTo: uid).getDocuments { (querySnapshot, error) in
@@ -218,7 +265,7 @@ func getStudentData(){
 
 
 func getAllAvailableAppointments(completion: @escaping (Result<[Any], Error>) -> Void) {
-    let collectionRef = db.collection("tutorsAppointment")
+    let collectionRef = db.collection("tutorAppointments")
     collectionRef.whereField("status", isEqualTo: "Not booked").getDocuments { (querySnapshot, error) in
         if let error = error {
             print("Error getting documents: \(error)")
@@ -335,6 +382,7 @@ struct Tutor {
     var email: String
     var year: String
     var classNumber: [String]
+    var messages: [String: [String: String]]
     // Add other properties as needed
 }
 
@@ -355,8 +403,9 @@ func AllTutorData(completion: @escaping ([Tutor]?, Error?) -> Void) {
                 let email = data["email"] as? String ?? ""
                 let year = data["year"] as? String ?? ""
                 let classNumber = data["classNumber"] as? [String] ?? []
+                let messages = data["messages"] as? [String: [String: String]] ?? [:]
                 // Create a new Tutor object
-                let tutor = Tutor(tutorID: id, name: name, email: email, year: year, classNumber: classNumber)
+                let tutor = Tutor(tutorID: id, name: name, email: email, year: year, classNumber: classNumber, messages: messages)
                 // Append it to the tutors array
                 tutors.append(tutor)
             }
@@ -449,33 +498,33 @@ func getStudentNameFromAppointment(appointmentID: String, completion: @escaping 
     }
 }
 
-struct Messages {
-    var messageID: String
-    var studentMessage: [String]
-    var tutorMessage: [String]
-    var studentUserID: String
-    var tutorID: String
-}
-
-func addNewMessage(studentMessage: String, studentUserID: String, tutorID: String) {
-    
-    let data: [String: Any] = [
-        "messageID": UUID().uuidString,
-        "studentMessage": studentMessage,
-        "studentUserID": studentUserID,
-        "tutorID": tutorID
-        ]
-    let collectionRef = db.collection("studentMessages")
-    collectionRef.addDocument(data: data) { error in
-        if let error = error {
-            print("Error adding document: \(error)")
-        } else {
-            print("Document added with ID: ")
-        }
-    }
-        
-    
-}
+//struct Messages {
+//    var messageID: String
+//    var studentMessage: [String]
+//    var tutorMessage: [String]
+//    var studentUserID: String
+//    var tutorID: String
+//}
+//
+//func addNewMessage(studentMessage: String, studentUserID: String, tutorID: String) {
+//
+//    let data: [String: Any] = [
+//        "messageID": UUID().uuidString,
+//        "studentMessage": studentMessage,
+//        "studentUserID": studentUserID,
+//        "tutorID": tutorID
+//        ]
+//    let collectionRef = db.collection("studentMessages")
+//    collectionRef.addDocument(data: data) { error in
+//        if let error = error {
+//            print("Error adding document: \(error)")
+//        } else {
+//            print("Document added with ID: ")
+//        }
+//    }
+//
+//
+//}
 
 struct Review {
     var reviewID: String
@@ -498,6 +547,66 @@ func addReview(review: String, ratings: String, tutorID: String) {
             print("Error adding document: \(error)")
         } else {
             print("Document added with ID: ")
+        }
+    }
+}
+
+func addMessageForTutor(tutor:Tutor, messages:[String:[String:String]]){
+    
+   
+    let tutorRef = db.collection("tutors")
+
+    let tutorID = tutorRef.whereField("tutorID", isEqualTo: tutor.tutorID)
+
+    tutorID.getDocuments { (querySnapshot, error) in
+        if let error = error {
+            print("Error getting documents: \(error.localizedDescription)")
+            return
+        }
+
+        for document in querySnapshot!.documents {
+            let docRef = tutorRef.document(document.documentID)
+
+            var existingMessages = document.data()["messages"] as? [String:[String: String]] ?? [:]
+
+            existingMessages.merge(messages) { (_, new) in new }
+
+            docRef.updateData(["messages": existingMessages]) { error in
+                if let error = error {
+                print("Error updating document: \(error.localizedDescription)")
+                } else {
+                    print("Document successfully updated with new messages")
+                }
+            }
+        }
+    }
+    
+}
+
+func addMessagesForStudent(userId: String, messages:[String:[String:String]]) {
+    let studentRef = db.collection("students")
+    let studentID = studentRef.whereField("userID", isEqualTo: userId)
+    
+    studentID.getDocuments { (querySnapshot, error) in
+        if let error = error {
+            print("Error getting documents: \(error.localizedDescription)")
+            return
+        }
+
+        for document in querySnapshot!.documents {
+            let docRef = studentRef.document(document.documentID)
+
+            var existingMessages = document.data()["messages"] as? [String:[String: String]] ?? [:]
+
+            existingMessages.merge(messages) { (_, new) in new }
+
+            docRef.updateData(["messages": existingMessages]) { error in
+                if let error = error {
+                print("Error updating document: \(error.localizedDescription)")
+                } else {
+                    print("Document successfully updated with new messages")
+                }
+            }
         }
     }
 }

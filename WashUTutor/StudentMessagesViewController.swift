@@ -7,16 +7,99 @@
 
 import UIKit
 
+// reference for menu item button
+// https://medium.nextlevelswift.com/creating-a-native-popup-menu-over-a-uibutton-or-uinavigationbar-645edf0329c4
+//
 class StudentMessagesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         @IBOutlet weak var tableView: UITableView!
-        var messages:[String] = ["question1", "question2", "question3"]
-        var responses:[String] = ["Because1", "Because2", "Because3"]
-        override func viewDidLoad() {
-            super.viewDidLoad()
+       
+        @IBOutlet weak var menuButton: UIButton!
+    
+        var messages:[String] = []
+        var responses:[String] = []
+        var placeholderMessages:[String] = []
+        var placeholderResponses:[String] = []
+        var answeredMessages:[String] = []
+        var answeredResponses:[String] = []
+        var unansweredMessages:[String] = []
+        var unansweredResponses:[String] = []
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        for(key,value) in currentStudent.messages {
+            messages.append(key)
+            responses.append(value["response"] ?? "")
+        }
+        //            for(key,value) in responsesMap {
+        //                responses.append(value);
+        //            }
+        
+        placeholderMessages = messages
+        placeholderResponses = responses
+       
+        print("MESSAGES: \(messages)")
+        print("RESPONSES: \(responses)")
+        let all = UIAction(title: "All") { (action) in
 
-            tableView.dataSource = self
-            tableView.delegate = self
+            print("All was tapped")
+            
+            self.messages = self.placeholderMessages
+            self.responses = self.placeholderResponses
+            self.tableView.reloadData()
+            
+        }
+
+        let answered = UIAction(title: "Answered") { (action) in
+
+            self.messages = self.placeholderMessages
+            self.responses = self.placeholderResponses
+            self.answeredMessages.removeAll()
+            self.answeredResponses.removeAll()
+            
+            for (index, value) in self.responses.enumerated() {
+                if value != "" {
+                    self.answeredMessages.append(self.messages[index])
+                    self.answeredResponses.append(value)
+                }
+            }
+            print("Answered was tapped")
+            
+            self.messages = self.answeredMessages
+            self.responses = self.answeredResponses
+            self.tableView.reloadData()
+        }
+
+        let unanswered = UIAction(title: "Unanswered") { (action) in
+           
+            self.messages = self.placeholderMessages
+            self.responses = self.placeholderResponses
+            self.unansweredMessages.removeAll()
+            self.unansweredResponses.removeAll()
+            
+            for (index, value) in self.responses.enumerated() {
+                if value == "" {
+                    self.unansweredMessages.append(self.messages[index])
+                    self.unansweredResponses.append(value)
+                }
+            }
+            
+            self.messages = self.unansweredMessages
+            self.responses = self.unansweredResponses
+            self.tableView.reloadData()
+    
+        }
+
+        let menu = UIMenu(title: "Sort", options: .displayInline, children: [all, answered , unanswered])
+            
+        menuButton.menu = menu
+        menuButton.showsMenuAsPrimaryAction = true
+        tableView.reloadData()
             
         }
         

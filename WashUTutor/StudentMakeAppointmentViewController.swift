@@ -80,13 +80,13 @@ class StudentMakeAppointmentViewController: UIViewController, UICollectionViewDe
     
     func getAppointmentsForSelectedDate() -> [Any] {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy" // Adjust the format to match the format in your data
+        dateFormatter.dateFormat = "yyyy-MM-dd" // Adjust the format to match the format in your data
 
         let selectedDateString = dateFormatter.string(from: selectedDate)
 
         return appointmentData.filter { appointment in
             guard let appointmentDict = appointment as? [String: Any],
-                  let appointmentDate = appointmentDict["Date"] as? String else {
+                  let appointmentDate = appointmentDict["date"] as? String else {
                 return false
             }
             return appointmentDate == selectedDateString
@@ -194,8 +194,9 @@ class StudentMakeAppointmentViewController: UIViewController, UICollectionViewDe
     
     // MARK: - Appointment info
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("All appointment data: \(self.appointmentData)")
+        //print("All appointment data: \(self.appointmentData)")
         let filteredAppointments = getAppointmentsForSelectedDate()
+        print(filteredAppointments)
         return filteredAppointments.count
     }
     
@@ -207,7 +208,7 @@ class StudentMakeAppointmentViewController: UIViewController, UICollectionViewDe
         if let cellAppointment = filteredAppointments[indexPath.row] as? [String: Any],
            let startTime = cellAppointment["startTime"] as? String,
            let endTime = cellAppointment["endTime"] as? String,
-           let location = cellAppointment["Location"] as? String {
+           let location = cellAppointment["location"] as? String {
             cell.textLabel?.text = "\(startTime) - \(endTime), \(location)"
         } else {
             cell.textLabel?.text = "Unknown"

@@ -23,7 +23,7 @@ class TutorResponseViewController: UIViewController {
         questionBox.text = studentQuestion
         
        
-            responseBox.text = tutorResponse
+        responseBox.text = tutorResponse
         
         
         // Do any additional setup after loading the view.
@@ -33,6 +33,18 @@ class TutorResponseViewController: UIViewController {
 
     @IBAction func sendResponse(_ sender: Any) {
         
+//        updateStudent(userId: currentTutor.messages[questionBox.text]!["userId"]!)
+        currentTutor.messages[questionBox.text]!["response"] = responseBox.text
+        
+        var sendResponseToStudent: [String:[String:String]] = [questionBox.text:["userId": currentTutor.messages[questionBox.text]?["userId"] ?? "", "response": responseBox.text]]
+        
+        addMessageForTutor(tutor: currentTutor, messages: currentTutor.messages)
+       
+        addMessagesForStudent(userId: currentTutor.messages[questionBox.text]!["userId"]!, messages: sendResponseToStudent)
+
+        let inboxVC = storyboard!.instantiateViewController(withIdentifier: "tutorInbox") as! TutorMessagesViewController
+        
+        navigationController?.pushViewController(inboxVC, animated: true)
     }
     /*
     // MARK: - Navigation

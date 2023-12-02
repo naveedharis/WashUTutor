@@ -59,8 +59,10 @@ class TutorAddAppointmentViewController: UIViewController {
         print(dateString)
         print(startTimeString)
         print(endTimeString)
+        print(TutorDate.date)
+        print(Date.now)
     
-        if TutorDate.date > Date.now || TutorDate.date == Date.now {
+        if dateString >= currentDate {
             print("TutorDate is after the current date")
             let difference = TutorEndTime.date.timeIntervalSince(TutorStartTime.date)/3600
             if difference <= 1 && difference > 0 {

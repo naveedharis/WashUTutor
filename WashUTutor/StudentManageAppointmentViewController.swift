@@ -19,6 +19,12 @@ class StudentManageAppointmentViewController: UIViewController, UITableViewDeleg
         bookedAppointmentTable.delegate = self
         setWeekView()
         fetchAndFilterAppointments()
+        self.bookedAppointmentTable.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchAndFilterAppointments()
+        self.bookedAppointmentTable.reloadData()
     }
     
     func setWeekView() {
