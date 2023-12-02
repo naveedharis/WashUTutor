@@ -44,7 +44,7 @@
                         <segue destination="czc-y8-Ymc" kind="relationship" relationship="viewControllers" id="T5k-F4-OnA"/>
                         <segue destination="hc1-Kw-Ohi" kind="relationship" relationship="viewControllers" id="74G-en-TwP"/>
                         <segue destination="l8O-Sy-C7V" kind="relationship" relationship="viewControllers" id="Hkn-0a-SaA"/>
-                        <segue destination="YM1-qP-xYq" kind="relationship" relationship="viewControllers" id="7vj-qE-5Zu"/>
+                        <segue destination="ttn-ER-boQ" kind="relationship" relationship="viewControllers" id="7vj-qE-5Zu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Fh-Z0-SZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1270,7 +1270,7 @@
             <objects>
                 <viewController id="wa4-4O-C8a" customClass="SendMessageViewController" customModule="WashUTutor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HNn-YQ-fNv">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U5t-Ty-aPG">
@@ -1329,7 +1329,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BLu-nl-c9u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8303" y="1335"/>
+            <point key="canvasLocation" x="9228.2442748091598" y="1334.5070422535211"/>
         </scene>
         <!--Tutor Response View Controller-->
         <scene sceneID="Isx-3k-XzF">
@@ -1444,7 +1444,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lll-Hn-2ec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9240.4580152671751" y="1335.9154929577464"/>
+            <point key="canvasLocation" x="10167.175572519083" y="1335.2112676056338"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="Uok-S5-LgR">
@@ -1822,7 +1822,7 @@
             </objects>
             <point key="canvasLocation" x="2920" y="2818"/>
         </scene>
-        <!--Item-->
+        <!--Student Messages View Controller-->
         <scene sceneID="hvg-gp-zSC">
             <objects>
                 <viewController storyboardIdentifier="studentInbox" id="YM1-qP-xYq" customClass="StudentMessagesViewController" customModule="WashUTutor" customModuleProvider="target" sceneMemberID="viewController">
@@ -1869,7 +1869,6 @@
                         <viewLayoutGuide key="safeArea" id="XNG-Au-FRQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="MNo-dQ-CRs"/>
                     <navigationItem key="navigationItem" id="H9N-Ok-Pdb"/>
                     <connections>
                         <outlet property="menuButton" destination="8zQ-jm-KvQ" id="h1a-LC-B5N"/>
@@ -1878,7 +1877,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="321-vK-f9S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7329" y="1335"/>
+            <point key="canvasLocation" x="8254.1984732824421" y="1334.5070422535211"/>
+        </scene>
+        <!--messageNav-->
+        <scene sceneID="9Vp-tH-hBO">
+            <objects>
+                <navigationController title="messageNav" automaticallyAdjustsScrollViewInsets="NO" id="ttn-ER-boQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="MNo-dQ-CRs"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qNI-N0-s9L">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YM1-qP-xYq" kind="relationship" relationship="rootViewController" id="b9r-iP-jMC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kPi-WG-XZC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7327.480916030534" y="1334.5070422535211"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
