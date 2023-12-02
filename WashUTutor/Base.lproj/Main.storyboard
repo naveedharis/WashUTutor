@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZDc-aq-VAP">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -14,10 +14,9 @@
         <scene sceneID="leG-a8-8Wb">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oYI-K8-XJZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZDc-aq-VAP" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ZDc-aq-VAP" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7YH-GP-io3">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -26,7 +25,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-326" y="72"/>
+            <point key="canvasLocation" x="-254" y="56"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="g3A-by-o1e">
@@ -50,7 +49,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Fh-Z0-SZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4028" y="-495"/>
+            <point key="canvasLocation" x="4086" y="-350"/>
         </scene>
         <!--Tutors-->
         <scene sceneID="sbT-Vq-XXm">
@@ -96,7 +95,7 @@
                                     <color key="baseBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Fv3-3a-nZX" kind="show" id="x6z-0Z-IUo"/>
+                                    <segue destination="Fv3-3a-nZX" kind="show" id="CoH-y3-3uE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vO6-i9-Bfo">
@@ -208,7 +207,6 @@
                     <connections>
                         <outlet property="emailTextBox" destination="IDN-Qz-zb1" id="y12-x5-hfE"/>
                         <outlet property="passwordTextBox" destination="9uP-MS-mYo" id="K7r-Mb-Ufg"/>
-                        <segue destination="RuB-gu-EiV" kind="show" id="dCg-lP-00B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akB-wR-vDM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -248,7 +246,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IoQ-M2-70n">
-                                <rect key="frame" x="23" y="112" width="159" height="236"/>
+                                <rect key="frame" x="23" y="68" width="159" height="236"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="236" id="CFY-ni-2n5"/>
                                 </constraints>
@@ -260,7 +258,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OFS-Tp-QJK">
-                                <rect key="frame" x="23" y="372" width="347" height="371"/>
+                                <rect key="frame" x="23" y="328" width="347" height="415"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Scj-dL-vs8" customClass="CosmosView" customModule="Cosmos">
@@ -285,7 +283,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutor Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIM-FG-2J4">
-                                <rect key="frame" x="225" y="125" width="89" height="21"/>
+                                <rect key="frame" x="225" y="81" width="89" height="65"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -486,7 +484,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYr-es-0i4">
-                                <rect key="frame" x="153" y="138" width="87" height="30"/>
+                                <rect key="frame" x="153" y="94" width="87" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="xEE-bg-WTY"/>
                                 </constraints>
@@ -495,7 +493,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLq-Er-YqG">
-                                <rect key="frame" x="114" y="158" width="168" height="86"/>
+                                <rect key="frame" x="114" y="114" width="168" height="86"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.13725490870000001" blue="0.1647058874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -575,18 +573,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rca-JH-y4H">
-                                <rect key="frame" x="76.000000000000014" y="140" width="240.33333333333337" height="86"/>
+                                <rect key="frame" x="76.000000000000014" y="96" width="240.33333333333337" height="86"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="72"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.13725490870000001" blue="0.1647058874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gux-ta-xNV">
-                                <rect key="frame" x="49" y="313" width="294" height="34"/>
+                                <rect key="frame" x="49" y="269" width="294" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your WUSTL email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I08-kO-9de">
-                                <rect key="frame" x="49" y="446" width="294" height="34"/>
+                                <rect key="frame" x="49" y="402" width="294" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="iFL-zI-0h6"/>
                                 </constraints>
@@ -594,7 +592,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WUSTL Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7I-GN-ygk">
-                                <rect key="frame" x="48.999999999999993" y="414" width="119.33333333333331" height="24"/>
+                                <rect key="frame" x="48.999999999999993" y="370" width="119.33333333333331" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -625,7 +623,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="td9-Fh-A8e">
-                                <rect key="frame" x="49" y="281" width="52" height="24"/>
+                                <rect key="frame" x="49" y="237" width="52" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1331,7 +1329,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BLu-nl-c9u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8481.6793893129761" y="1335.9154929577464"/>
+            <point key="canvasLocation" x="8303" y="1335"/>
         </scene>
         <!--Tutor Response View Controller-->
         <scene sceneID="Isx-3k-XzF">
@@ -1618,10 +1616,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="yMJ-SL-wPb">
-                                <rect key="frame" x="201" y="273" width="109" height="60.333333333333314"/>
+                                <rect key="frame" x="201" y="229.00000000000003" width="109" height="104.33333333333334"/>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input your availability" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJH-xu-tya">
-                                <rect key="frame" x="30" y="103" width="217" height="29"/>
+                                <rect key="frame" x="30" y="59" width="217" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1633,13 +1631,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMz-F2-rNp">
-                                <rect key="frame" x="86" y="220.66666666666666" width="52" height="24"/>
+                                <rect key="frame" x="86" y="176.66666666666666" width="52" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="Iv9-Zk-7ZR">
-                                <rect key="frame" x="181" y="200" width="149" height="65"/>
+                                <rect key="frame" x="181" y="156" width="149" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="8Em-5a-R7k"/>
                                     <constraint firstAttribute="width" constant="149" id="eze-Ms-Id5"/>
@@ -1880,7 +1878,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="321-vK-f9S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7608.3969465648852" y="1335.9154929577464"/>
+            <point key="canvasLocation" x="7329" y="1335"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

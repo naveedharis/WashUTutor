@@ -193,11 +193,20 @@ func getTutorData(email: String, code: String, completion: @escaping ([String: A
             var tutorData: [String: Any]?
             for document in querySnapshot!.documents {
                 tutorData = document.data()
-                // Assuming you only want the first matching document
-                break
-            }
-            completion(tutorData)
-        }
+                let id = tutorData!["tutorID"] as? String ?? ""
+                let name = tutorData!["name"] as? String ?? ""
+                let email = tutorData!["email"] as? String ?? ""
+                let year = tutorData!["year"] as? String ?? ""
+                let classNumber = tutorData!["classNumber"] as? [String] ?? []
+                let messages = tutorData!["messages"] as? [String:[String:String]] ?? [:]
+                        currentTutor = Tutor(tutorID: id, name: name, email: email, year: year, classNumber: classNumber, messages: messages)
+                        
+                        // Assuming you only want the first matching document
+                        break
+                    }
+                    completion(tutorData)
+                }
+              
     }
 }
 
