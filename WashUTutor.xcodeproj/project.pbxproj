@@ -13,21 +13,25 @@
 		5C04DA8A2AEC5BF7000E2CA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C04DA882AEC5BF7000E2CA9 /* Main.storyboard */; };
 		5C04DA8C2AEC5BF8000E2CA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C04DA8B2AEC5BF8000E2CA9 /* Assets.xcassets */; };
 		5C04DA8F2AEC5BF8000E2CA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C04DA8D2AEC5BF8000E2CA9 /* LaunchScreen.storyboard */; };
+		5C42D3C72B1C03A000D9E903 /* TutorViewAppointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C42D3C62B1C03A000D9E903 /* TutorViewAppointViewController.swift */; };
 		5C573D252B0068D5009A2A26 /* StudentMakeAppointmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D242B0068D5009A2A26 /* StudentMakeAppointmentDetailViewController.swift */; };
 		5C573D272B00694E009A2A26 /* StudentMakeAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D262B00694E009A2A26 /* StudentMakeAppointmentViewController.swift */; };
 		5C573D2B2B018A61009A2A26 /* StudentTutorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D2A2B018A61009A2A26 /* StudentTutorViewController.swift */; };
 		5C573D2F2B01C6A6009A2A26 /* StudentTutorInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D2E2B01C6A6009A2A26 /* StudentTutorInfoPageViewController.swift */; };
 		5C573D322B01CD76009A2A26 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 5C573D312B01CD76009A2A26 /* Cosmos */; };
-		5C573D362B01ECBF009A2A26 /* TutorViewAppointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D352B01ECBF009A2A26 /* TutorViewAppointViewController.swift */; };
 		5C573D3A2B034212009A2A26 /* StudentLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D392B034212009A2A26 /* StudentLoginViewController.swift */; };
 		5C573D3C2B034239009A2A26 /* TutorLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D3B2B034239009A2A26 /* TutorLoginViewController.swift */; };
-		5C573D422B034272009A2A26 /* SendMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D412B034272009A2A26 /* SendMessageViewController.swift */; };
 		5C755DFB2AFB293E0042A904 /* StudentSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C755DFA2AFB293E0042A904 /* StudentSignUpViewController.swift */; };
 		5C755E012AFC953B0042A904 /* CalendarFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C755E002AFC953B0042A904 /* CalendarFunc.swift */; };
 		5C755E032AFC95420042A904 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C755E022AFC95420042A904 /* CalendarCell.swift */; };
 		5C8B2EA22B1423A3003FDC31 /* FirebaseFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B2EA12B1423A3003FDC31 /* FirebaseFile.swift */; };
 		5C8B2EA42B1423BA003FDC31 /* HomeSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B2EA32B1423BA003FDC31 /* HomeSceneViewController.swift */; };
 		5C8B2EA62B142929003FDC31 /* StudentManageAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B2EA52B142929003FDC31 /* StudentManageAppointmentViewController.swift */; };
+		5C8B2EA82B1A9F5C003FDC31 /* StudentMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B2EA72B1A9F5C003FDC31 /* StudentMessagesViewController.swift */; };
+		5C8B2EAA2B1AA4B7003FDC31 /* TutorMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B2EA92B1AA4B7003FDC31 /* TutorMessagesViewController.swift */; };
+		5C8B2EAC2B1AA4DB003FDC31 /* TutorResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B2EAB2B1AA4DB003FDC31 /* TutorResponseViewController.swift */; };
+		5C8B2EAE2B1AADD3003FDC31 /* SendMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B2EAD2B1AADD3003FDC31 /* SendMessageViewController.swift */; };
+		5C8B2EB02B1BF011003FDC31 /* TutorManageAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B2EAF2B1BF011003FDC31 /* TutorManageAppointmentViewController.swift */; };
 		5CAC78B22AF5985200E28DAB /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 5CAC78B12AF5985200E28DAB /* FirebaseAppCheck */; };
 		5CAC78B42AF5985200E28DAB /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 5CAC78B32AF5985200E28DAB /* FirebaseAppDistribution-Beta */; };
 		5CAC78B62AF5985200E28DAB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5CAC78B52AF5985200E28DAB /* FirebaseAuth */; };
@@ -42,10 +46,7 @@
 		5CAC78C82AF5985200E28DAB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5CAC78C72AF5985200E28DAB /* FirebaseStorage */; };
 		5CAC78CA2AF5985200E28DAB /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 5CAC78C92AF5985200E28DAB /* FirebaseStorageCombine-Community */; };
 		5CAC78CC2AF598CF00E28DAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CAC78CB2AF598CE00E28DAB /* GoogleService-Info.plist */; };
-		5CD18A342B04386A008AC2C8 /* TutorResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD18A332B04386A008AC2C8 /* TutorResponseViewController.swift */; };
-		5CD18A362B0438BA008AC2C8 /* TutorMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD18A352B0438BA008AC2C8 /* TutorMessagesViewController.swift */; };
 		5CD18A382B0438C6008AC2C8 /* StudentViewResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD18A372B0438C6008AC2C8 /* StudentViewResponseViewController.swift */; };
-		5CD18A3A2B0438DF008AC2C8 /* StudentMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD18A392B0438DF008AC2C8 /* StudentMessagesViewController.swift */; };
 		5CD18A3C2B0442F0008AC2C8 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD18A3B2B0442F0008AC2C8 /* ForgotPasswordViewController.swift */; };
 		5CD18A3E2B044302008AC2C8 /* TutorAddAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD18A3D2B044302008AC2C8 /* TutorAddAppointmentViewController.swift */; };
 		5CF1A6F32B08236100B21ABE /* tutorProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF1A6F22B08236100B21ABE /* tutorProfileViewController.swift */; };
@@ -60,25 +61,26 @@
 		5C04DA8B2AEC5BF8000E2CA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C04DA8E2AEC5BF8000E2CA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C04DA902AEC5BF8000E2CA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C42D3C62B1C03A000D9E903 /* TutorViewAppointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorViewAppointViewController.swift; sourceTree = "<group>"; };
 		5C573D242B0068D5009A2A26 /* StudentMakeAppointmentDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentMakeAppointmentDetailViewController.swift; sourceTree = "<group>"; };
 		5C573D262B00694E009A2A26 /* StudentMakeAppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentMakeAppointmentViewController.swift; sourceTree = "<group>"; };
 		5C573D2A2B018A61009A2A26 /* StudentTutorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTutorViewController.swift; sourceTree = "<group>"; };
 		5C573D2E2B01C6A6009A2A26 /* StudentTutorInfoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTutorInfoPageViewController.swift; sourceTree = "<group>"; };
-		5C573D352B01ECBF009A2A26 /* TutorViewAppointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorViewAppointViewController.swift; sourceTree = "<group>"; };
 		5C573D392B034212009A2A26 /* StudentLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLoginViewController.swift; sourceTree = "<group>"; };
 		5C573D3B2B034239009A2A26 /* TutorLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorLoginViewController.swift; sourceTree = "<group>"; };
-		5C573D412B034272009A2A26 /* SendMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendMessageViewController.swift; sourceTree = "<group>"; };
 		5C755DFA2AFB293E0042A904 /* StudentSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentSignUpViewController.swift; sourceTree = "<group>"; };
 		5C755E002AFC953B0042A904 /* CalendarFunc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarFunc.swift; sourceTree = "<group>"; };
 		5C755E022AFC95420042A904 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		5C8B2EA12B1423A3003FDC31 /* FirebaseFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseFile.swift; sourceTree = "<group>"; };
 		5C8B2EA32B1423BA003FDC31 /* HomeSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSceneViewController.swift; sourceTree = "<group>"; };
 		5C8B2EA52B142929003FDC31 /* StudentManageAppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentManageAppointmentViewController.swift; sourceTree = "<group>"; };
+		5C8B2EA72B1A9F5C003FDC31 /* StudentMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentMessagesViewController.swift; sourceTree = "<group>"; };
+		5C8B2EA92B1AA4B7003FDC31 /* TutorMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorMessagesViewController.swift; sourceTree = "<group>"; };
+		5C8B2EAB2B1AA4DB003FDC31 /* TutorResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorResponseViewController.swift; sourceTree = "<group>"; };
+		5C8B2EAD2B1AADD3003FDC31 /* SendMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendMessageViewController.swift; sourceTree = "<group>"; };
+		5C8B2EAF2B1BF011003FDC31 /* TutorManageAppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorManageAppointmentViewController.swift; sourceTree = "<group>"; };
 		5CAC78CB2AF598CE00E28DAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		5CD18A332B04386A008AC2C8 /* TutorResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorResponseViewController.swift; sourceTree = "<group>"; };
-		5CD18A352B0438BA008AC2C8 /* TutorMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorMessagesViewController.swift; sourceTree = "<group>"; };
 		5CD18A372B0438C6008AC2C8 /* StudentViewResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentViewResponseViewController.swift; sourceTree = "<group>"; };
-		5CD18A392B0438DF008AC2C8 /* StudentMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentMessagesViewController.swift; sourceTree = "<group>"; };
 		5CD18A3B2B0442F0008AC2C8 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		5CD18A3D2B044302008AC2C8 /* TutorAddAppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorAddAppointmentViewController.swift; sourceTree = "<group>"; };
 		5CF1A6F22B08236100B21ABE /* tutorProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tutorProfileViewController.swift; sourceTree = "<group>"; };
@@ -133,8 +135,8 @@
 				5C04DA842AEC5BF7000E2CA9 /* SceneDelegate.swift */,
 				5C04DA862AEC5BF7000E2CA9 /* ViewController.swift */,
 				5C04DA882AEC5BF7000E2CA9 /* Main.storyboard */,
+				5C42D3C62B1C03A000D9E903 /* TutorViewAppointViewController.swift */,
 				5CF1A6F22B08236100B21ABE /* tutorProfileViewController.swift */,
-				5C573D352B01ECBF009A2A26 /* TutorViewAppointViewController.swift */,
 				5C573D2A2B018A61009A2A26 /* StudentTutorViewController.swift */,
 				5C573D392B034212009A2A26 /* StudentLoginViewController.swift */,
 				5C8B2EA12B1423A3003FDC31 /* FirebaseFile.swift */,
@@ -143,11 +145,12 @@
 				5C04DA8D2AEC5BF8000E2CA9 /* LaunchScreen.storyboard */,
 				5C755E022AFC95420042A904 /* CalendarCell.swift */,
 				5C8B2EA32B1423BA003FDC31 /* HomeSceneViewController.swift */,
+				5C8B2EAF2B1BF011003FDC31 /* TutorManageAppointmentViewController.swift */,
 				5C755E002AFC953B0042A904 /* CalendarFunc.swift */,
-				5C573D412B034272009A2A26 /* SendMessageViewController.swift */,
-				5CD18A352B0438BA008AC2C8 /* TutorMessagesViewController.swift */,
-				5CD18A332B04386A008AC2C8 /* TutorResponseViewController.swift */,
-				5CD18A392B0438DF008AC2C8 /* StudentMessagesViewController.swift */,
+				5C8B2EA72B1A9F5C003FDC31 /* StudentMessagesViewController.swift */,
+				5C8B2EAD2B1AADD3003FDC31 /* SendMessageViewController.swift */,
+				5C8B2EA92B1AA4B7003FDC31 /* TutorMessagesViewController.swift */,
+				5C8B2EAB2B1AA4DB003FDC31 /* TutorResponseViewController.swift */,
 				5C755DFA2AFB293E0042A904 /* StudentSignUpViewController.swift */,
 				5C573D262B00694E009A2A26 /* StudentMakeAppointmentViewController.swift */,
 				5CD18A372B0438C6008AC2C8 /* StudentViewResponseViewController.swift */,
@@ -253,29 +256,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C8B2EAC2B1AA4DB003FDC31 /* TutorResponseViewController.swift in Sources */,
 				5C573D252B0068D5009A2A26 /* StudentMakeAppointmentDetailViewController.swift in Sources */,
 				5CD18A3C2B0442F0008AC2C8 /* ForgotPasswordViewController.swift in Sources */,
-				5C573D362B01ECBF009A2A26 /* TutorViewAppointViewController.swift in Sources */,
 				5C573D3A2B034212009A2A26 /* StudentLoginViewController.swift in Sources */,
+				5C8B2EA82B1A9F5C003FDC31 /* StudentMessagesViewController.swift in Sources */,
 				5CD18A382B0438C6008AC2C8 /* StudentViewResponseViewController.swift in Sources */,
 				5C8B2EA62B142929003FDC31 /* StudentManageAppointmentViewController.swift in Sources */,
 				5C8B2EA42B1423BA003FDC31 /* HomeSceneViewController.swift in Sources */,
-				5CD18A342B04386A008AC2C8 /* TutorResponseViewController.swift in Sources */,
 				5C755E012AFC953B0042A904 /* CalendarFunc.swift in Sources */,
 				5C755DFB2AFB293E0042A904 /* StudentSignUpViewController.swift in Sources */,
-				5CD18A3A2B0438DF008AC2C8 /* StudentMessagesViewController.swift in Sources */,
+				5C8B2EAA2B1AA4B7003FDC31 /* TutorMessagesViewController.swift in Sources */,
+				5C8B2EB02B1BF011003FDC31 /* TutorManageAppointmentViewController.swift in Sources */,
 				5C04DA872AEC5BF7000E2CA9 /* ViewController.swift in Sources */,
-				5CD18A362B0438BA008AC2C8 /* TutorMessagesViewController.swift in Sources */,
 				5C573D272B00694E009A2A26 /* StudentMakeAppointmentViewController.swift in Sources */,
 				5C8B2EA22B1423A3003FDC31 /* FirebaseFile.swift in Sources */,
 				5C04DA832AEC5BF7000E2CA9 /* AppDelegate.swift in Sources */,
+				5C8B2EAE2B1AADD3003FDC31 /* SendMessageViewController.swift in Sources */,
 				5CD18A3E2B044302008AC2C8 /* TutorAddAppointmentViewController.swift in Sources */,
 				5C573D2F2B01C6A6009A2A26 /* StudentTutorInfoPageViewController.swift in Sources */,
 				5CF1A6F32B08236100B21ABE /* tutorProfileViewController.swift in Sources */,
 				5C04DA852AEC5BF7000E2CA9 /* SceneDelegate.swift in Sources */,
 				5C755E032AFC95420042A904 /* CalendarCell.swift in Sources */,
 				5C573D2B2B018A61009A2A26 /* StudentTutorViewController.swift in Sources */,
-				5C573D422B034272009A2A26 /* SendMessageViewController.swift in Sources */,
+				5C42D3C72B1C03A000D9E903 /* TutorViewAppointViewController.swift in Sources */,
 				5C573D3C2B034239009A2A26 /* TutorLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

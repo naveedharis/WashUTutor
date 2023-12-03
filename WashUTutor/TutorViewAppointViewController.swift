@@ -14,6 +14,7 @@ class TutorViewAppointViewController: UIViewController {
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var student: UILabel!
+    @IBOutlet weak var question: UILabel!
     @IBOutlet weak var questions: UITextView!
     
     var courseNumberString: String?
@@ -29,7 +30,7 @@ class TutorViewAppointViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         
         courseNumber.text = courseNumberString
         date.text = dateString

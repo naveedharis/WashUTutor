@@ -457,7 +457,7 @@ func getAllTutorAppointments(tutorID: String, completion: @escaping ([TutorAppoi
                         endTime: data["endTime"] as? String ?? "",
                         annoucement: data["annoucement"] as? String ?? "",
                         appointmentID: data["appointmentID"] as? String ?? "",
-                        classNumber: data["classNumber"] as? String ?? "",
+                        classNumber: data["subject"] as? String ?? "",
                         status: data["status"] as? String ?? ""
                         
                         // Initialize other fields as necessary
