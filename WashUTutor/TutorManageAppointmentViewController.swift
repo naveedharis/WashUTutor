@@ -42,6 +42,21 @@ class TutorManageAppointmentViewController: UIViewController, UICollectionViewDe
         tutorsAppointmentTable.delegate = self
         setCellsView()
         setWeekView()
+//        getAllTutorAppointments(tutorID: tutorID) { appointments, error in
+//            DispatchQueue.main.async() {
+//                    if let error = error {
+//                        print("Error fetching tutor appointments:", error)
+//                    } else if let appointments = appointments {
+//                        print("Fetched appointments: \(appointments)")
+//                        self.appointmentData = appointments
+//                        self.fetchAppointmentsForWeek()
+//                        self.tutorsAppointmentTable.reloadData()
+//                    }
+//                }
+//            }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         getAllTutorAppointments(tutorID: tutorID) { appointments, error in
             DispatchQueue.main.async() {
                     if let error = error {
@@ -55,7 +70,6 @@ class TutorManageAppointmentViewController: UIViewController, UICollectionViewDe
                 }
             }
     }
-    
     
     func getAppointmentsForSelectedDate() -> [TutorAppointment] {
           let dateFormatter = DateFormatter()
