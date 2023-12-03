@@ -56,6 +56,30 @@ func createAppointment(appointmentID: String, date: String, startTime: String, e
             print("Document added with ID: ")
         }
     }
+    
+    db.collection("tutorAppointments").whereField("appointmentID", isEqualTo: appointmentID).getDocuments { (querySnapshot, err) in
+        if let err = err {
+            print("Error getting documents: \(err)")
+        } else if let querySnapshot = querySnapshot, !querySnapshot.isEmpty {
+            for document in querySnapshot.documents {
+                let documentID = document.documentID
+                
+                let documentReference = db.collection("tutorAppointments").document(documentID)
+                
+                documentReference.updateData([
+                    "status":"Booked"
+                ]) { err in
+                    if let err = err {
+                        print("Error updating document: \(err)")
+                    } else {
+                        print("Document successfully updated")
+                    }
+                }
+            }
+        } else {
+            print("No documents found with that appointmentID")
+        }
+    }
 }
 
 

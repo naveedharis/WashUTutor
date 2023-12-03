@@ -41,7 +41,7 @@
                         <color key="selectedImageTintColor" red="0.54906332489999998" green="0.090113423760000005" blue="0.15296924109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="czc-y8-Ymc" kind="relationship" relationship="viewControllers" id="T5k-F4-OnA"/>
+                        <segue destination="S0I-hU-eB4" kind="relationship" relationship="viewControllers" id="T5k-F4-OnA"/>
                         <segue destination="hc1-Kw-Ohi" kind="relationship" relationship="viewControllers" id="74G-en-TwP"/>
                         <segue destination="l8O-Sy-C7V" kind="relationship" relationship="viewControllers" id="Hkn-0a-SaA"/>
                         <segue destination="ttn-ER-boQ" kind="relationship" relationship="viewControllers" id="7vj-qE-5Zu"/>
@@ -620,10 +620,10 @@
             </objects>
             <point key="canvasLocation" x="3323" y="499"/>
         </scene>
-        <!--Home-->
+        <!--Student Make Appointment View Controller-->
         <scene sceneID="GpO-RY-UKS">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="czc-y8-Ymc" customClass="StudentMakeAppointmentViewController" customModule="WashUTutor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="studentMakeApp" modalPresentationStyle="fullScreen" id="czc-y8-Ymc" customClass="StudentMakeAppointmentViewController" customModule="WashUTutor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jvB-LK-Sdx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -799,9 +799,7 @@
                         <viewLayoutGuide key="safeArea" id="fSC-1E-sxS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="13V-oV-fO1">
-                        <color key="badgeColor" red="0.54906332489999998" green="0.090113423760000005" blue="0.15296924109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="Fv1-Xp-3wV"/>
                     <connections>
                         <outlet property="availableAppointmentTable" destination="MRD-Oh-FUa" id="rad-zB-D3s"/>
                         <outlet property="classPicker" destination="xBC-Gx-Ool" id="mYp-eX-6KG"/>
@@ -811,7 +809,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmv-Qy-kqK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5645" y="-1206"/>
+            <point key="canvasLocation" x="6570.2290076335876" y="-1206.3380281690143"/>
         </scene>
         <!--Make Appointment Detail-->
         <scene sceneID="2W7-Ke-x9k">
@@ -971,7 +969,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qi-lY-Yrt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6452.6717557251905" y="-1206.3380281690143"/>
+            <point key="canvasLocation" x="7379.3893129770986" y="-1206.3380281690143"/>
         </scene>
         <!--Student Tutor Info Page View Controller-->
         <scene sceneID="B0e-W2-7h5">
@@ -1437,7 +1435,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jcs-fG-95F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7219" y="-639"/>
+            <point key="canvasLocation" x="8144.2748091603053" y="-639.43661971830988"/>
         </scene>
         <!--Set Up-->
         <scene sceneID="ZsM-kO-cpj">
@@ -2326,6 +2324,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOO-zy-kHo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3998" y="1295"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="wFj-f4-hd4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="S0I-hU-eB4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="13V-oV-fO1">
+                        <color key="badgeColor" red="0.54906332489999998" green="0.090113423760000005" blue="0.15296924109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iHW-OI-WM0">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="czc-y8-Ymc" kind="relationship" relationship="rootViewController" id="bjy-9X-7w4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AHw-jK-1Ie" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5643.5114503816794" y="-1206.3380281690143"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -46,8 +46,13 @@ class StudentMakeAppointmentDetailViewController: UIViewController {
                               subject: subject,
                               caption: tipsLabel.text ?? "No tips")
             
+            let studentMakeApp = storyboard!.instantiateViewController(withIdentifier: "studentMakeApp") as! StudentMakeAppointmentViewController
+            
+            navigationController?.pushViewController(studentMakeApp, animated: true)
+            
             presentAlert(title: "Appointment created", message: "Appointment has been created.")
         }
+        
     }
     
     private func presentAlert(title: String, message: String) {
@@ -61,14 +66,14 @@ class StudentMakeAppointmentDetailViewController: UIViewController {
         if let appointment = appointmentData {
             appointmentTime.text = "\(appointment["startTime"] as? String ?? "") - \(appointment["endTime"] as? String ?? "")"
             appointmentTutorID.text = appointment["tutorID"] as? String
-            appointmentLocation.text = appointment["Location"] as? String
+            appointmentLocation.text = appointment["location"] as? String
             appointmentAnnouncement.text = appointment["annoucement"] as? String
             tipsLabel.text = "What would you like to work on? Please be specific, so your tutor can prepare! \nEx: Which section of the textbook or what topics?"
             
             // Format and display the date
-            if let dateString = appointment["Date"] as? String {
+            if let dateString = appointment["date"] as? String {
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "MM/dd/yyyy"
+                dateFormatter.dateFormat = "yyyy-MM-dd"
                 
                 if let date = dateFormatter.date(from: dateString) {
                     dateFormatter.dateFormat = "EEE MMM d, yyyy"

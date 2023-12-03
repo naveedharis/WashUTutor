@@ -48,14 +48,6 @@ class StudentMakeAppointmentViewController: UIViewController, UICollectionViewDe
         availableAppointmentTable.delegate = self
         setCellsView()
         setWeekView()
-        getAllAvailableAppointments { result in
-            switch result {
-            case .success(let appointments):
-                self.appointmentData = appointments
-            case .failure(let error):
-                print("Error fetching appointments:", error)
-            }
-        }
         
         getAllClasses { result in
             switch result {
@@ -70,14 +62,21 @@ class StudentMakeAppointmentViewController: UIViewController, UICollectionViewDe
                 print("Error fetching classes: \(error.localizedDescription)")
             }
         }
-        self.availableAppointmentTable.reloadData()
         self.classPicker.reloadAllComponents()
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        availableAppointmentTable.reloadData()
+        getAllAvailableAppointments { result in
+            switch result {
+            case .success(let appointments):
+                self.appointmentData = appointments
+                self.availableAppointmentTable.reloadData()
+            case .failure(let error):
+                print("Error fetching appointments:", error)
+            }
+        }
     }
     
     

@@ -45,6 +45,7 @@ class StudentManageAppointmentViewController: UIViewController, UITableViewDeleg
                     print("Fetched Appointments: \(bookedAppointments)")
                     self?.bookedAppointmentData = bookedAppointments
                     self?.filterAppointmentsForSelectedWeek()
+                    self?.bookedAppointmentTable.reloadData()
                 case .failure(let error):
                     print("Error fetching student appointments:", error)
                 }
@@ -55,7 +56,7 @@ class StudentManageAppointmentViewController: UIViewController, UITableViewDeleg
     func filterAppointmentsForSelectedWeek() {
         let endOfWeek = Calendar.current.date(byAdding: .day, value: 6, to: selectedWeekStart)!
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
 
 //        print("Selected Week Start: \(dateFormatter.string(from: selectedWeekStart))")
 //        print("End of Week: \(dateFormatter.string(from: endOfWeek))")
