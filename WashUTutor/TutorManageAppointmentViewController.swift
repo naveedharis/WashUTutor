@@ -5,6 +5,25 @@ import SwiftUI
 class TutorManageAppointmentViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource
 {
     
+    
+    @IBAction func logOut(_ sender: Any) {
+        //_ = navigationController?.popToRootViewController(animated: true)
+        let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let initialViewController = storyboard.instantiateInitialViewController(),
+           let window = scene?.windows.first {
+            let transition = CATransition()
+            transition.duration = 0.10
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromRight
+            window.layer.add(transition, forKey: kCATransition)
+
+            window.rootViewController = initialViewController
+            window.makeKeyAndVisible()
+        }
+    }
+    @AppStorage("tutorID") var tutorID = ""
+
     @IBOutlet weak var weekLabel: UILabel!
     @IBOutlet weak var weekCollectionView: UICollectionView!
     
@@ -23,24 +42,20 @@ class TutorManageAppointmentViewController: UIViewController, UICollectionViewDe
         tutorsAppointmentTable.delegate = self
         setCellsView()
         setWeekView()
-        @AppStorage("tutorID") var tutorID = ""
         getAllTutorAppointments(tutorID: tutorID) { appointments, error in
-            DispatchQueue.main.async {
-                if let error = error {
-                    print("Error fetching tutor appointments:", error)
-                } else if let appointments = appointments {
-                    print("Fetched appointments: \(appointments)")
-                    self.appointmentData = appointments
-                    self.fetchAppointmentsForWeek()
+            DispatchQueue.main.async() {
+                    if let error = error {
+                        print("Error fetching tutor appointments:", error)
+                    } else if let appointments = appointments {
+                        print("Fetched appointments: \(appointments)")
+                        self.appointmentData = appointments
+                        self.fetchAppointmentsForWeek()
+                        self.tutorsAppointmentTable.reloadData()
+                    }
                 }
             }
-        }
-        }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tutorsAppointmentTable.reloadData()
     }
+    
     
     func getAppointmentsForSelectedDate() -> [TutorAppointment] {
           let dateFormatter = DateFormatter()

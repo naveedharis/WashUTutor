@@ -3,6 +3,8 @@
 import UIKit
 
 class StudentManageAppointmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
 
     @IBOutlet weak var weekLabel: UILabel!
     @IBOutlet var bookedAppointmentTable: UITableView!

@@ -14,6 +14,12 @@ class StudentSignUpViewController: UIViewController {
     @IBOutlet weak var emailTextBox: UITextField!
     @IBOutlet weak var passwordTextBox: UITextField!
     
+    
+    @IBAction func goBack(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

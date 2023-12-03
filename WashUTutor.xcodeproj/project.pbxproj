@@ -14,6 +14,8 @@
 		5C04DA8C2AEC5BF8000E2CA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C04DA8B2AEC5BF8000E2CA9 /* Assets.xcassets */; };
 		5C04DA8F2AEC5BF8000E2CA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C04DA8D2AEC5BF8000E2CA9 /* LaunchScreen.storyboard */; };
 		5C42D3C72B1C03A000D9E903 /* TutorViewAppointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C42D3C62B1C03A000D9E903 /* TutorViewAppointViewController.swift */; };
+		5C42D3C92B1C4F5F00D9E903 /* StudentEditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C42D3C82B1C4F5F00D9E903 /* StudentEditProfileViewController.swift */; };
+		5C42D3CB2B1C4F6500D9E903 /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C42D3CA2B1C4F6500D9E903 /* StudentProfileViewController.swift */; };
 		5C573D252B0068D5009A2A26 /* StudentMakeAppointmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D242B0068D5009A2A26 /* StudentMakeAppointmentDetailViewController.swift */; };
 		5C573D272B00694E009A2A26 /* StudentMakeAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D262B00694E009A2A26 /* StudentMakeAppointmentViewController.swift */; };
 		5C573D2B2B018A61009A2A26 /* StudentTutorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C573D2A2B018A61009A2A26 /* StudentTutorViewController.swift */; };
@@ -62,6 +64,8 @@
 		5C04DA8E2AEC5BF8000E2CA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C04DA902AEC5BF8000E2CA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C42D3C62B1C03A000D9E903 /* TutorViewAppointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorViewAppointViewController.swift; sourceTree = "<group>"; };
+		5C42D3C82B1C4F5F00D9E903 /* StudentEditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentEditProfileViewController.swift; sourceTree = "<group>"; };
+		5C42D3CA2B1C4F6500D9E903 /* StudentProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileViewController.swift; sourceTree = "<group>"; };
 		5C573D242B0068D5009A2A26 /* StudentMakeAppointmentDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentMakeAppointmentDetailViewController.swift; sourceTree = "<group>"; };
 		5C573D262B00694E009A2A26 /* StudentMakeAppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentMakeAppointmentViewController.swift; sourceTree = "<group>"; };
 		5C573D2A2B018A61009A2A26 /* StudentTutorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTutorViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 				5C755DFA2AFB293E0042A904 /* StudentSignUpViewController.swift */,
 				5C573D262B00694E009A2A26 /* StudentMakeAppointmentViewController.swift */,
 				5CD18A372B0438C6008AC2C8 /* StudentViewResponseViewController.swift */,
+				5C42D3C82B1C4F5F00D9E903 /* StudentEditProfileViewController.swift */,
+				5C42D3CA2B1C4F6500D9E903 /* StudentProfileViewController.swift */,
 				5C8B2EA52B142929003FDC31 /* StudentManageAppointmentViewController.swift */,
 				5C573D242B0068D5009A2A26 /* StudentMakeAppointmentDetailViewController.swift */,
 				5CD18A3D2B044302008AC2C8 /* TutorAddAppointmentViewController.swift */,
@@ -280,6 +286,8 @@
 				5C755E032AFC95420042A904 /* CalendarCell.swift in Sources */,
 				5C573D2B2B018A61009A2A26 /* StudentTutorViewController.swift in Sources */,
 				5C42D3C72B1C03A000D9E903 /* TutorViewAppointViewController.swift in Sources */,
+				5C42D3CB2B1C4F6500D9E903 /* StudentProfileViewController.swift in Sources */,
+				5C42D3C92B1C4F5F00D9E903 /* StudentEditProfileViewController.swift in Sources */,
 				5C573D3C2B034239009A2A26 /* TutorLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

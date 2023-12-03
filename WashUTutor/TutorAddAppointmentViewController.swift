@@ -8,7 +8,8 @@
 import UIKit
 import SwiftUI
 
-class TutorAddAppointmentViewController: UIViewController {
+class TutorAddAppointmentViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+
     
     @AppStorage("tutorID") var tutorID = ""
 
@@ -17,27 +18,36 @@ class TutorAddAppointmentViewController: UIViewController {
     let startTimeFormatter = DateFormatter()
     
     let endTimeFormatter = DateFormatter()
-
-    
+    var classCode: String = ""
+    var allClasses: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        classPicker.dataSource = self
+        classPicker.delegate = self
         startTimeFormatter.timeStyle = .short
         endTimeFormatter.timeStyle = .short
-       
+        
+        getAllClasses { result in
+            switch result {
+            case .success(let classDataArray):
+                // Use the fetched class data
+                DispatchQueue.main.async {
+                    self.allClasses = classDataArray.sorted() {$0 < $1}
+                    self.classPicker.reloadAllComponents()
+                }
+            case .failure(let error):
+                // Handle the error
+                print("Error fetching classes: \(error.localizedDescription)")
+            }
+        }
+        self.classPicker.reloadAllComponents()
     }
     
     @IBOutlet weak var classPicker: UIPickerView!
     @IBOutlet weak var TutorDate: UIDatePicker!
-    
     @IBOutlet weak var TutorStartTime: UIDatePicker!
-    
-    
     @IBOutlet weak var TutorEndTime: UIDatePicker!
-    
-    
     @IBOutlet weak var TutorLocation: UITextField!
-    
-    
     @IBOutlet weak var tutorAnnouncement: UITextField!
     
     @IBAction func tutorAddApp(_ sender: Any) {
@@ -58,13 +68,24 @@ class TutorAddAppointmentViewController: UIViewController {
         print(endTimeString)
         print(TutorDate.date)
         print(Date.now)
-    
+        
+        print(classCode)
         if dateString >= currentDate {
             print("TutorDate is after the current date")
             let difference = TutorEndTime.date.timeIntervalSince(TutorStartTime.date)/3600
             if difference <= 1 && difference > 0 {
                 print("1 hour or less")
-                tutorAddAppointment(tutorUserID: tutorID, date: dateString, startTime: startTimeString, announcement: tutorAnnouncement.text ?? "", endTime: endTimeString, location: TutorLocation.text ?? "", subject: "CSE 438")
+                tutorAddAppointment(tutorUserID: tutorID, date: dateString, startTime: startTimeString, announcement: tutorAnnouncement.text ?? "", endTime: endTimeString, location: TutorLocation.text ?? "", subject: classCode)
+                
+                let targetTabIndex = 0
+                tabBarController?.selectedIndex = targetTabIndex
+                
+                let tutorCalVC = storyboard!.instantiateViewController(withIdentifier: "HomeSceneViewController") as! TutorManageAppointmentViewController
+                if let navigationController = tabBarController?.viewControllers?[targetTabIndex] as? UINavigationController {
+                            navigationController.pushViewController(tutorCalVC, animated: true)
+                }
+                
+                //navigationController?.pushViewController(tutorCalVC, animated: true)
                 presentAlert(title: "Appointment Added", message: "Appointment has been created")
             }
             else{
@@ -83,6 +104,19 @@ class TutorAddAppointmentViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
         }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return allClasses.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        classCode = allClasses[row]
+        return allClasses[row]
+    }
     
     /*
     // MARK: - Navigation

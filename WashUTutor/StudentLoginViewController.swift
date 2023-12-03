@@ -8,7 +8,12 @@
 import UIKit
 
 class StudentLoginViewController: UIViewController {
-
+    
+    
+    @IBAction func goBack(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
     @IBOutlet weak var userEmailTextBox: UITextField!
     
     @IBOutlet weak var passwordTextBox: UITextField!
@@ -40,8 +45,8 @@ class StudentLoginViewController: UIViewController {
                     case .success(_):
                         print("Login Successful")
                         getStudentDataTutor() { data in
-                            if let data = data {
-                                print("Student: \(currentStudent)")
+                            if data != nil {
+                                print("Student: \(String(describing: currentStudent))")
                             }
                             else {
                                 print("Error student")

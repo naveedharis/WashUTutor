@@ -2,6 +2,12 @@ import UIKit
 
 class StudentMakeAppointmentDetailViewController: UIViewController {
     
+    
+    
+    @IBAction func goBack(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
     @IBOutlet var appointmentDate: UILabel!
     @IBOutlet var appointmentTime: UILabel!
     @IBOutlet var appointmentTutorID: UILabel!

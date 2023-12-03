@@ -8,6 +8,24 @@ class StudentMakeAppointmentViewController: UIViewController, UICollectionViewDe
     @IBOutlet weak var weekCollectionView: UICollectionView!
     
     
+    @IBAction func logOut(_ sender: Any) {
+//        _ = navigationController?.popToRootViewController(animated: true)
+        let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let initialViewController = storyboard.instantiateInitialViewController(),
+           let window = scene?.windows.first {
+            let transition = CATransition()
+            transition.duration = 0.10
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromRight
+            window.layer.add(transition, forKey: kCATransition)
+
+            window.rootViewController = initialViewController
+            window.makeKeyAndVisible()
+        }
+    }
+    
+    
     
     @IBOutlet var availableAppointmentTable: UITableView!
     

@@ -13,6 +13,12 @@ class TutorResponseViewController: UIViewController {
     var tutorResponse:String!
     var markAsAnswered: UITextField!
     
+    
+    @IBAction func goBack(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    
     @IBOutlet weak var questionBox: UITextView!
     
     @IBOutlet weak var responseBox: UITextView!

@@ -15,6 +15,12 @@ class ForgotPasswordViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func goBack(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    
+    
     @IBAction func forgotPassword(_ sender: Any) {
         if let url = URL(string: "https://connect.wustl.edu/login/WUForgotPWD.aspx") {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)

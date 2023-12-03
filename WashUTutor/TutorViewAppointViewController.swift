@@ -8,6 +8,12 @@
 import UIKit
 
 class TutorViewAppointViewController: UIViewController {
+    
+    
+    @IBAction func goBack(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
 
     @IBOutlet weak var courseNumber: UILabel!
     @IBOutlet weak var date: UILabel!
@@ -39,12 +45,18 @@ class TutorViewAppointViewController: UIViewController {
         questions.text = questionsString
         print("Student\(studentString ?? "")")
         student.text = studentString
-        
+        //print(appointmentID)
 
         // Do any additional setup after loading the view.
     }
     @IBAction func cancelAppointment(_ sender: Any) {
+        //print(appointmentID)
         deleteStudentAppointments(appointmentID: appointmentID ?? "")
+    
+        let tutorCal = storyboard!.instantiateViewController(withIdentifier: "HomeSceneViewController") as! TutorManageAppointmentViewController
+        
+        navigationController?.pushViewController(tutorCal, animated: true)
+        
         presentAlert(title: "Appointment canceled", message: "Appointment has been canceled.")
     }
     private func presentAlert(title: String, message: String) {

@@ -10,6 +10,11 @@ import Cosmos
 
 class StudentTutorInfoPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
+    @IBAction func goBack(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
     @IBOutlet weak var tutorName: UILabel!
     @IBOutlet weak var tutorClassTableView: UITableView!
     @IBOutlet weak var tutorYear: UILabel!

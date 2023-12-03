@@ -9,8 +9,17 @@ import UIKit
 import SwiftUI
 
 class TutorLoginViewController: UIViewController {
+    
+    
+    @IBAction func goBack(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
 
     @AppStorage("tutorID") var tutorID = ""
+    @AppStorage("tutorEmail") var tutorEmail = ""
+    @AppStorage("tutorName") var tutorName = ""
+    @AppStorage("tutorYear") var tutorYear = ""
     //@AppStorage("tutorData") var tutorDateAgain[Tutor]
     @IBOutlet weak var emailTextBox: UITextField!
     
@@ -46,6 +55,9 @@ class TutorLoginViewController: UIViewController {
                     if tutorData != nil {
                         guard let viewController = self?.storyboard?.instantiateViewController(withIdentifier: "tutorTab") else { return }
                         self?.navigationController?.pushViewController(viewController, animated: true)
+                        self?.tutorName = tutorData?.name ?? "John"
+                        self?.tutorYear = tutorData?.year ?? ""
+                        self?.tutorEmail = email
                         self?.tutorID = password
                     } else {
                         // Handle the case where no tutor data was found

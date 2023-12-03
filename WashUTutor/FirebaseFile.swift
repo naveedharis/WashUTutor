@@ -21,6 +21,17 @@ struct Student {
     var name: String
     var userID: String
     var messages: [String: [String:String]]
+    var courses: [String]
+    var biography: String
+}
+
+struct Tutor {
+    var tutorID: String
+    var name: String
+    var email: String
+    var year: String
+    var classNumber: [String]
+    var messages: [String: [String: String]]
 }
 
 
@@ -181,34 +192,68 @@ func resendVerificationEmail(user: User) {
 
 
 
-
-func getTutorData(email: String, code: String, completion: @escaping ([String: Any]?) -> Void) {
+func getTutorData(email: String, code: String, completion: @escaping (Tutor?) -> Void) {
     let collectionRef = db.collection("tutors")
-    
-    collectionRef.whereField("tutorID", isEqualTo: code).getDocuments { (querySnapshot, error) in
+
+    collectionRef.whereField("tutorID", isEqualTo: code)
+                 .whereField("email", isEqualTo: email)
+                 .getDocuments { (querySnapshot, error) in
         if let error = error {
             print("Error getting documents: \(error)")
             completion(nil)
         } else {
-            var tutorData: [String: Any]?
             for document in querySnapshot!.documents {
-                tutorData = document.data()
-                let id = tutorData!["tutorID"] as? String ?? ""
-                let name = tutorData!["name"] as? String ?? ""
-                let email = tutorData!["email"] as? String ?? ""
-                let year = tutorData!["year"] as? String ?? ""
-                let classNumber = tutorData!["classNumber"] as? [String] ?? []
-                let messages = tutorData!["messages"] as? [String:[String:String]] ?? [:]
-                        currentTutor = Tutor(tutorID: id, name: name, email: email, year: year, classNumber: classNumber, messages: messages)
-                        
-                        // Assuming you only want the first matching document
-                        break
-                    }
-                    completion(tutorData)
-                }
-              
+                let data = document.data()
+                
+                let id = data["tutorID"] as? String ?? ""
+                let name = data["name"] as? String ?? ""
+                let email = data["email"] as? String ?? ""
+                let year = data["year"] as? String ?? ""
+                let classNumber = data["classNumber"] as? [String] ?? []
+                let messages = data["messages"] as? [String: [String: String]] ?? [:]
+
+                currentTutor = Tutor(tutorID: id, name: name, email: email, year: year, classNumber: classNumber, messages: messages)
+
+                // Assuming you only want the first matching document
+                completion(currentTutor)
+                return
+            }
+
+            // Handle case where no documents match
+            completion(nil)
+        }
     }
 }
+
+
+
+//func getTutorData(email: String, code: String, completion: @escaping ([String: Any]?) -> Void) {
+//    let collectionRef = db.collection("tutors")
+//
+//    collectionRef.whereField("email",isEqualTo: email).whereField("tutorID", isEqualTo: code).getDocuments { (querySnapshot, error) in
+//        if let error = error {
+//            print("Error getting documents: \(error)")
+//            completion(nil)
+//        } else {
+//            var tutorData: [String: Any]?
+//            for document in querySnapshot!.documents {
+//                tutorData = document.data()
+//                let id = tutorData!["tutorID"] as? String ?? ""
+//                let name = tutorData!["name"] as? String ?? ""
+//                let email = tutorData!["email"] as? String ?? ""
+//                let year = tutorData!["year"] as? String ?? ""
+//                let classNumber = tutorData!["classNumber"] as? [String] ?? []
+//                let messages = tutorData!["messages"] as? [String:[String:String]] ?? [:]
+//                currentTutor = Tutor(tutorID: id, name: name, email: email, year: year, classNumber: classNumber, messages: messages)
+//
+//                        // Assuming you only want the first matching document
+//                break
+//                }
+//                completion(tutorData)
+//            }
+//
+//    }
+//}
 
 
 func getStudentDataTutor(completion: @escaping ([String: Any]?) -> Void){
@@ -232,8 +277,10 @@ func getStudentDataTutor(completion: @escaping ([String: Any]?) -> Void){
                     let name = data!["name"] as? String ?? ""
                     let id = data!["userID"] as? String ?? ""
                     let messages = data!["messages"] as? [String:[String:String]] ?? [:]
-                    currentStudent = Student(email: email, name: name, userID: id, messages: messages)
-                    print("CURRENT STUDENT \(currentStudent)")
+                    let courses = data!["courses"] as? [String] ?? []
+                    let biography = data!["biography"] as? String ?? ""
+                    currentStudent = Student(email: email, name: name, userID: id, messages: messages, courses: courses, biography: biography)
+                    //print("CURRENT STUDENT \(currentStudent)")
                     // Assuming you only want the first match
                     // Add a return statement
                     break
@@ -245,7 +292,33 @@ func getStudentDataTutor(completion: @escaping ([String: Any]?) -> Void){
     }
 }
 
+func updateStudentProfile(userId: String, enrolled: [String], bio: String) {
+    
+    let studentRef = db.collection("students")
+    let studentID = studentRef.whereField("userID", isEqualTo: userId)
+    
+    studentID.getDocuments { (querySnapshot, error) in
+        if let error = error {
+            print("Error getting documents: \(error.localizedDescription)")
+            return
+        }
 
+        for document in querySnapshot!.documents {
+            let docRef = studentRef.document(document.documentID)
+
+            docRef.updateData([
+                "courses": enrolled,
+                "biography": bio
+            ]) { error in
+                if let error = error {
+                    print("Error updating documents: \(error.localizedDescription)")
+                    return
+                }
+            }
+    
+        }
+    }
+}
 
 
 func getStudentData(){
@@ -315,7 +388,7 @@ func getStudentAppointments(completion: @escaping (Result<[Any], Error>) -> Void
 
 func deleteStudentAppointments(appointmentID: String){
     let collectionRef = db.collection("studentAppointments")
-    let tutorCollectionRef = db.collection("tutorsAppointment")
+    let tutorCollectionRef = db.collection("tutorAppointments")
     
     if let user = Auth.auth().currentUser {
         let uid = user.uid
@@ -385,15 +458,7 @@ func getAllClasses(completion: @escaping (Result<[String], Error>) -> Void) {
     }
 }
 
-struct Tutor {
-    var tutorID: String
-    var name: String
-    var email: String
-    var year: String
-    var classNumber: [String]
-    var messages: [String: [String: String]]
-    // Add other properties as needed
-}
+
 
 
 func AllTutorData(completion: @escaping ([Tutor]?, Error?) -> Void) {
@@ -559,6 +624,34 @@ func addReview(review: String, ratings: String, tutorID: String) {
         }
     }
 }
+
+func getReviews(tutorID: String, completion: @escaping ([Review]) -> Void) {
+    let collectionRef = db.collection("reviews")
+
+    collectionRef.whereField("tutorID", isEqualTo: tutorID).getDocuments { (querySnapshot, error) in
+        if let error = error {
+            print("Error getting reviews: \(error)")
+            completion([])  // Return an empty array in case of an error
+        } else {
+            var reviews: [Review] = []
+
+            for document in querySnapshot!.documents {
+                let data = document.data()
+                
+                let reviewID = data["reviewID"] as? String ?? ""
+                let review = data["review"] as? String ?? ""
+                let ratings = data["ratings"] as? String ?? ""
+                let tutorID = data["tutorID"] as? String ?? ""
+
+                let reviewObject = Review(reviewID: reviewID, review: review, ratings: ratings, tutorID: tutorID)
+                reviews.append(reviewObject)
+            }
+
+            completion(reviews)
+        }
+    }
+}
+
 
 func addMessageForTutor(tutor:Tutor, messages:[String:[String:String]]){
     
