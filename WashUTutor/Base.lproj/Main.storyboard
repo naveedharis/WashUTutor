@@ -1342,8 +1342,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="yMJ-SL-wPb">
-                                <rect key="frame" x="201" y="229.00000000000003" width="109" height="104.33333333333334"/>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="yMJ-SL-wPb">
+                                <rect key="frame" x="202" y="243" width="109" height="36"/>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input your availability" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJH-xu-tya">
                                 <rect key="frame" x="30" y="59" width="217" height="29"/>
@@ -1353,12 +1353,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZk-yB-rX1">
                                 <rect key="frame" x="62" y="522" width="85" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMz-F2-rNp">
-                                <rect key="frame" x="86" y="176.66666666666666" width="52" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1373,18 +1367,14 @@
                                     <action selector="tutorAppDate:" destination="CQL-F7-FKb" eventType="valueChanged" id="EJA-Oy-8eB"/>
                                 </connections>
                             </datePicker>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vco-zl-ScH">
-                                <rect key="frame" x="253" y="408.33333333333331" width="51" height="31"/>
-                                <color key="onTintColor" red="0.50196081400000003" green="0.13725490870000001" blue="0.1647058874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeat Weekly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCc-n3-WgW">
-                                <rect key="frame" x="62" y="411.66666666666669" width="131" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Class:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCc-n3-WgW">
+                                <rect key="frame" x="62" y="414" width="53" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where will you meet?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fpu-35-1h5">
-                                <rect key="frame" x="166" y="517.33333333333337" width="179" height="33.666666666666629"/>
+                                <rect key="frame" x="166" y="517" width="179" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -1403,14 +1393,14 @@
                                     <action selector="tutorAddApp:" destination="CQL-F7-FKb" eventType="touchUpInside" id="RSH-H9-2hl"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="NoP-L3-VIR">
-                                <rect key="frame" x="200" y="364.33333333333331" width="111" height="36"/>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="NoP-L3-VIR">
+                                <rect key="frame" x="202" y="304" width="111" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="PTr-hq-zUg"/>
                                 </constraints>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Time: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ny-nB-e4A">
-                                <rect key="frame" x="86" y="358" width="92" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="End Time: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ny-nB-e4A">
+                                <rect key="frame" x="62" y="316" width="92" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Lhp-E6-2kd"/>
                                 </constraints>
@@ -1418,8 +1408,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hde-RZ-DIt">
-                                <rect key="frame" x="77" y="291" width="101" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Start Time: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hde-RZ-DIt">
+                                <rect key="frame" x="62" y="249" width="101" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QaF-yZ-Wgd">
+                                <rect key="frame" x="170" y="370" width="175" height="113"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMz-F2-rNp">
+                                <rect key="frame" x="62" y="176" width="52" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1436,7 +1436,6 @@
                             <constraint firstItem="aJH-xu-tya" firstAttribute="top" secondItem="gSg-Zl-ZNl" secondAttribute="top" id="9zi-SN-5On"/>
                             <constraint firstItem="pCc-n3-WgW" firstAttribute="leading" secondItem="gSg-Zl-ZNl" secondAttribute="leading" constant="62" id="DHd-V7-1hd"/>
                             <constraint firstItem="5Ny-nB-e4A" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hde-RZ-DIt" secondAttribute="trailing" id="Eeo-do-31v"/>
-                            <constraint firstItem="vco-zl-ScH" firstAttribute="centerY" secondItem="pCc-n3-WgW" secondAttribute="centerY" id="GQF-76-dV9"/>
                             <constraint firstItem="Fpu-35-1h5" firstAttribute="centerY" secondItem="GZk-yB-rX1" secondAttribute="centerY" id="J2V-08-W2Z"/>
                             <constraint firstItem="Iv9-Zk-7ZR" firstAttribute="centerX" secondItem="NoP-L3-VIR" secondAttribute="centerX" id="LPh-TW-bcH"/>
                             <constraint firstItem="gSg-Zl-ZNl" firstAttribute="trailing" secondItem="Fpu-35-1h5" secondAttribute="trailing" constant="48" id="Lim-hH-6tP"/>
@@ -1445,9 +1444,8 @@
                             <constraint firstItem="NoP-L3-VIR" firstAttribute="leading" secondItem="yMJ-SL-wPb" secondAttribute="leading" constant="-1" id="YFG-Ff-9AE"/>
                             <constraint firstItem="GZk-yB-rX1" firstAttribute="leading" secondItem="gSg-Zl-ZNl" secondAttribute="leading" constant="62" id="Yxr-jh-7nl"/>
                             <constraint firstItem="NoP-L3-VIR" firstAttribute="top" secondItem="yMJ-SL-wPb" secondAttribute="bottom" constant="31" id="ZrV-6j-wD6"/>
-                            <constraint firstItem="Iv9-Zk-7ZR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bMz-F2-rNp" secondAttribute="trailing" symbolic="YES" id="bYj-Xk-JBn"/>
-                            <constraint firstItem="vco-zl-ScH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pCc-n3-WgW" secondAttribute="trailing" symbolic="YES" id="cqa-XR-IUz"/>
-                            <constraint firstItem="NoP-L3-VIR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5Ny-nB-e4A" secondAttribute="trailing" symbolic="YES" id="doh-1T-gQe"/>
+                            <constraint firstItem="Iv9-Zk-7ZR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bMz-F2-rNp" secondAttribute="trailing" constant="8" symbolic="YES" id="bYj-Xk-JBn"/>
+                            <constraint firstItem="NoP-L3-VIR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5Ny-nB-e4A" secondAttribute="trailing" constant="8" symbolic="YES" id="doh-1T-gQe"/>
                             <constraint firstItem="gSg-Zl-ZNl" firstAttribute="trailing" secondItem="Iv9-Zk-7ZR" secondAttribute="trailing" constant="63" id="dqg-8S-I7E"/>
                             <constraint firstAttribute="bottom" secondItem="Fpu-35-1h5" secondAttribute="bottom" constant="301" id="fT5-3J-gkb"/>
                             <constraint firstItem="5Ny-nB-e4A" firstAttribute="leading" secondItem="gSg-Zl-ZNl" secondAttribute="leading" constant="86" id="gMO-eM-arI"/>
@@ -1458,11 +1456,8 @@
                             <constraint firstItem="Iv9-Zk-7ZR" firstAttribute="centerY" secondItem="bMz-F2-rNp" secondAttribute="centerY" id="k65-hz-R9n"/>
                             <constraint firstItem="gSg-Zl-ZNl" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aJH-xu-tya" secondAttribute="trailing" symbolic="YES" id="nGg-KZ-bMa"/>
                             <constraint firstItem="Iv9-Zk-7ZR" firstAttribute="centerX" secondItem="yMJ-SL-wPb" secondAttribute="centerX" id="p6Y-2E-YH3"/>
-                            <constraint firstItem="vco-zl-ScH" firstAttribute="top" secondItem="NoP-L3-VIR" secondAttribute="bottom" constant="8" symbolic="YES" id="q2j-ZJ-L9f"/>
-                            <constraint firstItem="Fpu-35-1h5" firstAttribute="top" secondItem="vco-zl-ScH" secondAttribute="bottom" constant="78" id="qic-Hn-FO4"/>
                             <constraint firstItem="1nh-8W-K4N" firstAttribute="centerX" secondItem="bFi-Ys-nRf" secondAttribute="centerX" id="qtP-aJ-hBN"/>
                             <constraint firstItem="1nh-8W-K4N" firstAttribute="centerX" secondItem="bVY-UM-kMr" secondAttribute="centerX" id="rpf-oE-1bE"/>
-                            <constraint firstItem="gSg-Zl-ZNl" firstAttribute="trailing" secondItem="vco-zl-ScH" secondAttribute="trailing" constant="91" id="rzg-FB-ZRp"/>
                             <constraint firstItem="Iv9-Zk-7ZR" firstAttribute="top" secondItem="aJH-xu-tya" secondAttribute="bottom" constant="68" id="twj-AQ-8Rn"/>
                             <constraint firstItem="Hde-RZ-DIt" firstAttribute="leading" secondItem="gSg-Zl-ZNl" secondAttribute="leading" constant="77" id="v4u-zu-hcV"/>
                             <constraint firstItem="5Ny-nB-e4A" firstAttribute="top" secondItem="bVY-UM-kMr" secondAttribute="top" constant="358" id="v6c-9f-TZd"/>
@@ -1472,11 +1467,11 @@
                     <navigationItem key="navigationItem" id="fK9-8t-G6s"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="Repeat" destination="vco-zl-ScH" id="Fv1-tf-K86"/>
                         <outlet property="TutorDate" destination="Iv9-Zk-7ZR" id="vsj-fp-xGs"/>
                         <outlet property="TutorEndTime" destination="NoP-L3-VIR" id="bRS-90-Odf"/>
                         <outlet property="TutorLocation" destination="Fpu-35-1h5" id="enX-qj-A0E"/>
                         <outlet property="TutorStartTime" destination="yMJ-SL-wPb" id="pMU-xV-0iJ"/>
+                        <outlet property="classPicker" destination="QaF-yZ-Wgd" id="tpH-Oe-7Uh"/>
                         <outlet property="tutorAnnouncement" destination="1nh-8W-K4N" id="7YU-ER-zuv"/>
                     </connections>
                 </viewController>

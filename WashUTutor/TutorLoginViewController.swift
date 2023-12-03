@@ -11,6 +11,7 @@ import SwiftUI
 class TutorLoginViewController: UIViewController {
 
     @AppStorage("tutorID") var tutorID = ""
+    //@AppStorage("tutorData") var tutorDateAgain[Tutor]
     @IBOutlet weak var emailTextBox: UITextField!
     
     @IBOutlet weak var passwordTextBox: UITextField!

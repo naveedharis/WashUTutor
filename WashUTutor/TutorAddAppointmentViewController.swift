@@ -26,11 +26,8 @@ class TutorAddAppointmentViewController: UIViewController {
        
     }
     
-    
+    @IBOutlet weak var classPicker: UIPickerView!
     @IBOutlet weak var TutorDate: UIDatePicker!
-    
-    @IBOutlet weak var Repeat: UISwitch!
-    
     
     @IBOutlet weak var TutorStartTime: UIDatePicker!
     

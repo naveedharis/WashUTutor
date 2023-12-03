@@ -450,9 +450,9 @@ func getAllTutorAppointments(tutorID: String, completion: @escaping ([TutorAppoi
                 for document in querySnapshot!.documents {
                     let data = document.data()
                     let appointment = TutorAppointment(
-                        tutorID: data["tutorID"] as? String ?? "",
-                        Location: data["Location"] as? String ?? "",
-                        Date: data["Date"] as? String ?? "",
+                        tutorID: data["tutorUserID"] as? String ?? "",
+                        Location: data["location"] as? String ?? "",
+                        Date: data["date"] as? String ?? "",
                         startTime: data["startTime"] as? String ?? "",
                         endTime: data["endTime"] as? String ?? "",
                         annoucement: data["annoucement"] as? String ?? "",
