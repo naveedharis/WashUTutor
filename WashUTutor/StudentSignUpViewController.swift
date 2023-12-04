@@ -74,6 +74,12 @@ class StudentSignUpViewController: UIViewController, UITextFieldDelegate {
                 if emailTextBox.text!.contains("wustl.edu")  {
                     if passwordTextBox.text!.count >= 8 {
                         signUp(name: nameTextBox.text!,email: emailTextBox.text!, password: passwordTextBox.text!)
+                        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "studentLogin") else { return }
+//                            self?.present(viewController, animated: true, completion: nil)
+                        self.navigationController?.pushViewController(viewController, animated: true)
+                        
+                        createAlert(title: "Account Sign Up", message: "You have signed up.")
+                        
                         
                         print("Sign up")
                     }
