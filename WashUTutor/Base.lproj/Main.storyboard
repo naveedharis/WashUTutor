@@ -227,7 +227,6 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="17"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="forgotPassword:" destination="Fv3-3a-nZX" eventType="touchUpInside" id="i2E-EY-Vj4"/>
                                     <segue destination="Tuk-tm-e7g" kind="show" id="YD4-kh-ltY"/>
                                 </connections>
                             </button>
