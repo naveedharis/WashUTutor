@@ -33,11 +33,8 @@ class TutorMessagesViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.dataSource = self
         tableView.delegate = self
         
-        //tabBarController?.tabBar.barTintColor = UIColor(red: 128.0/255.0, green: 35.0/255.0, blue: 42.0/255.0, alpha: 1)
-//        let appearance = UITabBarAppearance()
-//        UITabBar.appearance().scrollEdgeAppearance = appearance
-//        let tabController = self.window?.rootViewController as UITabBarController
-//        tabController?.tabBar.barTintColor = UIColor(red: 128.0/255.0, green: 35.0/255.0, blue: 42.0/255.0, alpha: 1)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
         
         for(key,value) in currentTutor.messages {
             questionKeys.append(key)
@@ -101,6 +98,18 @@ class TutorMessagesViewController: UIViewController, UITableViewDelegate, UITabl
         tutorMenu.showsMenuAsPrimaryAction = true
         self.tableView.reloadData()
     }
+    
+    
+    
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+           textField.resignFirstResponder()
+           return true
+       }
+   
+    @objc func dismissKeyboard() {
+           view.endEditing(true)
+       }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count

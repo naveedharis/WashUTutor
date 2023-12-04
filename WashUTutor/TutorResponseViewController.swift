@@ -36,12 +36,14 @@ class TutorResponseViewController: UIViewController, UITextViewDelegate {
         responseBox.delegate = self
         // Do any additional setup after loading the view.
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     func textViewShouldReturn(_ textView: UITextView) -> Bool {
-               textView.resignFirstResponder()
-               return true
-           }
+           textView.resignFirstResponder()
+           return true
+       }
        
    @objc func dismissKeyboard() {
            view.endEditing(true)
