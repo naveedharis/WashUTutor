@@ -23,6 +23,9 @@ class StudentEditProfileViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var contactLabel: UILabel!
     
+    @IBAction func goBackButton(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         editBiography.delegate = self
