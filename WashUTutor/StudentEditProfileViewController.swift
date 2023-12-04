@@ -120,10 +120,11 @@ class StudentEditProfileViewController: UIViewController {
         
         currentStudent.courses = enrolled
         currentStudent.biography = editBiography.text
+        let studentProfile = storyboard!.instantiateViewController(withIdentifier: "studentProfile") as! StudentProfileViewController
         
-        let studentProfileVC = storyboard!.instantiateViewController(withIdentifier: "studentProfile") as! StudentProfileViewController
+        navigationController?.pushViewController(studentProfile, animated: true)
         
-        navigationController?.pushViewController(studentProfileVC, animated: true)
+        
     }
     
 

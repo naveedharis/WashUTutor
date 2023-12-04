@@ -2113,9 +2113,9 @@
         <!--Student Profile View Controller-->
         <scene sceneID="s6J-Rb-tXw">
             <objects>
-                <viewController id="O00-fk-m6c" customClass="StudentProfileViewController" customModule="WashUTutor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="studentProfile" id="O00-fk-m6c" customClass="StudentProfileViewController" customModule="WashUTutor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dho-EF-nnS">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9Cy-Qy-nNO">
@@ -2169,7 +2169,9 @@
                                 <rect key="frame" x="271" y="715" width="106" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Edit Profile"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Edit Profile">
+                                    <color key="baseForegroundColor" red="0.50196081400000003" green="0.13725490870000001" blue="0.1647058874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <segue destination="qeN-K4-EZj" kind="show" id="BQa-Zt-jIz"/>
                                 </connections>
@@ -2195,14 +2197,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLu-s1-GsE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8390.0763358778622" y="2079.5774647887324"/>
+            <point key="canvasLocation" x="8582" y="2080"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Gcz-jX-Qcz">
             <objects>
                 <viewController id="qeN-K4-EZj" customClass="StudentEditProfileViewController" customModule="WashUTutor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Uo-Fd-bJq">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="47s-sf-0GG">
@@ -2242,10 +2244,11 @@
                                 <rect key="frame" x="156" y="733" width="80" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Update"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Update">
+                                    <color key="baseForegroundColor" red="0.50196081400000003" green="0.13725490870000001" blue="0.1647058874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="updateProfile:" destination="qeN-K4-EZj" eventType="touchUpInside" id="wEl-Eo-BIQ"/>
-                                    <segue destination="ddw-EL-ZtM" kind="show" id="Dc6-ye-7Z7"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fhj-wH-uRV">
@@ -2283,17 +2286,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1Y-Af-gxp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10248.091603053435" y="2050.7042253521126"/>
+            <point key="canvasLocation" x="9651" y="2080"/>
         </scene>
         <!--Profile-->
         <scene sceneID="m9O-fh-F1e">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ddw-EL-ZtM" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ddw-EL-ZtM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="person.crop.circle.fill" catalog="system" selectedImage="person.crop.circle.fill" id="N62-CX-qP4"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Jhj-sH-cYJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tmd-UD-XEB">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2365,7 +2367,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Dc6-ye-7Z7"/>
         <segue reference="YD4-kh-ltY"/>
     </inferredMetricsTieBreakers>
     <resources>

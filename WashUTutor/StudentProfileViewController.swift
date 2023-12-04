@@ -30,6 +30,8 @@ class StudentProfileViewController: UIViewController {
         coursesLabel.text = coursesList
         biographyLabel.text = currentStudent.biography
         
+        
+        
     }
     
 

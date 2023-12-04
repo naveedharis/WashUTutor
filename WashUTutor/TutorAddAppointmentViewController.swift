@@ -73,16 +73,22 @@ class TutorAddAppointmentViewController: UIViewController, UIPickerViewDelegate,
         if dateString >= currentDate {
             print("TutorDate is after the current date")
             let difference = TutorEndTime.date.timeIntervalSince(TutorStartTime.date)/3600
-            if difference <= 1 && difference > 0 {
+            if difference <= 1 && difference > 0.5 {
                 print("1 hour or less")
-                tutorAddAppointment(tutorUserID: tutorID, date: dateString, startTime: startTimeString, announcement: tutorAnnouncement.text ?? "", endTime: endTimeString, location: TutorLocation.text ?? "", subject: classCode)
                 
-                let targetTabIndex = 0
-                tabBarController?.selectedIndex = targetTabIndex
-                
-                let tutorCalVC = storyboard!.instantiateViewController(withIdentifier: "HomeSceneViewController") as! TutorManageAppointmentViewController
-                if let navigationController = tabBarController?.viewControllers?[targetTabIndex] as? UINavigationController {
-                            navigationController.pushViewController(tutorCalVC, animated: true)
+                if let location = TutorLocation.text, !location.isEmpty {
+                    tutorAddAppointment(tutorUserID: tutorID, date: dateString, startTime: startTimeString, announcement: tutorAnnouncement.text ?? "", endTime: endTimeString, location: location, subject: classCode)
+                    
+                    let targetTabIndex = 0
+                    tabBarController?.selectedIndex = targetTabIndex
+                    
+                    let tutorCalVC = storyboard!.instantiateViewController(withIdentifier: "HomeSceneViewController") as! TutorManageAppointmentViewController
+                    if let navigationController = tabBarController?.viewControllers?[targetTabIndex] as? UINavigationController {
+                                navigationController.pushViewController(tutorCalVC, animated: true)
+                    }
+                }
+                else {
+                    presentAlert(title: "No Location", message: "Please enter a location of the appointment")
                 }
                 
                 //navigationController?.pushViewController(tutorCalVC, animated: true)
