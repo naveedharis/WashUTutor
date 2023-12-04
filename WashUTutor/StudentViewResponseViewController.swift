@@ -12,16 +12,18 @@ class StudentViewResponseViewController: UIViewController {
     var studentQuestion:String!
     var tutorResponse:String!
     var markAsAnswered: UITextField!
+    var tutorName: String!
     
     @IBOutlet weak var questionBox: UITextView!
     
+    @IBOutlet weak var questionTutor: UILabel!
     @IBOutlet weak var responseBox: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         questionBox.text = studentQuestion
-        
+        questionTutor.text = "Your Question to \(tutorName ?? "")"
        
         responseBox.text = tutorResponse
         

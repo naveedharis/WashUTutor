@@ -8,19 +8,21 @@ class StudentMakeAppointmentDetailViewController: UIViewController, UITextFieldD
         _ = navigationController?.popViewController(animated: true)
     }
     
+    @IBOutlet weak var questions: UITextField!
     @IBOutlet weak var appointmentClass: UILabel!
     @IBOutlet var appointmentDate: UILabel!
     @IBOutlet var appointmentTime: UILabel!
     @IBOutlet var appointmentTutorID: UILabel!
     @IBOutlet var appointmentLocation: UILabel!
     @IBOutlet var appointmentAnnouncement: UITextField!
-    @IBOutlet var tipsLabel: UILabel!
+    //@IBOutlet var tipsLabel: UILabel!
     
     var appointmentData: [String: Any]?
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        appointmentAnnouncement.delegate = self
+        //appointmentAnnouncement.delegate = self
+        questions.delegate = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
         updateUI()
@@ -32,14 +34,14 @@ class StudentMakeAppointmentDetailViewController: UIViewController, UITextFieldD
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-               textField.resignFirstResponder()
-               return true
-       }
+           textField.resignFirstResponder()
+           return true
+   }
    
    @objc func dismissKeyboard() {
            view.endEditing(true)
-       }
-    
+   }
+
     @IBAction func confirmAppointment(_ sender: Any) {
         
         if let appointment = appointmentData {
@@ -57,7 +59,7 @@ class StudentMakeAppointmentDetailViewController: UIViewController, UITextFieldD
                               endTime: endTime,
                               location: location,
                               subject: subject,
-                              caption: tipsLabel.text ?? "No tips")
+                              caption: questions.text ?? "No questions")
             
             let studentMakeApp = storyboard!.instantiateViewController(withIdentifier: "studentMakeApp") as! StudentMakeAppointmentViewController
             
@@ -83,7 +85,7 @@ class StudentMakeAppointmentDetailViewController: UIViewController, UITextFieldD
             appointmentClass.text = appointment["subject"] as? String
             appointmentLocation.text = appointment["location"] as? String
             appointmentAnnouncement.text = appointment["annoucement"] as? String
-            tipsLabel.text = "What would you like to work on? Please be specific, so your tutor can prepare! \nEx: Which section of the textbook or what topics?"
+//            tipsLabel.text = "Questions for tutor: What would you like to work on? Please be specific, so your tutor can prepare! \nEx: Which section of the textbook or what topics?"
 
             getTutorNameFromAppointment(appointmentID: appointment["appointmentID"] as! String) { (tutorName, error) in
                 if let error = error {

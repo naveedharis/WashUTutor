@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import SwiftUI
 
 class TutorResponseViewController: UIViewController, UITextViewDelegate {
 
     var studentQuestion:String!
     var tutorResponse:String!
     var markAsAnswered: UITextField!
-    
+    var questionKey: String!
+    @AppStorage("tutorID") var tutorID = ""
+    @AppStorage("tutorName") var tutorName = ""
+
+
     
     @IBAction func goBack(_ sender: Any) {
         _ = navigationController?.popViewController(animated: true)
@@ -45,13 +50,13 @@ class TutorResponseViewController: UIViewController, UITextViewDelegate {
     @IBAction func sendResponse(_ sender: Any) {
         
 //        updateStudent(userId: currentTutor.messages[questionBox.text]!["userId"]!)
-        currentTutor.messages[questionBox.text]!["response"] = responseBox.text
+        currentTutor.messages[questionKey]!["response"] = responseBox.text
         
-        var sendResponseToStudent: [String:[String:String]] = [questionBox.text:["userId": currentTutor.messages[questionBox.text]?["userId"] ?? "", "response": responseBox.text]]
+        let sendResponseToStudent: [String:[String:String]] = [questionKey:["userId": currentTutor.messages[questionKey]?["userId"] ?? "", "question": studentQuestion, "response": responseBox.text, "tutorID": tutorID, "tutorName": tutorName]]
         
         addMessageForTutor(tutor: currentTutor, messages: currentTutor.messages)
        
-        addMessagesForStudent(userId: currentTutor.messages[questionBox.text]!["userId"]!, messages: sendResponseToStudent)
+        addMessagesForStudent(userId: currentTutor.messages[questionKey]!["userId"]!, tutorID: tutorID, tutorName: tutorName, messages: sendResponseToStudent)
 
         let inboxVC = storyboard!.instantiateViewController(withIdentifier: "tutorInbox") as! TutorMessagesViewController
         

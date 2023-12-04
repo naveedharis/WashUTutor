@@ -24,6 +24,7 @@ class StudentMessagesViewController: UIViewController, UITableViewDelegate, UITa
         var answeredResponses:[String] = []
         var unansweredMessages:[String] = []
         var unansweredResponses:[String] = []
+        var tutorNames:[String] = []
     
     
     override func viewDidLoad() {
@@ -31,10 +32,14 @@ class StudentMessagesViewController: UIViewController, UITableViewDelegate, UITa
         
         tableView.dataSource = self
         tableView.delegate = self
+        tabBarController?.tabBar.barTintColor = UIColor(red: 128.0/255.0, green: 35.0/255.0, blue: 42.0/255.0, alpha: 1)
         
-        for(key,value) in currentStudent.messages {
-            messages.append(key)
-            responses.append(value["response"] ?? "")
+        for(_,value) in currentStudent.messages {
+            if ((value["question"]?.isEmpty) != nil) {
+                messages.append(value["question"] ?? "")
+                responses.append(value["response"] ?? "")
+                tutorNames.append(value["tutorName"] ?? "")
+            }
         }
         //            for(key,value) in responsesMap {
         //                responses.append(value);
@@ -117,7 +122,7 @@ class StudentMessagesViewController: UIViewController, UITableViewDelegate, UITa
             let responseVC = storyboard!.instantiateViewController(withIdentifier: "studentResponse") as! StudentViewResponseViewController
             
             responseVC.studentQuestion = messages[indexPath.row]
-            
+            responseVC.tutorName = tutorNames[indexPath.row]
             
             responseVC.tutorResponse = responses[indexPath.row]
             

@@ -19,6 +19,7 @@ class StudentManageAppointmentViewController: UIViewController, UITableViewDeleg
         super.viewDidLoad()
         bookedAppointmentTable.dataSource = self
         bookedAppointmentTable.delegate = self
+//        tabBarController?.tabBar.barTintColor = UIColor(red: 128.0/255.0, green: 35.0/255.0, blue: 42.0/255.0, alpha: 1)
         setWeekView()
         fetchAndFilterAppointments()
         self.bookedAppointmentTable.reloadData()
@@ -95,9 +96,14 @@ class StudentManageAppointmentViewController: UIViewController, UITableViewDeleg
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.lineBreakMode = .byWordWrapping
             cell.textLabel?.text = "\(subject), \(date), \n\(startTime) - \(endTime), \(location)"
+            cell.textLabel?.textColor = UIColor.white
         } else {
             cell.textLabel?.text = "Unknown"
         }
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor(#colorLiteral(red: 0.1879687607, green: 0.3521268368, blue: 0.06392926723, alpha: 0.8980392157))
+        cell.selectedBackgroundView = backgroundView
         return cell
     }
     
@@ -121,11 +127,11 @@ class StudentManageAppointmentViewController: UIViewController, UITableViewDeleg
     }
     
     func showDeleteWarning() {
-        let alert = UIAlertController(title: "Warning Title", message: "Warning Message", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Warning", message: "Do you have to cancel this appointment?", preferredStyle: .alert)
 
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
 
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+        let deleteAction = UIAlertAction(title: "Cancel", style: .destructive) { [weak self] _ in
             guard let strongSelf = self, let appointmentID = strongSelf.selectedAppointmentID else { return }
             
             deleteStudentAppointments(appointmentID: appointmentID)
@@ -140,6 +146,7 @@ class StudentManageAppointmentViewController: UIViewController, UITableViewDeleg
 
         present(alert, animated: true, completion: nil)
     }
+    
     
 
     

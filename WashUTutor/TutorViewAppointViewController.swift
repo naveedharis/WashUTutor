@@ -15,13 +15,13 @@ class TutorViewAppointViewController: UIViewController {
     }
     
 
+    @IBOutlet weak var appointAnnouncement: UITextView!
     @IBOutlet weak var courseNumber: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var student: UILabel!
-    @IBOutlet weak var question: UILabel!
-    @IBOutlet weak var questions: UITextView!
+    @IBOutlet weak var questionsTextView: UITextView!
     
     var courseNumberString: String?
     var dateString: String?
@@ -32,6 +32,7 @@ class TutorViewAppointViewController: UIViewController {
     var questionsString: String?
     var appointmentID: String?
     let dateFormatter = DateFormatter()
+    var announcement: String?
     
     
     override func viewDidLoad() {
@@ -42,16 +43,42 @@ class TutorViewAppointViewController: UIViewController {
         date.text = dateString
         time.text = (startTimeString ?? "") + "-" + (endTimeString ?? "")
         location.text = locationString
-        questions.text = questionsString
+        appointAnnouncement.text = announcement
+        //questionsTextView.text = questionsString
+        
+        if studentString != "Not booked by student." {
+            getStudentQuestions(appointmentID: appointmentID ?? "") { questions, error in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                } else if let questions = questions {
+                    // Process the retrieved questions
+                    print("Questions: \(questions)")
+                    self.questionsTextView.text = questions
+                } else {
+                    // Handle the case where no questions are found
+                    print("No questions found for this appointment.")
+                }
+            }
+        }
+        else {
+            self.questionsTextView.text = "No questions"
+        }
+        
+        
         print("Student\(studentString ?? "")")
         student.text = studentString
         //print(appointmentID)
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    
+    
+    
     @IBAction func cancelAppointment(_ sender: Any) {
         //print(appointmentID)
-        deleteStudentAppointments(appointmentID: appointmentID ?? "")
+        deleteTutorAppointment(appointmentID: appointmentID ?? "")
     
         let tutorCal = storyboard!.instantiateViewController(withIdentifier: "HomeSceneViewController") as! TutorManageAppointmentViewController
         

@@ -26,6 +26,8 @@ class SendMessageViewController: UIViewController, UIPickerViewDelegate, UIPicke
         classPickerView.delegate = self
         classPickerView.dataSource = self
         questionTextField.delegate = self
+        
+        
         //self.hidesBottomBarWhenPushed = false
         //self.tabBarController?.tabBar.isHidden = false
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -113,11 +115,14 @@ class SendMessageViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     @IBAction func sendMessage(_ sender: Any) {
 //        tutorData[selectedTutorIndex].messages.append(questionTextField.text)
-        tutorData[selectedTutorIndex].messages[questionTextField.text] = ["userId": currentStudent.userID, "response": ""]
-        currentStudent.messages[questionTextField.text] = ["userId": currentStudent.userID, "response": ""]
+        var questionID = UUID().uuidString
+        
+        tutorData[selectedTutorIndex].messages[questionID] = ["userId": currentStudent.userID, "question": questionTextField.text, "response": ""]
+        
+        currentStudent.messages[questionID] = ["userId": currentStudent.userID, "tutorID": tutorData[selectedTutorIndex].tutorID, "tutorName": tutorData[selectedTutorIndex].name, "question": questionTextField.text, "response": ""]
         
         addMessageForTutor(tutor: tutorData[selectedTutorIndex], messages: tutorData[selectedTutorIndex].messages)
-        addMessagesForStudent(userId: currentStudent.userID, messages: currentStudent.messages)
+        addMessagesForStudent(userId: currentStudent.userID, tutorID: tutorData[selectedTutorIndex].tutorID, tutorName: tutorData[selectedTutorIndex].name, messages: currentStudent.messages)
         let inboxVC = storyboard!.instantiateViewController(withIdentifier: "studentInbox") as! StudentMessagesViewController
         
         navigationController?.pushViewController(inboxVC, animated: true)

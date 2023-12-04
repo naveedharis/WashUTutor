@@ -47,6 +47,7 @@ class TutorManageAppointmentViewController: UIViewController, UICollectionViewDe
         super.viewDidLoad()
         tutorsAppointmentTable.dataSource = self
         tutorsAppointmentTable.delegate = self
+        tabBarController?.tabBar.barTintColor = UIColor(red: 128.0/255.0, green: 35.0/255.0, blue: 42.0/255.0, alpha: 1)
         setCellsView()
         setWeekView()
 //        getAllTutorAppointments(tutorID: tutorID) { appointments, error in
@@ -214,8 +215,8 @@ class TutorManageAppointmentViewController: UIViewController, UICollectionViewDe
         
         backgroundView.backgroundColor = UIColor.lightGray
         cell.selectedBackgroundView = backgroundView
-        cell.backgroundColor = UIColor.lightGray
-        cell.textLabel?.textColor = UIColor.black
+        cell.backgroundColor = UIColor(#colorLiteral(red: 0.1879687607, green: 0.3521268368, blue: 0.06392926723, alpha: 0.8980392157))
+        cell.textLabel?.textColor = UIColor.white
         
         if appointment.status == "Booked"{
             cell.backgroundColor = UIColor(red: 0.5436918736, green: 0.07118993253, blue: 0.1235529855, alpha: 1)
@@ -283,6 +284,7 @@ class TutorManageAppointmentViewController: UIViewController, UICollectionViewDe
                 tutorAppointVC.startTimeString = appointment.startTime
                 tutorAppointVC.endTimeString = appointment.endTime
                 tutorAppointVC.appointmentID = appointment.appointmentID
+                tutorAppointVC.announcement = appointment.annoucement
 
                 if appointment.status == "Booked" {
                     getStudentNameFromAppointment(appointmentID: appointment.appointmentID) { studentName, error in

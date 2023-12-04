@@ -13,7 +13,6 @@ class StudentEditProfileViewController: UIViewController, UITextViewDelegate {
     var xLocation = 0
     var yLocation = 0
     var button = UIButton()
-    var tagNumber = 0
     var enrolled: [String] = []
 
     @IBOutlet weak var editBiography: UITextView!
@@ -49,16 +48,16 @@ class StudentEditProfileViewController: UIViewController, UITextViewDelegate {
                             self.button.setTitle(course, for: .normal)
                             
                             self.button.setTitleColor(.black, for: .normal)
-                            self.button.backgroundColor = UIColor.systemGray6
+                            self.button.backgroundColor = UIColor.white
                             
                             self.button.addTarget(self,
                                                   action: #selector(self.selectCourse),
                                              for: .touchUpInside)
-                            self.button.tag = self.tagNumber
+                            
                                                     
                             self.coursesView.addSubview(self.button)
                             
-                            if self.xLocation > 170 {
+                            if self.xLocation >= 170 {
                                 self.xLocation = 0
                                 self.yLocation += 35
                             }
@@ -67,7 +66,7 @@ class StudentEditProfileViewController: UIViewController, UITextViewDelegate {
                                 
                             }
                             
-                            self.tagNumber += 1
+                    
                         }
                         
                     }
@@ -88,35 +87,17 @@ class StudentEditProfileViewController: UIViewController, UITextViewDelegate {
            view.endEditing(true)
        }
     
-    @objc
-    func selectCourse(sender: UIButton) {
-        if sender.backgroundColor == UIColor.systemGray6 {
-            print("button pressed")
+    @objc func selectCourse(sender: UIButton) {
+        print("button")
+        if sender.backgroundColor == UIColor.white {
             
-            switch sender.tag {
-            case 0:
-                sender.backgroundColor = UIColor(red: 128.0/255.0, green: 35.0/255.0, blue: 42.0/255.0, alpha: 1)
-                sender.setTitleColor(.white, for: .normal)
+            sender.backgroundColor = UIColor(red: 128.0/255.0, green: 35.0/255.0, blue: 42.0/255.0, alpha: 1)
+            sender.setTitleColor(.white, for: .normal)
                
-                enrolled.append(sender.titleLabel!.text!)
-                break
-            case 1:
-                sender.backgroundColor = UIColor(red: 128.0/255.0, green: 35.0/255.0, blue: 42.0/255.0, alpha: 1)
-                sender.setTitleColor(.white, for: .normal)
-                enrolled.append(sender.titleLabel!.text!)
-                break
-            case 2:
-                sender.backgroundColor = UIColor(red: 128.0/255.0, green: 35.0/255.0, blue: 42.0/255.0, alpha: 1)
-                sender.setTitleColor(.white, for: .normal)
-                enrolled.append(sender.titleLabel!.text!)
-                break
-            default:
-                print("default")
-            }
-            print(enrolled)
+            enrolled.append(sender.titleLabel!.text!)
         }
         else {
-            sender.backgroundColor = UIColor.systemGray6
+            sender.backgroundColor = UIColor.white
             sender.setTitleColor(.black, for: .normal)
             enrolled.removeAll(where: {$0 == sender.titleLabel!.text})
             print(enrolled)

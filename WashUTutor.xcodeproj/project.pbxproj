@@ -13,6 +13,7 @@
 		5C04DA8A2AEC5BF7000E2CA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C04DA882AEC5BF7000E2CA9 /* Main.storyboard */; };
 		5C04DA8C2AEC5BF8000E2CA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C04DA8B2AEC5BF8000E2CA9 /* Assets.xcassets */; };
 		5C04DA8F2AEC5BF8000E2CA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C04DA8D2AEC5BF8000E2CA9 /* LaunchScreen.storyboard */; };
+		5C1ECFDD2B1D6C3C00A116CF /* TutorManageAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1ECFDC2B1D6C3C00A116CF /* TutorManageAppointmentViewController.swift */; };
 		5C42D3C72B1C03A000D9E903 /* TutorViewAppointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C42D3C62B1C03A000D9E903 /* TutorViewAppointViewController.swift */; };
 		5C42D3C92B1C4F5F00D9E903 /* StudentEditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C42D3C82B1C4F5F00D9E903 /* StudentEditProfileViewController.swift */; };
 		5C42D3CB2B1C4F6500D9E903 /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C42D3CA2B1C4F6500D9E903 /* StudentProfileViewController.swift */; };
@@ -33,7 +34,6 @@
 		5C8B2EAA2B1AA4B7003FDC31 /* TutorMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B2EA92B1AA4B7003FDC31 /* TutorMessagesViewController.swift */; };
 		5C8B2EAC2B1AA4DB003FDC31 /* TutorResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B2EAB2B1AA4DB003FDC31 /* TutorResponseViewController.swift */; };
 		5C8B2EAE2B1AADD3003FDC31 /* SendMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B2EAD2B1AADD3003FDC31 /* SendMessageViewController.swift */; };
-		5C8B2EB02B1BF011003FDC31 /* TutorManageAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B2EAF2B1BF011003FDC31 /* TutorManageAppointmentViewController.swift */; };
 		5CAC78B22AF5985200E28DAB /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 5CAC78B12AF5985200E28DAB /* FirebaseAppCheck */; };
 		5CAC78B42AF5985200E28DAB /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 5CAC78B32AF5985200E28DAB /* FirebaseAppDistribution-Beta */; };
 		5CAC78B62AF5985200E28DAB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5CAC78B52AF5985200E28DAB /* FirebaseAuth */; };
@@ -63,6 +63,7 @@
 		5C04DA8B2AEC5BF8000E2CA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C04DA8E2AEC5BF8000E2CA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C04DA902AEC5BF8000E2CA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C1ECFDC2B1D6C3C00A116CF /* TutorManageAppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorManageAppointmentViewController.swift; sourceTree = "<group>"; };
 		5C42D3C62B1C03A000D9E903 /* TutorViewAppointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorViewAppointViewController.swift; sourceTree = "<group>"; };
 		5C42D3C82B1C4F5F00D9E903 /* StudentEditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentEditProfileViewController.swift; sourceTree = "<group>"; };
 		5C42D3CA2B1C4F6500D9E903 /* StudentProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +83,6 @@
 		5C8B2EA92B1AA4B7003FDC31 /* TutorMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorMessagesViewController.swift; sourceTree = "<group>"; };
 		5C8B2EAB2B1AA4DB003FDC31 /* TutorResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorResponseViewController.swift; sourceTree = "<group>"; };
 		5C8B2EAD2B1AADD3003FDC31 /* SendMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendMessageViewController.swift; sourceTree = "<group>"; };
-		5C8B2EAF2B1BF011003FDC31 /* TutorManageAppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorManageAppointmentViewController.swift; sourceTree = "<group>"; };
 		5CAC78CB2AF598CE00E28DAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5CD18A372B0438C6008AC2C8 /* StudentViewResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentViewResponseViewController.swift; sourceTree = "<group>"; };
 		5CD18A3B2B0442F0008AC2C8 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -149,8 +149,8 @@
 				5C04DA8D2AEC5BF8000E2CA9 /* LaunchScreen.storyboard */,
 				5C755E022AFC95420042A904 /* CalendarCell.swift */,
 				5C8B2EA32B1423BA003FDC31 /* HomeSceneViewController.swift */,
-				5C8B2EAF2B1BF011003FDC31 /* TutorManageAppointmentViewController.swift */,
 				5C755E002AFC953B0042A904 /* CalendarFunc.swift */,
+				5C1ECFDC2B1D6C3C00A116CF /* TutorManageAppointmentViewController.swift */,
 				5C8B2EA72B1A9F5C003FDC31 /* StudentMessagesViewController.swift */,
 				5C8B2EAD2B1AADD3003FDC31 /* SendMessageViewController.swift */,
 				5C8B2EA92B1AA4B7003FDC31 /* TutorMessagesViewController.swift */,
@@ -273,10 +273,10 @@
 				5C755E012AFC953B0042A904 /* CalendarFunc.swift in Sources */,
 				5C755DFB2AFB293E0042A904 /* StudentSignUpViewController.swift in Sources */,
 				5C8B2EAA2B1AA4B7003FDC31 /* TutorMessagesViewController.swift in Sources */,
-				5C8B2EB02B1BF011003FDC31 /* TutorManageAppointmentViewController.swift in Sources */,
 				5C04DA872AEC5BF7000E2CA9 /* ViewController.swift in Sources */,
 				5C573D272B00694E009A2A26 /* StudentMakeAppointmentViewController.swift in Sources */,
 				5C8B2EA22B1423A3003FDC31 /* FirebaseFile.swift in Sources */,
+				5C1ECFDD2B1D6C3C00A116CF /* TutorManageAppointmentViewController.swift in Sources */,
 				5C04DA832AEC5BF7000E2CA9 /* AppDelegate.swift in Sources */,
 				5C8B2EAE2B1AADD3003FDC31 /* SendMessageViewController.swift in Sources */,
 				5CD18A3E2B044302008AC2C8 /* TutorAddAppointmentViewController.swift in Sources */,

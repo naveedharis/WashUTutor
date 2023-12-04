@@ -190,10 +190,20 @@ class StudentMakeAppointmentViewController: UIViewController, UICollectionViewDe
 
         let filteredAppointments = getAppointmentsForSelectedDate()
         if let cellAppointment = filteredAppointments[indexPath.row] as? [String: Any],
+           let subject = cellAppointment["subject"] as? String,
+           let date = cellAppointment["date"] as? String,
+
            let startTime = cellAppointment["startTime"] as? String,
            let endTime = cellAppointment["endTime"] as? String,
            let location = cellAppointment["location"] as? String {
-            cell.textLabel?.text = "\(startTime) - \(endTime), \(location)"
+            
+            cell.textLabel?.numberOfLines = 0
+            
+            cell.textLabel?.lineBreakMode = .byWordWrapping
+            
+            cell.textLabel?.text = "\(subject) \(date) \n\(startTime) - \(endTime) \n\(location )"
+            
+//            cell.textLabel?.text = "\(startTime) - \(endTime) \n\(location)"
         } else {
             cell.textLabel?.text = "Unknown"
         }
