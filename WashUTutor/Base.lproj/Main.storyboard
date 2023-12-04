@@ -2269,33 +2269,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="LZj-wr-hxM">
-                                        <rect key="frame" x="70" y="129" width="253" height="22"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Qw-t5-7jt" userLabel="PreviousButton">
-                                                <rect key="frame" x="0.0" y="0.0" width="21.333333333333332" height="22"/>
-                                                <color key="tintColor" red="0.54906332489999998" green="0.090113423760000005" blue="0.15296924109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="arrowshape.left.fill" catalog="system"/>
-                                                <connections>
-                                                    <action selector="previousWeek:" destination="ur0-KS-Zyg" eventType="touchUpInside" id="Ujw-GD-aU2"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November 5 - November 11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuY-3d-hCP">
-                                                <rect key="frame" x="24.333333333333329" y="0.0" width="204.66666666666669" height="22"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkh-Yo-8uk" userLabel="NextButton">
-                                                <rect key="frame" x="231.66666666666669" y="0.0" width="21.333333333333343" height="22"/>
-                                                <color key="tintColor" red="0.54906332489999998" green="0.090113423760000005" blue="0.15296924109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="arrowshape.right.fill" catalog="system"/>
-                                                <connections>
-                                                    <action selector="nextWeek:" destination="ur0-KS-Zyg" eventType="touchUpInside" id="xLo-Pf-gDJ"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="ptO-bJ-IUk" userLabel="Week View">
                                         <rect key="frame" x="-1" y="158.66666666666666" width="395" height="24"/>
                                         <subviews>
@@ -2409,6 +2382,33 @@
                                             <action selector="logOut:" destination="ur0-KS-Zyg" eventType="touchUpInside" id="GwK-pv-ZKX"/>
                                         </connections>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="8Mt-KX-HkE">
+                                        <rect key="frame" x="64" y="128" width="265.33333333333331" height="22"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Qw-t5-7jt" userLabel="PreviousButton">
+                                                <rect key="frame" x="0.0" y="0.0" width="21.333333333333332" height="22"/>
+                                                <color key="tintColor" red="0.54906332489999998" green="0.090113423760000005" blue="0.15296924109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" image="arrowshape.left.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="previousWeek:" destination="ur0-KS-Zyg" eventType="touchUpInside" id="Ujw-GD-aU2"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November 5 - November 11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuY-3d-hCP">
+                                                <rect key="frame" x="30.333333333333329" y="0.0" width="204.66666666666669" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkh-Yo-8uk" userLabel="NextButton">
+                                                <rect key="frame" x="244" y="0.0" width="21.333333333333314" height="22"/>
+                                                <color key="tintColor" red="0.54906332489999998" green="0.090113423760000005" blue="0.15296924109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" image="arrowshape.right.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="nextWeek:" destination="ur0-KS-Zyg" eventType="touchUpInside" id="xLo-Pf-gDJ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="dSj-kQ-i7K"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2418,16 +2418,15 @@
                                     <constraint firstItem="6Hu-bm-Eof" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="59M-ta-gIb" secondAttribute="leading" id="Dp9-bP-JDF"/>
                                     <constraint firstItem="6Hu-bm-Eof" firstAttribute="top" secondItem="qay-Ei-XTY" secondAttribute="topMargin" id="J2e-yW-eZG"/>
                                     <constraint firstItem="59M-ta-gIb" firstAttribute="top" secondItem="Fdy-OB-9Jd" secondAttribute="bottom" constant="-118.66666666666663" id="O1O-4x-rsC"/>
+                                    <constraint firstItem="ptO-bJ-IUk" firstAttribute="top" secondItem="8Mt-KX-HkE" secondAttribute="bottom" constant="8.6666666666666572" id="YQM-HH-KuR"/>
                                     <constraint firstItem="dSj-kQ-i7K" firstAttribute="bottom" secondItem="59M-ta-gIb" secondAttribute="bottom" constant="135" id="aNK-xa-0Me"/>
-                                    <constraint firstItem="LZj-wr-hxM" firstAttribute="top" secondItem="dSj-kQ-i7K" secondAttribute="top" constant="70" id="eL9-t4-kIb"/>
                                     <constraint firstItem="59M-ta-gIb" firstAttribute="leading" secondItem="dSj-kQ-i7K" secondAttribute="leading" constant="8" id="gIO-la-Xre"/>
                                     <constraint firstItem="Fdy-OB-9Jd" firstAttribute="leading" secondItem="qay-Ei-XTY" secondAttribute="leading" id="gNi-SV-hFF"/>
                                     <constraint firstItem="Fdy-OB-9Jd" firstAttribute="centerX" secondItem="ptO-bJ-IUk" secondAttribute="centerX" id="iA7-Wj-tUj"/>
-                                    <constraint firstItem="dSj-kQ-i7K" firstAttribute="trailing" secondItem="LZj-wr-hxM" secondAttribute="trailing" constant="70" id="k5t-uS-7Ra"/>
-                                    <constraint firstItem="LZj-wr-hxM" firstAttribute="leading" secondItem="dSj-kQ-i7K" secondAttribute="leading" constant="70" id="m6p-pH-zDl"/>
+                                    <constraint firstItem="dSj-kQ-i7K" firstAttribute="bottom" secondItem="Fdy-OB-9Jd" secondAttribute="bottom" constant="391.33333333333337" id="k4t-2O-p00"/>
                                     <constraint firstAttribute="trailing" secondItem="Fdy-OB-9Jd" secondAttribute="trailing" id="mWn-QG-1n8"/>
-                                    <constraint firstItem="ptO-bJ-IUk" firstAttribute="top" secondItem="LZj-wr-hxM" secondAttribute="bottom" constant="7.6666666666666714" id="rjw-2k-aR4"/>
                                     <constraint firstItem="59M-ta-gIb" firstAttribute="centerX" secondItem="qay-Ei-XTY" secondAttribute="centerX" id="s2x-wy-Hj4"/>
+                                    <constraint firstItem="ptO-bJ-IUk" firstAttribute="centerX" secondItem="8Mt-KX-HkE" secondAttribute="centerX" id="yhu-Ha-S6f"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -2673,29 +2672,39 @@
                                     <action selector="cancelAppointmentAction:" destination="xSQ-6V-n6A" eventType="touchUpInside" id="rO7-pJ-vUg"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="quE-rR-H9h">
-                                <rect key="frame" x="64.000000000000014" y="109" width="247.33333333333337" height="22"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="cyr-8r-Mfu">
+                                <rect key="frame" x="57" y="108" width="265.33333333333331" height="22"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9Z-Ul-QLu" userLabel="PreviousButton">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZh-RW-gdS" userLabel="PreviousButton">
                                         <rect key="frame" x="0.0" y="0.0" width="21.333333333333332" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="21.329999999999998" id="FVZ-fZ-Hoh"/>
+                                            <constraint firstAttribute="height" constant="22" id="oou-Ss-BfZ"/>
+                                        </constraints>
                                         <color key="tintColor" red="0.54906332489999998" green="0.090113423760000005" blue="0.15296924109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="arrowshape.left.fill" catalog="system"/>
                                         <connections>
-                                            <action selector="previousWeek:" destination="xSQ-6V-n6A" eventType="touchUpInside" id="jBB-x9-YXO"/>
+                                            <action selector="previousWeek:" destination="xSQ-6V-n6A" eventType="touchUpInside" id="0g9-4a-t4f"/>
+                                            <action selector="previousWeek:" destination="ur0-KS-Zyg" eventType="touchUpInside" id="h6X-h0-uVj"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="November 5 - November 11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kM-Rs-T2o">
-                                        <rect key="frame" x="21.333333333333329" y="0.0" width="204.66666666666669" height="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="November 5 - November 11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eSa-qx-f7a">
+                                        <rect key="frame" x="30.333333333333329" y="0.0" width="204.66666666666669" height="22"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iui-wz-pw1" userLabel="NextButton">
-                                        <rect key="frame" x="226" y="0.0" width="21.333333333333343" height="22"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaG-8j-VsR" userLabel="NextButton">
+                                        <rect key="frame" x="244" y="0.0" width="21.333333333333314" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="7YK-xr-HUM"/>
+                                            <constraint firstAttribute="width" constant="21.329999999999998" id="HrX-L3-4xX"/>
+                                        </constraints>
                                         <color key="tintColor" red="0.54906332489999998" green="0.090113423760000005" blue="0.15296924109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="arrowshape.right.fill" catalog="system"/>
                                         <connections>
-                                            <action selector="nextWeek:" destination="xSQ-6V-n6A" eventType="touchUpInside" id="BUm-1G-cnH"/>
+                                            <action selector="nextWeek:" destination="ur0-KS-Zyg" eventType="touchUpInside" id="8tG-kN-zxW"/>
+                                            <action selector="nextWeek:" destination="xSQ-6V-n6A" eventType="touchUpInside" id="dHu-KJ-Gvg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2704,13 +2713,13 @@
                         <viewLayoutGuide key="safeArea" id="58N-iI-kcC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vED-RI-dTF" firstAttribute="top" secondItem="quE-rR-H9h" secondAttribute="bottom" constant="11" id="3nJ-mm-6b8"/>
                             <constraint firstItem="vED-RI-dTF" firstAttribute="centerX" secondItem="jH0-1b-k7w" secondAttribute="centerX" id="AhH-bg-kHw"/>
-                            <constraint firstItem="58N-iI-kcC" firstAttribute="trailing" secondItem="quE-rR-H9h" secondAttribute="trailing" constant="81.670000000000002" id="JD0-Sy-dqH"/>
-                            <constraint firstItem="quE-rR-H9h" firstAttribute="top" secondItem="58N-iI-kcC" secondAttribute="top" constant="50" id="Ja6-jf-b0G"/>
+                            <constraint firstItem="cyr-8r-Mfu" firstAttribute="leading" secondItem="58N-iI-kcC" secondAttribute="leading" constant="57" id="MzL-eZ-8f5"/>
                             <constraint firstItem="58N-iI-kcC" firstAttribute="bottom" secondItem="vED-RI-dTF" secondAttribute="bottom" constant="85" id="NUl-oq-naA"/>
-                            <constraint firstItem="quE-rR-H9h" firstAttribute="leading" secondItem="58N-iI-kcC" secondAttribute="leading" constant="64" id="O4O-Hm-LJP"/>
                             <constraint firstItem="MaK-es-s48" firstAttribute="top" secondItem="vED-RI-dTF" secondAttribute="bottom" constant="8" id="Vzc-qM-yKu"/>
+                            <constraint firstItem="vED-RI-dTF" firstAttribute="top" secondItem="cyr-8r-Mfu" secondAttribute="bottom" constant="12" id="bpC-LM-Fa2"/>
+                            <constraint firstItem="58N-iI-kcC" firstAttribute="trailing" secondItem="cyr-8r-Mfu" secondAttribute="trailing" constant="70.666666666666686" id="ePx-cc-2jL"/>
+                            <constraint firstItem="cyr-8r-Mfu" firstAttribute="top" secondItem="58N-iI-kcC" secondAttribute="top" constant="49" id="hyw-y8-7DW"/>
                             <constraint firstItem="MaK-es-s48" firstAttribute="leading" secondItem="58N-iI-kcC" secondAttribute="leading" constant="106" id="ljl-CC-vu7"/>
                             <constraint firstItem="vED-RI-dTF" firstAttribute="leading" secondItem="58N-iI-kcC" secondAttribute="leading" constant="16" id="qYf-SH-PFt"/>
                             <constraint firstItem="MaK-es-s48" firstAttribute="centerX" secondItem="vED-RI-dTF" secondAttribute="centerX" id="sNw-hI-hxm"/>
@@ -2721,12 +2730,12 @@
                     <connections>
                         <outlet property="bookedAppointmentTable" destination="vED-RI-dTF" id="IZA-Zn-s1N"/>
                         <outlet property="cancelAppointmentButton" destination="MaK-es-s48" id="aGy-d6-Kc7"/>
-                        <outlet property="weekLabel" destination="6kM-Rs-T2o" id="0tW-4p-QWJ"/>
+                        <outlet property="weekLabel" destination="eSa-qx-f7a" id="Rsa-x0-snZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgP-pX-ZKC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5503" y="-523"/>
+            <point key="canvasLocation" x="5501.5267175572517" y="-523.23943661971839"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

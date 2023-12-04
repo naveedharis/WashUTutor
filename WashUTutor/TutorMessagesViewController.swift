@@ -33,8 +33,6 @@ class TutorMessagesViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.dataSource = self
         tableView.delegate = self
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tapGesture)
         
         for(key,value) in currentTutor.messages {
             questionKeys.append(key)
@@ -98,18 +96,7 @@ class TutorMessagesViewController: UIViewController, UITableViewDelegate, UITabl
         tutorMenu.showsMenuAsPrimaryAction = true
         self.tableView.reloadData()
     }
-    
-    
-    
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-           textField.resignFirstResponder()
-           return true
-       }
-   
-    @objc func dismissKeyboard() {
-           view.endEditing(true)
-       }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
@@ -122,6 +109,7 @@ class TutorMessagesViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let responseVC = storyboard!.instantiateViewController(withIdentifier: "tutorResponse") as! TutorResponseViewController
         
         responseVC.studentQuestion = messages[indexPath.row]
