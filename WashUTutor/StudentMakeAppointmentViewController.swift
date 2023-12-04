@@ -1,7 +1,7 @@
 
 import UIKit
 
-class StudentMakeAppointmentViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate
+class StudentMakeAppointmentViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource
 {
     
     @IBOutlet weak var weekLabel: UILabel!
@@ -36,33 +36,15 @@ class StudentMakeAppointmentViewController: UIViewController, UICollectionViewDe
     var selectedIndex: IndexPath?
     var allClasses: [String] = []
     
-    @IBOutlet weak var classPicker: UIPickerView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         //classButton.menu = menu
-        classPicker.dataSource = self
-        classPicker.delegate = self
         availableAppointmentTable.dataSource = self
         availableAppointmentTable.delegate = self
         setCellsView()
         setWeekView()
-        
-        getAllClasses { result in
-            switch result {
-            case .success(let classDataArray):
-                // Use the fetched class data
-                DispatchQueue.main.async {
-                    self.allClasses = classDataArray.sorted() {$0 < $1}
-                    self.classPicker.reloadAllComponents()
-                }
-            case .failure(let error):
-                // Handle the error
-                print("Error fetching classes: \(error.localizedDescription)")
-            }
-        }
-        self.classPicker.reloadAllComponents()
     }
     
     
@@ -71,6 +53,7 @@ class StudentMakeAppointmentViewController: UIViewController, UICollectionViewDe
         getAllAvailableAppointments { result in
             switch result {
             case .success(let appointments):
+                print(appointments)
                 self.appointmentData = appointments
                 self.availableAppointmentTable.reloadData()
             case .failure(let error):
@@ -78,23 +61,7 @@ class StudentMakeAppointmentViewController: UIViewController, UICollectionViewDe
             }
         }
     }
-    
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return allClasses.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return allClasses[row]
-    }
-    
-    
-    
-    
+        
     func getAppointmentsForSelectedDate() -> [Any] {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd" // Adjust the format to match the format in your data

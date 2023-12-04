@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SendMessageViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class SendMessageViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
     
 
     var tutorData: [Tutor] = []
@@ -25,8 +25,11 @@ class SendMessageViewController: UIViewController, UIPickerViewDelegate, UIPicke
         tutorPickerView.dataSource = self
         classPickerView.delegate = self
         classPickerView.dataSource = self
+        questionTextField.delegate = self
         //self.hidesBottomBarWhenPushed = false
         //self.tabBarController?.tabBar.isHidden = false
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+       view.addGestureRecognizer(tapGesture)
         
         AllTutorData { (tutors, error) in
             if let error = error {
@@ -52,6 +55,15 @@ class SendMessageViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
        
     }
+    
+    func textViewShouldReturn(_ textView: UITextView) -> Bool {
+           textView.resignFirstResponder()
+           return true
+       }
+   
+   @objc func dismissKeyboard() {
+           view.endEditing(true)
+       }
     // reference for picker view: https://www.youtube.com/watch?v=NHVmvvLmHfM
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

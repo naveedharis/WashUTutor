@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class TutorAddAppointmentViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class TutorAddAppointmentViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     
     @AppStorage("tutorID") var tutorID = ""
@@ -24,9 +24,12 @@ class TutorAddAppointmentViewController: UIViewController, UIPickerViewDelegate,
         super.viewDidLoad()
         classPicker.dataSource = self
         classPicker.delegate = self
+        TutorLocation.delegate = self
+        tutorAnnouncement.delegate = self
         startTimeFormatter.timeStyle = .short
         endTimeFormatter.timeStyle = .short
-        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
         getAllClasses { result in
             switch result {
             case .success(let classDataArray):
@@ -49,6 +52,17 @@ class TutorAddAppointmentViewController: UIViewController, UIPickerViewDelegate,
     @IBOutlet weak var TutorEndTime: UIDatePicker!
     @IBOutlet weak var TutorLocation: UITextField!
     @IBOutlet weak var tutorAnnouncement: UITextField!
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+               textField.resignFirstResponder()
+               return true
+       }
+       
+   @objc func dismissKeyboard() {
+           view.endEditing(true)
+       }
     
     @IBAction func tutorAddApp(_ sender: Any) {
         

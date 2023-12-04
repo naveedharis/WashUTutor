@@ -412,7 +412,7 @@ func getStudentAppointments(completion: @escaping (Result<[Any], Error>) -> Void
 
 func deleteStudentAppointments(appointmentID: String){
     let collectionRef = db.collection("studentAppointments")
-    let tutorCollectionRef = db.collection("tutorAppointments")
+    //let tutorCollectionRef = db.collection("tutorAppointments")
     
     if let user = Auth.auth().currentUser {
         let uid = user.uid
@@ -440,25 +440,27 @@ func deleteStudentAppointments(appointmentID: String){
         }
     }
     
-    tutorCollectionRef.whereField("appointmentID", isEqualTo: appointmentID).getDocuments {
-        (QuerySnapshot, error) in
-        if let error = error {
-            print("Error getting documents \(error)")
-        }
-        else{
-            if let document = QuerySnapshot?.documents.first {
-                document.reference.delete { err in
+    db.collection("tutorAppointments").whereField("appointmentID", isEqualTo: appointmentID).getDocuments { (querySnapshot, err) in
+        if let err = err {
+            print("Error getting documents: \(err)")
+        } else if let querySnapshot = querySnapshot, !querySnapshot.isEmpty {
+            for document in querySnapshot.documents {
+                let documentID = document.documentID
+                
+                let documentReference = db.collection("tutorAppointments").document(documentID)
+                
+                documentReference.updateData([
+                    "status":"Not booked"
+                ]) { err in
                     if let err = err {
-                        print("Error removing documents: \(err)")
-                    }
-                    else {
-                        print("Tutor appointment is deleted")
+                        print("Error updating document: \(err)")
+                    } else {
+                        print("Document successfully updated")
                     }
                 }
             }
-            else{
-                print("No appointment found")
-            }
+        } else {
+            print("No documents found with that appointmentID")
         }
     }
 }
@@ -581,20 +583,48 @@ func getStudentNameFromAppointment(appointmentID: String, completion: @escaping 
                         let studentName = documents.first?.data()["name"] as? String
                         completion(studentName, nil)
                     } else {
-                        // Handle the case where no student documents are found
                         completion(nil, nil)
                     }
                 }
             } else {
-                // Handle the case where the student's user ID isn't found in the document
                 completion(nil, nil)
             }
         } else {
-            // Handle the case where no appointment documents are found
             completion(nil, nil)
         }
     }
 }
+
+func getTutorNameFromAppointment(appointmentID: String, completion: @escaping(String?,Error?) -> Void) {
+    //print("getting tutor name")
+    let tutorAppointCollection = db.collection("tutorAppointments")
+                                    .whereField("appointmentID", isEqualTo: appointmentID)
+    tutorAppointCollection.getDocuments { (querySnapshot, err) in
+        if let err = err {
+            completion(nil, err)
+        }
+        else if let documents = querySnapshot?.documents, !documents.isEmpty {
+            if let tutorUserID = documents.first?.data()["tutorUserID"] as? String {
+                let tutorCollection = db.collection("tutors").whereField("tutorID", isEqualTo: tutorUserID)
+                tutorCollection.getDocuments { (QuerySnapshot, err) in
+                    if let err = err {
+                        completion(nil, err)
+                    } else if let documents = QuerySnapshot?.documents, !documents.isEmpty {
+                        let tutorName = documents.first?.data()["name"] as? String
+                        print("Tutor name \(tutorName)")
+                        completion(tutorName, nil)
+                    } else {
+                        // Handle the case where no student documents are found
+                        completion(nil, nil)
+                    }
+                }
+            }
+            
+        }
+        
+    }
+}
+
 
 //struct Messages {
 //    var messageID: String
@@ -682,26 +712,28 @@ func addMessageForTutor(tutor:Tutor, messages:[String:[String:String]]){
    
     let tutorRef = db.collection("tutors")
 
-    let tutorID = tutorRef.whereField("tutorID", isEqualTo: tutor.tutorID)
+    let updateTutor = tutorRef.whereField("tutorID", isEqualTo: tutor.tutorID)
 
-    tutorID.getDocuments { (querySnapshot, error) in
+    updateTutor.getDocuments { (querySnapshot, error) in
         if let error = error {
-            print("Error getting documents: \(error.localizedDescription)")
+            print("Error getting documents: \(error)")
             return
         }
 
         for document in querySnapshot!.documents {
             let docRef = tutorRef.document(document.documentID)
 
-            var existingMessages = document.data()["messages"] as? [String:[String: String]] ?? [:]
+            var allTutorMessages = document.data()["messages"] as? [String:[String: String]] ?? [:]
 
-            existingMessages.merge(messages) { (_, new) in new }
+            for (id, message) in messages {
+                allTutorMessages[id] = message
+            }
 
-            docRef.updateData(["messages": existingMessages]) { error in
+            docRef.updateData(["messages": allTutorMessages]) { error in
                 if let error = error {
-                print("Error updating document: \(error.localizedDescription)")
+                print("Error updating messages \(error)")
                 } else {
-                    print("Document successfully updated with new messages")
+                    print("Messages updated")
                 }
             }
         }
@@ -711,26 +743,28 @@ func addMessageForTutor(tutor:Tutor, messages:[String:[String:String]]){
 
 func addMessagesForStudent(userId: String, messages:[String:[String:String]]) {
     let studentRef = db.collection("students")
-    let studentID = studentRef.whereField("userID", isEqualTo: userId)
+    let updateStudent = studentRef.whereField("userID", isEqualTo: userId)
     
-    studentID.getDocuments { (querySnapshot, error) in
+    updateStudent.getDocuments { (querySnapshot, error) in
         if let error = error {
-            print("Error getting documents: \(error.localizedDescription)")
+            print("Error getting documents: \(error)")
             return
         }
 
         for document in querySnapshot!.documents {
             let docRef = studentRef.document(document.documentID)
 
-            var existingMessages = document.data()["messages"] as? [String:[String: String]] ?? [:]
+            var allStudentMessages = document.data()["messages"] as? [String:[String: String]] ?? [:]
 
-            existingMessages.merge(messages) { (_, new) in new }
+            for (id, message) in messages {
+                allStudentMessages[id] = message
+            }
 
-            docRef.updateData(["messages": existingMessages]) { error in
+            docRef.updateData(["messages": allStudentMessages]) { error in
                 if let error = error {
-                print("Error updating document: \(error.localizedDescription)")
+                print("Error updating messages \(error)")
                 } else {
-                    print("Document successfully updated with new messages")
+                    print("Messages updated")
                 }
             }
         }

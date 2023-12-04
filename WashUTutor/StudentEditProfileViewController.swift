@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StudentEditProfileViewController: UIViewController {
+class StudentEditProfileViewController: UIViewController, UITextViewDelegate {
 
     var allClasses: [String] = []
     var xLocation = 0
@@ -26,11 +26,14 @@ class StudentEditProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        editBiography.delegate = self
 
         // Do any additional setup after loading the view.
         nameLabel.text = currentStudent.name
         contactLabel.text = currentStudent.email
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
         getAllClasses { result in
             switch result {
             case .success(let classDataArray):
@@ -74,10 +77,16 @@ class StudentEditProfileViewController: UIViewController {
                 print("Error fetching classes: \(error.localizedDescription)")
             }
         }
-        
-        
-        
     }
+    
+    func textViewShouldReturn(_ textView: UITextView) -> Bool {
+               textView.resignFirstResponder()
+               return true
+           }
+       
+   @objc func dismissKeyboard() {
+           view.endEditing(true)
+       }
     
     @objc
     func selectCourse(sender: UIButton) {

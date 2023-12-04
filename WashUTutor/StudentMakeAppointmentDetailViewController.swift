@@ -1,6 +1,6 @@
 import UIKit
 
-class StudentMakeAppointmentDetailViewController: UIViewController {
+class StudentMakeAppointmentDetailViewController: UIViewController, UITextFieldDelegate {
     
     
     
@@ -8,6 +8,7 @@ class StudentMakeAppointmentDetailViewController: UIViewController {
         _ = navigationController?.popViewController(animated: true)
     }
     
+    @IBOutlet weak var appointmentClass: UILabel!
     @IBOutlet var appointmentDate: UILabel!
     @IBOutlet var appointmentTime: UILabel!
     @IBOutlet var appointmentTutorID: UILabel!
@@ -19,6 +20,9 @@ class StudentMakeAppointmentDetailViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        appointmentAnnouncement.delegate = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
         updateUI()
     }
     
@@ -26,6 +30,15 @@ class StudentMakeAppointmentDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         updateUI()
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+               textField.resignFirstResponder()
+               return true
+       }
+   
+   @objc func dismissKeyboard() {
+           view.endEditing(true)
+       }
     
     @IBAction func confirmAppointment(_ sender: Any) {
         
@@ -63,12 +76,27 @@ class StudentMakeAppointmentDetailViewController: UIViewController {
     
     private func updateUI() {
         //print("Received data: \(String(describing: appointmentData))")
+        
         if let appointment = appointmentData {
             appointmentTime.text = "\(appointment["startTime"] as? String ?? "") - \(appointment["endTime"] as? String ?? "")"
-            appointmentTutorID.text = appointment["tutorID"] as? String
+            //appointmentTutorID.text = appointment["tutorID"] as? String
+            appointmentClass.text = appointment["subject"] as? String
             appointmentLocation.text = appointment["location"] as? String
             appointmentAnnouncement.text = appointment["annoucement"] as? String
             tipsLabel.text = "What would you like to work on? Please be specific, so your tutor can prepare! \nEx: Which section of the textbook or what topics?"
+
+            getTutorNameFromAppointment(appointmentID: appointment["appointmentID"] as! String) { (tutorName, error) in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                } else if let tutorName = tutorName {
+                    //print("Tutor's Name: \(tutorName)")
+                    self.appointmentTutorID.text = tutorName
+                } else {
+                    print("Tutor name not found for the given appointment ID.")
+                }
+            }
+        
+            
             
             // Format and display the date
             if let dateString = appointment["date"] as? String {

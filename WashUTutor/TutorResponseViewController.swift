@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TutorResponseViewController: UIViewController {
+class TutorResponseViewController: UIViewController, UITextViewDelegate {
 
     var studentQuestion:String!
     var tutorResponse:String!
@@ -25,18 +25,23 @@ class TutorResponseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         questionBox.text = studentQuestion
-        
-       
         responseBox.text = tutorResponse
         
-        
+        responseBox.delegate = self
         // Do any additional setup after loading the view.
         
     }
     
-
+    func textViewShouldReturn(_ textView: UITextView) -> Bool {
+               textView.resignFirstResponder()
+               return true
+           }
+       
+   @objc func dismissKeyboard() {
+           view.endEditing(true)
+       }
+    
     @IBAction func sendResponse(_ sender: Any) {
         
 //        updateStudent(userId: currentTutor.messages[questionBox.text]!["userId"]!)

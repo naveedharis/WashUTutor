@@ -6,6 +6,13 @@ class TutorManageAppointmentViewController: UIViewController, UICollectionViewDe
 {
     
     
+    
+    var selectedWeekStart: Date = Calendar.current.startOfWeek(for: Date())
+    var bookedAppointmentData: [Any] = []
+    var filteredAppointments: [Any] = []
+    var selectedAppointmentID: String?
+    
+   
     @IBAction func logOut(_ sender: Any) {
         //_ = navigationController?.popToRootViewController(animated: true)
         let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene
@@ -54,7 +61,10 @@ class TutorManageAppointmentViewController: UIViewController, UICollectionViewDe
 //                    }
 //                }
 //            }
-    }
+    
+        }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         getAllTutorAppointments(tutorID: tutorID) { appointments, error in
@@ -69,6 +79,7 @@ class TutorManageAppointmentViewController: UIViewController, UICollectionViewDe
                     }
                 }
             }
+        
     }
     
     func getAppointmentsForSelectedDate() -> [TutorAppointment] {
@@ -190,14 +201,74 @@ class TutorManageAppointmentViewController: UIViewController, UICollectionViewDe
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        
+        
         let cellIdentifier = "AppointmentCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) ?? UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
-
+        
+        
         let appointment = weekAppointments[indexPath.row]
-        cell.textLabel?.text = "\(appointment.startTime) - \(appointment.endTime), \(appointment.Location)"
+        let backgroundView = UIView()
+        
+        backgroundView.backgroundColor = UIColor.lightGray
+        cell.selectedBackgroundView = backgroundView
+        cell.backgroundColor = UIColor.lightGray
+        cell.textLabel?.textColor = UIColor.black
+        
+        if appointment.status == "Booked"{
+            cell.backgroundColor = UIColor(red: 0.5436918736, green: 0.07118993253, blue: 0.1235529855, alpha: 1)
+            cell.textLabel?.textColor = UIColor.white
+        }
+    
+
+        
+       let subject = appointment.classNumber
+        let date =  appointment.Date
+        let startTime = appointment.startTime
+        let endTime = appointment.endTime
+        let location = appointment.Location
+        
+        cell.textLabel?.numberOfLines = 0
+        
+        cell.textLabel?.lineBreakMode = .byWordWrapping
+        
+        cell.textLabel?.text = "\(subject) \(date) \n\(startTime) - \(endTime) \n\(location )"
+        
+       // cell.textLabel?.textColor = UIColor(red: 0.5436918736, green: 0.07118993253, blue: 0.1235529855, alpha: 1)
+       
+        
+//        else {
+//        cell.textLabel?.text = "Unknown"
+//    }
+        
+//        cell.textLabel?.text = "\(appointment.startTime) - \(appointment.endTime), \(appointment.Location)"
 
         return cell
     }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//               
+//        let cellIdentifier = "BookedAppointmentCell"
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier),
+//              let appointment = filteredAppointments[indexPath.row] as? [String: Any] else {
+//            return UITableViewCell()
+//        }
+//        
+//        if let subject = appointment["subject"] as? String,
+//            let date = appointment["date"] as? String,
+//            let startTime = appointment["startTime"] as? String,
+//            let endTime = appointment["endTime"] as? String,
+//            let location = appointment["location"] as? String {
+//            cell.textLabel?.numberOfLines = 0
+//            cell.textLabel?.lineBreakMode = .byWordWrapping
+//            cell.textLabel?.text = "\(subject), \(date), \n\(startTime) - \(endTime), \(location)"
+//        } else {
+//            cell.textLabel?.text = "Unknown"
+//        }
+//        return cell
+//    }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -249,4 +320,7 @@ class TutorManageAppointmentViewController: UIViewController, UICollectionViewDe
     {
         return false
     }
+    
+    
+        
 }

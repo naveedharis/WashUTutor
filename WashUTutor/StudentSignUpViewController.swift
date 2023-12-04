@@ -8,7 +8,7 @@
 import UIKit
 
 
-class StudentSignUpViewController: UIViewController {
+class StudentSignUpViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameTextBox: UITextField!
     @IBOutlet weak var emailTextBox: UITextField!
@@ -22,9 +22,24 @@ class StudentSignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameTextBox.delegate = self
+        emailTextBox.delegate = self
+        passwordTextBox.delegate = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
 
         // Do any additional setup after loading the view.
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+               textField.resignFirstResponder()
+               return true
+           }
+       
+   @objc func dismissKeyboard() {
+           view.endEditing(true)
+       }
     
     
     func createAlert(title: String, message: String){

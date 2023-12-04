@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StudentLoginViewController: UIViewController {
+class StudentLoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func goBack(_ sender: Any) {
@@ -19,8 +19,28 @@ class StudentLoginViewController: UIViewController {
     @IBOutlet weak var passwordTextBox: UITextField!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+            super.viewDidLoad()
+    //        self.userEmailTextBox.delegate = self
+    //        userEmailTextBox.tag = 0
+    //        self.passwordTextBox.delegate = self
+    //        passwordTextBox.tag = 1
+            
+            userEmailTextBox.delegate = self
+            passwordTextBox.delegate = self
+
+            // You can also add a tap gesture recognizer to dismiss the keyboard when tapping outside
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            view.addGestureRecognizer(tapGesture)
+        }
+        
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+        }
+    
+    @objc func dismissKeyboard() {
+            view.endEditing(true)
+        }
     
     
     @IBAction func forgetPassword(_ sender: Any){

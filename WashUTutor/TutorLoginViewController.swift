@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-class TutorLoginViewController: UIViewController {
+class TutorLoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func goBack(_ sender: Any) {
@@ -29,11 +29,23 @@ class TutorLoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        emailTextBox.delegate = self
+        passwordTextBox.delegate = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
-    @IBAction func forgotPassword(_ sender: Any) {
-        
-    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+               textField.resignFirstResponder()
+               return true
+           }
+       
+   @objc func dismissKeyboard() {
+           view.endEditing(true)
+       }
+    
     
     @IBAction func tutorLoginButton(_ sender: Any) {
         

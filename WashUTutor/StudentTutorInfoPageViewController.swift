@@ -8,7 +8,7 @@
 import UIKit
 import Cosmos
 
-class StudentTutorInfoPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class StudentTutorInfoPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate {
     
     
     @IBAction func goBack(_ sender: Any) {
@@ -34,17 +34,30 @@ class StudentTutorInfoPageViewController: UIViewController, UITableViewDataSourc
         super.viewDidLoad()
         tutorClassTableView.dataSource = self
         tutorClassTableView.delegate = self
+        reviewTextBox.delegate = self
         tutorName.text = tutorNameString
         tutorYear.text = tutorYearString
         fiveStarRating.rating=5
         fiveStarRating.didFinishTouchingCosmos = { rating in}
         fiveStarRating.didTouchCosmos = {rating in}
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+        
         self.tutorClassTableView.reloadData()
 
         // Do any additional setup after loading the view.
     }
 
+    
+    func textViewShouldReturn(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
