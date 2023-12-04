@@ -189,13 +189,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36Z-OQ-TMC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36Z-OQ-TMC">
                                 <rect key="frame" x="50" y="456" width="85" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="9uP-MS-mYo">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="9uP-MS-mYo">
                                 <rect key="frame" x="50" y="494" width="293" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="MFN-gS-i6D"/>
@@ -257,8 +257,9 @@
                             <constraint firstItem="IDN-Qz-zb1" firstAttribute="centerX" secondItem="rly-8Z-WHP" secondAttribute="centerX" id="GHh-gt-amJ"/>
                             <constraint firstItem="ZkP-Kd-8dA" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="36Z-OQ-TMC" secondAttribute="trailing" symbolic="YES" id="K8v-TZ-9zw"/>
                             <constraint firstItem="0am-9S-aHW" firstAttribute="centerX" secondItem="HdY-AC-IMS" secondAttribute="centerX" id="KHH-9z-Mnn"/>
-                            <constraint firstItem="36Z-OQ-TMC" firstAttribute="leading" secondItem="9uP-MS-mYo" secondAttribute="leading" id="LX9-vm-c3X"/>
+                            <constraint firstItem="36Z-OQ-TMC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9uP-MS-mYo" secondAttribute="leading" id="LX9-vm-c3X"/>
                             <constraint firstItem="BtN-lv-2lN" firstAttribute="leading" secondItem="ZkP-Kd-8dA" secondAttribute="leading" constant="50" id="MGO-ba-Xtp"/>
+                            <constraint firstItem="ZkP-Kd-8dA" firstAttribute="trailing" secondItem="9uP-MS-mYo" secondAttribute="trailing" constant="50" id="Pli-xQ-htj"/>
                             <constraint firstItem="J0m-gL-HYQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ZkP-Kd-8dA" secondAttribute="leading" id="SuY-pI-Xw9"/>
                             <constraint firstItem="ZkP-Kd-8dA" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5lT-59-URX" secondAttribute="trailing" symbolic="YES" id="TFw-VC-pis"/>
                             <constraint firstItem="9uP-MS-mYo" firstAttribute="top" secondItem="36Z-OQ-TMC" secondAttribute="bottom" constant="14" id="UP2-jj-9zw"/>
@@ -267,7 +268,6 @@
                             <constraint firstItem="ZkP-Kd-8dA" firstAttribute="bottom" secondItem="Wdf-zC-fHH" secondAttribute="bottom" constant="70" id="X41-gJ-Urv"/>
                             <constraint firstItem="IDN-Qz-zb1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="36Z-OQ-TMC" secondAttribute="leading" id="XkV-ak-TAk"/>
                             <constraint firstItem="Wdf-zC-fHH" firstAttribute="centerX" secondItem="rly-8Z-WHP" secondAttribute="centerX" id="Ycl-pB-6fN"/>
-                            <constraint firstItem="IDN-Qz-zb1" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9uP-MS-mYo" secondAttribute="trailing" id="awk-sz-mnk"/>
                             <constraint firstItem="BtN-lv-2lN" firstAttribute="leading" secondItem="IDN-Qz-zb1" secondAttribute="leading" id="brV-kA-JWw"/>
                             <constraint firstItem="36Z-OQ-TMC" firstAttribute="top" secondItem="IDN-Qz-zb1" secondAttribute="bottom" constant="83" id="cax-ub-M8W"/>
                             <constraint firstItem="HdY-AC-IMS" firstAttribute="leading" secondItem="ZkP-Kd-8dA" secondAttribute="leading" constant="114" id="f6F-kr-LHR"/>
@@ -1565,7 +1565,7 @@
         <!--Tutor Messages View Controller-->
         <scene sceneID="BfH-q3-GOc">
             <objects>
-                <viewController id="Fnk-5P-2d9" customClass="TutorMessagesViewController" customModule="WashUTutor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tutorInbox" id="Fnk-5P-2d9" customClass="TutorMessagesViewController" customModule="WashUTutor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WGd-SB-1Lz">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
