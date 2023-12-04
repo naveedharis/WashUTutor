@@ -133,7 +133,7 @@ class SendMessageViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     @IBAction func sendMessage(_ sender: Any) {
 //        tutorData[selectedTutorIndex].messages.append(questionTextField.text)
-        var questionID = UUID().uuidString
+        let questionID = UUID().uuidString
         
         tutorData[selectedTutorIndex].messages[questionID] = ["userId": currentStudent.userID, "question": questionTextField.text, "response": ""]
         

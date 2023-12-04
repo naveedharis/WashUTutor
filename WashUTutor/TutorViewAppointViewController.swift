@@ -11,6 +11,7 @@ class TutorViewAppointViewController: UIViewController {
     
     
     @IBAction func goBack(_ sender: Any) {
+        print("Back button clicked")
         _ = navigationController?.popViewController(animated: true)
     }
     

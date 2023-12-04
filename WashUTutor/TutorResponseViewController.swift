@@ -31,7 +31,7 @@ class TutorResponseViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let textBoxFrame = responseBox.convert(responseBox.bounds, to: self.view)
+        _ = responseBox.convert(responseBox.bounds, to: self.view)
         questionBox.text = studentQuestion
         responseBox.text = tutorResponse
         
