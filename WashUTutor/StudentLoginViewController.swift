@@ -20,18 +20,32 @@ class StudentLoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
             super.viewDidLoad()
-    //        self.userEmailTextBox.delegate = self
-    //        userEmailTextBox.tag = 0
-    //        self.passwordTextBox.delegate = self
-    //        passwordTextBox.tag = 1
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
             
             userEmailTextBox.delegate = self
             passwordTextBox.delegate = self
 
-            // You can also add a tap gesture recognizer to dismiss the keyboard when tapping outside
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
             view.addGestureRecognizer(tapGesture)
         }
+    
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height/2
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if ((notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y = 0
+            }
+        }
+    }
         
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             textField.resignFirstResponder()

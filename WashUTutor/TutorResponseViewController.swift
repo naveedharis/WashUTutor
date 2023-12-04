@@ -16,8 +16,7 @@ class TutorResponseViewController: UIViewController, UITextViewDelegate {
     var questionKey: String!
     @AppStorage("tutorID") var tutorID = ""
     @AppStorage("tutorName") var tutorName = ""
-
-
+    
     
     @IBAction func goBack(_ sender: Any) {
         _ = navigationController?.popViewController(animated: true)
@@ -28,8 +27,11 @@ class TutorResponseViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var responseBox: UITextView!
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let textBoxFrame = responseBox.convert(responseBox.bounds, to: self.view)
         questionBox.text = studentQuestion
         responseBox.text = tutorResponse
         
@@ -38,7 +40,32 @@ class TutorResponseViewController: UIViewController, UITextViewDelegate {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
     }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                let textBoxFrame = responseBox.convert(responseBox.bounds, to: self.view)
+                let overlap = textBoxFrame.maxY - keyboardFrame.origin.y
+                if overlap > 0 {
+                    self.view.frame.origin.y -= overlap
+                }
+            }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y=0
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+
     
     func textViewShouldReturn(_ textView: UITextView) -> Bool {
            textView.resignFirstResponder()
